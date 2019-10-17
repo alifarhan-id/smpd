@@ -1,0 +1,32 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Restoring SharePoint Services</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="applications_microsoft_sharepoint.html" title="Protecting Microsoft Windows SharePoint Services"><link rel="prev" href="protecting_the_windows_sharepoint_services_databases.html" title="Protecting Windows SharePoint Services "><link rel="next" href="using_disaster_recovery_with_the_windows_sharepoint_services.html" title="Using Disaster Recovery with Windows SharePoint Services"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="applications_microsoft_sharepoint.html">Protecting Microsoft Windows SharePoint Services</a>&nbsp;&gt;&nbsp;Restoring SharePoint Services</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="using_disaster_recovery_with_the_windows_sharepoint_services.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="restoring_sharepoint_services_sql_databases"></a><h1 class="sectiontitle">Restoring SharePoint Services</h1></div></div></div><p>To restore Windows SharePoint Services you will need to select
+the following:</p>
+	
+	<div class="procedure"><ol type="1"><li><p><b>WSS Installation directory  &nbsp;</b>This directory and its sub directories,<code class="filename"> %BootVolume%\program
+files\Common Files\Microsoft Common Shared\web server extensions\12</code>, contain WSS installation and configuration files including binaries,
+site templates, style sheets, customization information for site definitions,
+etc.</p>
+	
+	</li><li><p><b>Microsoft Internet Information Server (IIS) Virtual Servers  &nbsp;</b>WSS uses one or more virtual servers to host Web sites. Unlike
+ASP.NET, it does not configure each Web site using an IIS virtual
+directory. Alternately, WSS tracks all configuration information for
+WSS Web sites inside the configuration database and content databases.
+This implies that a backup of the configuration database will be required
+to ensure the protection of all SharePoint extended virtual servers.</p>
+	
+	</li><li><p><b>WSS Databases  &nbsp;</b>By default, WSS installs a WMSDE/SSEE instance called<span class="database"> SHAREPOINT</span> or <span class="database">Microsoft ##SSEE</span> and
+creates databases including a configuration database and a content
+database. The <span class="database">SHAREPOINT</span> database instance can
+be backed up by selecting the instance in the Data Protector Express Administrator GUI.</p>
+	
+	</li><li><p><b>Usage Analysis logs  &nbsp;</b>Usage analysis for WSS allows one to track how Web sites on
+your server are being used. If usage analysis logging process is enabled,
+WSS log files are created daily to track usage information. These
+log files are stored in <code class="filename">%WinDir%\system32\LogFiles\STS </code>directory. </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>This path can be customized. In this case, one should add the
+appropriate path to the backup selection list.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+              </p>
+	
+	</li><li><p>Select the desired databases to restore</p>
+	
+	</li></ol></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="protecting_the_windows_sharepoint_services_databases.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="applications_microsoft_sharepoint.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="using_disaster_recovery_with_the_windows_sharepoint_services.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Protecting Windows SharePoint Services &nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Using Disaster Recovery with Windows SharePoint Services</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

@@ -1,0 +1,144 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Device Properties</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="devices.html" title="Working With Devices"><link rel="prev" href="backup_jobs_devices_and_media.html" title="Selecting Devices for Jobs"><link rel="next" href="devices_view_commands.html" title="Device Commands"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="devices.html">Working With Devices</a>&nbsp;&gt;&nbsp;Device Properties</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="devices_view_commands.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="configuring_physical_devices"></a><h1 class="sectiontitle">Device Properties</h1></div></div></div><p>
+        <a class="indexterm" name="d0e2798"></a>When you select a specific device in
+the <span><strong class="guilabel">Devices</strong></span> view and click <span><strong class="guilabel">Properties</strong></span>, you are able to perform the following configuration.</p>
+	
+	<p><a name="devices_status"></a><b>Status  &nbsp;</b>
+          <a class="indexterm" name="d0e2815"></a>
+          <a class="indexterm" name="d0e2821"></a>The Status page displays the current
+status information for the selected device. For example, it shows
+the current operation, if any, being performed on the device. It also
+shows the last time a write and read was done on the device.</p><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>Data Protector Express tracks the contents
+of devices and libraries while it is running. However, there may be
+times when someone changes media in a device or a library when Data Protector Express is not running. The Probably qualification
+on element status indicates that Data Protector Express has restarted and is operating under its previous understanding
+of the current element status but that the understanding may be incorrect.
+When Probably appears before an element status, the element's actual
+status will be determined the next time the element is used.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+          </p><div class="table"><a name="d0e2831"></a><p class="title"><b>Table: Element status</b></p><table summary="Element status" cellspacing="0" cellpadding="4pi" border="1" width="&#xA;100%&#xA;"><colgroup><col width="20%"><col width="79%"></colgroup><thead> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<th bgcolor="">Status</th>
+	
+	
+	<th bgcolor="">Description</th></tr></thead><tbody> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">
+                    <span class="bold"><b>Valid</b></span>
+                  </td>
+	
+	
+	<td bgcolor="">The
+slot is known to hold media that is in the current catalog.</td></tr><tr>
+	
+	
+	<td bgcolor="">
+                    <span class="bold"><b>Probably Valid</b></span>
+                  </td>
+	
+	
+	<td bgcolor="">The slot held valid media previously. Data Protector Express verifies that the media is valid before using it. When you exit
+and restart Data Protector Express, media marked
+Valid is reset to Probably Valid.</td></tr> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">
+                    <span class="bold"><b>Invalid</b></span>
+                  </td>
+	
+	
+	<td bgcolor="">The slot holds media that is definitely not in the current catalog.</td></tr><tr>
+	
+	
+	<td bgcolor="">
+                    <span class="bold"><b>Probably Invalid</b></span>
+                  </td>
+	
+	
+	<td bgcolor="">The slot holds media that may not be in the current catalog.
+When you exit and restart Data Protector Express, media marked Invalid is reset to Probably Invalid.</td></tr> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">
+                    <span class="bold"><b>Empty</b></span>
+                  </td>
+	
+	
+	<td bgcolor="">The
+slot is either known to be empty or a user changed its status to Empty.</td></tr><tr>
+	
+	
+	<td bgcolor="">
+                    <span class="bold"><b>Probably Empty</b></span>
+                  </td>
+	
+	
+	<td bgcolor="">The slot was empty previously. When you exit and restart Data Protector Express, slots marked Empty are reset to Probably
+Empty.</td></tr> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">
+                    <span class="bold"><b>Unknown</b></span>
+                  </td>
+	
+	
+	<td bgcolor="">The status of the slot is not known, usually because it has not been
+used yet.</td></tr><tr>
+	
+	
+	<td bgcolor="">
+                    <span class="bold"><b>Cleaning Tape</b></span>
+                  </td>
+	
+	
+	<td bgcolor="">A user marked the slot as holding a cleaning cartridge. The
+number of remaining cleaning cycles also appears. Data Protector Express does not verify that a cleaning cartridge was, in fact, inserted
+into this slot.</td></tr> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">
+                    <span class="bold"><b>Probably Cleaning Tape</b></span>
+                  </td>
+	
+	
+	<td bgcolor="">The slot previously contained a cleaning tape. When
+you exit and restart Data Protector Express, slots
+marked Cleaning Tape are reset to Probably Cleaning Tape.</td></tr><tr>
+	
+	
+	<td bgcolor="">
+                    <span class="bold"><b>Reserved</b></span>
+                  </td>
+	
+	
+	<td bgcolor="">The slot was disabled by a user. Data Protector Express will ignore it during any job. You can only change the status of
+a reserved slot. Data Protector Express changes
+the status of all other slots during normal operations.</td></tr></tbody></table></div><p>
+        </p>
+	
+	<p><a name="devices_configuration"></a><b>Configuration  &nbsp;</b>You can set the size of the I/O buffer to be used for this device.
+Usually, you do not need to change the default. However, for some
+devices, you may be able to increase performance by adjusting the
+size of the I/O buffer.</p>
+	
+	<p><a name="devices_diagnostics"></a><b>Diagnostics  &nbsp;</b>The Diagnostics page displays diagnostic information about the
+device. This includes information about the driver, the inquiry information,
+device statistics, and buffer statistics. Often this information can
+assist in troubleshooting problems. The diagnostics can be saved to
+a file or emailed directly from the diagnostic screen.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="backup_jobs_devices_and_media.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="devices.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="devices_view_commands.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Selecting Devices for Jobs&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Device Commands</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

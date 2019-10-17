@@ -1,0 +1,122 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Selecting Files</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="restore_jobs.html" title="Configuring Restore and Verify Jobs"><link rel="prev" href="restore_jobs.html" title="Configuring Restore and Verify Jobs"><link rel="next" href="restore_jobs_devices.html" title="Selecting Devices"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="restore_jobs.html">Configuring Restore and Verify Jobs</a>&nbsp;&gt;&nbsp;Selecting Files</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="restore_jobs_devices.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="restore_jobs_selecting_files"></a><h1 class="sectiontitle">Selecting Files</h1></div></div></div><h2><a name="d0e2289"></a>Selecting Files</h2><p>
+        <a class="indexterm" name="d0e2293"></a>You select files to be restored
+the same way you select files to be backed up. However besides selecting
+which files you wish to restore,  you must specify which version of
+the file you wish to restore. When you select a file to restore, the
+most recent version is selected by default. You can also change the
+name of the restored file or restore it to a new location. </p>
+	
+	<div class="procedure"><a name="d0e2299"></a><p class="title"><b>To select files for restore and verify jobs</b></p><ol type="1"><li><p>View the properties of the restore job and click on the <span><strong class="guimenuitem">Selection</strong></span> page.</p>
+	
+	</li><li><p>Check the selection boxes next to the files, folders or
+other containers you wish to restore. </p>
+	
+	</li><li><p>To select a specific version of the folder or file or
+folder you selected, highlight it and select the version from the
+list in the bottom part of the window. If you don't specifically select
+a version then the most recent version will be restored.</p>
+	
+	</li><li><p>Optionally, click the <span><strong class="guibutton">Selection filters</strong></span> button on the tool bar and specify filter selection criteria. Filters
+are described in more detail in the Data Protector Express Technical Reference Guide.</p>
+	
+	</li><li><p>The selected files will be restored to or compared with
+their original locations.</p>
+	
+	</li></ol></div><h2><a name="restore_jobs_selecting_file_versions"></a>Selecting Versions</h2><p>Each time a file is backed up, a version of that file is created.
+There may be several versions of files stored on different media created
+by different backup jobs. Data Protector Express keeps track of all the versions of each file in its catalog and
+the media on which each version is stored. When media is overwritten
+or deleted, Data Protector Express deletes those
+versions from its catalog as well.</p>
+	
+	<p>
+        <a class="indexterm" name="d0e2329"></a>   <a class="indexterm" name="d0e2335"></a>When you select an object (file, folder, database, etc.) for restoring, Data Protector Express automatically selects the latest version.
+If you want to select a version other than the latest version, select
+the desired version from the version list below the object selection
+tree. The version list shows all of the versions of the object and
+the media on which those versions are stored and details about the
+object including the its backup date and its modify date.</p>
+	
+	<p>When you select a folder, Data Protector Express automatically selects the latest version for that folder and for
+every file within that folder. If you wish to restore as of another
+date, select the desired version from the version list. The version
+list shows all of the versions of the folder and the media on which
+those versions are stored. The selected folder version is used to
+the select files contained within that folder. Specifically, a file
+is selected for restoring only if a file version matches the folder
+version.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>When you specify a version date for a folder, volume or other
+container, files stored in that container are <span class="italic">only selected when they have a version date that matches the version
+date of the container</span>. Many times, files will not have
+version dates that match the dates of the containers where they are
+stored. <div class="informalexample"><p>For example, when you select a version date from an incremental
+or differential backup job, you must select the latest version available
+for that container to be sure you recover all of the files inside
+that container.</p>
+	
+	</div>
+        </p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>In general, if you want to restore a specific version
+of the file, you must select that file directly and specify which
+version you wish to restore in the <span><strong class="guimenu">Versions of </strong></span>window.</p>
+	
+	<h2><a name="restore_jobs_restoring_folders"></a>Restoring
+folders</h2><p>
+        <a class="indexterm" name="d0e2360"></a>You can select the
+contents of the folder in one of two ways: either by individually
+marking the selection box of each object in that folder one-by-one
+or by marking the selection box of the folder itself. Which method
+you choose is important because it affects which files Data Protector Express includes in the selection list <span class="italic">after changes have been made to that folder.</span> </p>
+	
+	<p>For example, if you select a folder for restoring by marking
+its selection box, all of the contents of that folder are restored.
+If a new backup job is run before the restore job is run, Data Protector Express selects files for restoring using the
+new folder&#8217;s contents. So, for example, if a new file is created
+in that folder, Data Protector Express will also
+restore that file. Additionally, if you have selected a latest version
+of the folder, Data Protector Express will use the
+latest version of each file in its catalog. These files may be newer
+than the files you originally selected.</p>
+	
+	<h2><a name="restoring_a_file_with_a_new_name"></a>Restoring a file with a new name</h2><p>
+        <a class="indexterm" name="d0e2375"></a>   <a class="indexterm" name="d0e2381"></a>After a file
+has been selected for restoring, you can rename the file. When you
+rename the file, Data Protector Express restores
+the file with the new name. This can be useful for not overwriting
+versions of the file that currently exist on disk.</p>
+	
+	<p>To rename a file, right click the file name on the <span><strong class="guimenu">Selection</strong></span> page of the restore job, select <span><strong class="guimenuitem">Rename</strong></span> from the <span><strong class="guimenu">context</strong></span> menu and
+type the new name. Once you run the job the renamed file will be restored
+to the directory in which the original file was located.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>When you rename a version, you are <span class="italic">only</span> renaming that file for the purposes of restoring it with this particular
+restore job. <span class="italic">Only the current restore job will assign the
+new name to that file</span>. When you create a new restore job,
+you will see the file displayed with its original name. Similarly,
+the <span class="bold"><b>Catalog</b></span>
+          <span class="bold"><b> </b></span>view always displays files with the names they had when
+they were backed up.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h3><a name="restoring_files_to_a_different_folder"></a>Restoring files
+and folders to a different folder</h3><p>
+        <a class="indexterm" name="d0e2417"></a>You can also restore files and
+folders to different folders. When Data Protector Express restores the object, it creates it in the new location. This is
+useful in order to prevent overwriting files and folders that currently
+exist on disk.</p>
+	
+	<p>To restore to a different folder (also known as a <span class="italic">move restore</span>), right-click the file name
+on the <span><strong class="guimenu">Selection</strong></span> page of the restore job and select <span><strong class="guimenuitem">Move</strong></span> command from the command bar. In the <span class="bold"><b>Select destination for move operation</b></span> window,
+select a target location. Data Protector Express will move the file to the destination you select. If the destination
+folder doesn't exist, you can create it directly from the dialog.</p>
+	
+	<p>You can also restore folders and volumes in new locations. The
+contents of these containers move with them and are restored, along
+with the folder or volume, in the new location.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>When you move a version on the <span><strong class="guimenu">Selection</strong></span> page
+of a restore job, the changes you make are only recorded for that
+restore job. Only the current restore job will assign the file or
+folder the new location. When you create a new restore job, you will
+see the files and folders in their original locations. Likewise, the <span class="bold"><b>Catalog</b></span>
+          <span class="bold"><b> </b></span>view
+will continue to display files in their original locations.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="restore_jobs.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="restore_jobs.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="restore_jobs_devices.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Configuring Restore and Verify Jobs&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Selecting Devices</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

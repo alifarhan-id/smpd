@@ -1,0 +1,275 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Using Quick Access from Taskbar</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="administering_product.html" title="Administering Backup"><link rel="prev" href="using_administrator.html" title="Using the Administrator"><link rel="next" href="product_service.html" title="About the Data Protector Express Service"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="administering_product.html">Administering Backup</a>&nbsp;&gt;&nbsp;Using Quick Access from Taskbar</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="product_service.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="using_quick_access"></a><h1 class="sectiontitle">Using Quick Access from Taskbar</h1></div></div></div><p>
+        <span class="bold"><b>In this section</b></span>
+      </p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+            <a href="using_quick_access.html#qa_viewing_status">Viewing Data Protector Express status</a>
+          </p>
+	
+	</li><li><p>
+            <a href="using_quick_access.html#qa_managing_domain">Managing Data Protector Express</a>
+          </p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+                <a href="using_quick_access.html#qa_managing_jobs">Managing Jobs</a>
+              </p>
+	
+	</li><li><p>
+                <a href="using_quick_access.html#qa_creating_jobs">Creating jobs</a>
+              </p>
+	
+	</li><li><p>
+                <a href="using_quick_access.html#qa_monitoring_jobs">Monitoring jobs</a>
+              </p>
+	
+	</li><li><p>
+                <a href="using_quick_access.html#qa_managing_alerts">Managing Alerts</a>
+              </p>
+	
+	</li><li><p>
+                <a href="using_quick_access.html#qa_managing_logs">Managing Logs</a>
+              </p>
+	
+	</li></ul></div></li><li><p>
+            <a href="using_quick_access.html#qa_settings">Settings</a>
+          </p>
+	
+	</li><li><p>
+            <a href="using_quick_access.html#qa_other_commands">Other Commands</a>
+          </p>
+	
+	</li></ul></div><p>The Data Protector Express Administrator is
+very powerful and allows access to all the features of Data Protector Express. Typically, though, only a subset of
+these features are used. The Quick Access taskbar icon allows fast access to these most commonly
+used features without needing to open the Administrator. The Quick Access application displays
+an icon in the system tray, usually at the bottom right of the screen.
+You can mouse over the icon to display status information or right
+click it to display a menu. </p>
+	
+	<p>The Quick Access starts
+automatically on the Backup Server. On other client machines, it is installed
+but does not start automatically. You can launch through the system
+start menu. It can also be configured to start automatically on a
+client machine if desired.</p>
+	
+	<h2><a name="qa_viewing_status"></a>Viewing Data Protector Express status</h2><p>
+        <a class="indexterm" name="d0e1070"></a>
+        <a class="indexterm" name="d0e1074"></a>
+        <a class="indexterm" name="d0e1080"></a>The appearance of the Quick Access icon changes
+to indicate the state of Data Protector Express,
+thus providing continuous feedback. Two or more states can occur at
+the same time, such as a job in progress and a pending alert. The
+icon can indicate only one state at a time, so it follows this order
+of precedence in which items earlier in the list take precedence over
+items later in the list:</p>
+	
+	<div class="table"><a name="d0e1086"></a><p class="title"><b>Table: Icon viewing status</b></p><table summary="Icon viewing status" cellspacing="0" cellpadding="4pi" border="1" width="282.81"><colgroup><col width="82"><col width="200"></colgroup><thead> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<th bgcolor="" valign="top">Icon Overlay</th>
+	
+	
+	<th bgcolor="" valign="top">Meaning</th></tr></thead><tbody> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">
+                <img src="./images/red_circle.png">
+              </td>
+	
+	
+	<td bgcolor="">Disconnected</td></tr><tr>
+	
+	
+	<td bgcolor="">
+                <img src="./images/orange_triangle.png">
+              </td>
+	
+	
+	<td bgcolor="">Job failure </td></tr> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">
+                <img src="./images/yellow_triangle.png">
+              </td>
+	
+	
+	<td bgcolor="">Pending alerts </td></tr><tr>
+	
+	
+	<td bgcolor="">
+                <img src="./images/green_circle.png">
+              </td>
+	
+	
+	<td bgcolor="">Job in progress</td></tr> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">No overlay</td>
+	
+	
+	<td bgcolor="">Idle<span class="bold"><b> </b></span>
+              </td></tr></tbody></table></div><p>When you mouse over the Quick Access icon, a tool tip is displayed that contains
+additional status information.</p>
+	
+	<h2><a name="qa_managing_domain"></a>Managing Data Protector Express</h2><p>
+        <a class="indexterm" name="d0e1151"></a>When
+you right-click the Quick Access icon, a menu is displayed. </p>
+	
+	<h3><a name="qa_managing_jobs"></a>Managing Jobs</h3><p>Click the <span><strong class="guimenu">Jobs</strong></span> menu item to create a new
+job or to view a list of the jobs that you have currently defined.
+If there are more jobs that aren&#8217;t displayed, <span><strong class="guibutton">More</strong></span>
+        <span class="bold"><b> </b></span>is displayed below the list. Click <span><strong class="guimenu">More</strong></span>
+        <span class="bold"><b> </b></span>to open the Administrator
+to the Jobs and Media View, which contains the jobs and folders that
+you have defined.</p>
+	
+	<p>In the Settings window, you can set the maximum number of jobs
+that you see in the list. For more information, see ???
+      </p>
+	
+	<h3><a name="qa_creating_jobs"></a>Creating jobs</h3><p>
+        <a class="indexterm" name="d0e1184"></a>
+        <a class="indexterm" name="d0e1190"></a>
+        <a class="indexterm" name="d0e1196"></a>When you select the <span><strong class="guimenuitem">New</strong></span> menu item, you can create the following types of
+jobs:</p>
+	
+	<div class="table"><a name="d0e1205"></a><p class="title"><b>Table: Creating jobs</b></p><table summary="Creating jobs" cellspacing="0" cellpadding="4pi" border="1" width="470.35"><colgroup><col width="118"><col width="352"></colgroup><thead> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<th bgcolor="">
+                <span class="bold"><b>Choice</b></span>         </th>
+	
+	
+	<th bgcolor="">
+                <span class="bold"><b>Description</b></span>
+              </th></tr></thead><tbody> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">Backup</td>
+	
+	
+	<td bgcolor="">Create a job to back up files.</td></tr><tr>
+	
+	
+	<td bgcolor="">Restore </td>
+	
+	
+	<td bgcolor="">Create a job to restore specific
+files.</td></tr> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">Verify </td>
+	
+	
+	<td bgcolor="">Create a job to compare a file on
+a PC or server to the backed-up versions of the file.</td></tr></tbody></table></div><h3><a name="qa_monitoring_jobs"></a>Monitoring jobs</h3><p>
+        <a class="indexterm" name="d0e1243"></a>
+        <a class="indexterm" name="d0e1249"></a>
+        <a class="indexterm" name="d0e1255"></a>For each job that
+you select, you can:</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>View and change the job&#8217;s properties</p>
+	
+	</li><li><p>View the job&#8217;s status</p>
+	
+	</li><li><p>Run, pause, or stop the job, depending on the job&#8217;s
+status</p>
+	
+	</li></ul></div><h3><a name="qa_managing_alerts"></a>Managing Alerts</h3><p>
+        <a class="indexterm" name="d0e1275"></a>
+        <a class="indexterm" name="d0e1281"></a>
+        <a class="indexterm" name="d0e1285"></a>Click the <span><strong class="guimenu">Alerts</strong></span> menu item to view a list of unhandled Data Protector Express alerts. If there are more alerts that
+aren&#8217;t displayed, the <span><strong class="guimenuitem">More</strong></span>
+        <span class="bold"><b> </b></span>menu item<span class="bold"><b> </b></span>is displayed below the list. Click <span><strong class="guimenuitem">More</strong></span> or the <span><strong class="guimenuitem">Open Alerts Window</strong></span> menu item to
+view all alerts. Selecting an alert will open a dialog with the alert
+details. Click the <span><strong class="guimenuitem">Clear Evaluation Alerts</strong></span> menu item to remove all alerts having to do with the use of an evaluation
+license.</p>
+	
+	<p>In the Settings window, you can set the maximum number of alerts
+that you see in the list. For more information, see  ???
+      </p>
+	
+	<h3><a name="qa_managing_logs"></a>Managing Logs</h3><p>
+        <a class="indexterm" name="d0e1320"></a>
+        <a class="indexterm" name="d0e1326"></a>
+        <a class="indexterm" name="d0e1332"></a>Select the <span><strong class="guimenu">Logs</strong></span> menu item to view a list of recent logs. If there
+are more logs that aren&#8217;t displayed, the <span><strong class="guimenuitem">More</strong></span>
+        <span class="bold"><b> </b></span>menu item<span class="bold"><b> </b></span>is displayed below the list. Click <span><strong class="guimenuitem">More</strong></span> or the <span><strong class="guimenuitem">Open Logs Window</strong></span> menu item to
+view all logs.</p>
+	
+	<p>The logs in the list can be from multiple jobs. The logs in
+the list are named using the date of the run and the name of the job.
+To view the logs for a specific job, go to the Data Protector Express Administrator, open the job, and select the <span><strong class="guimenu">Logs</strong></span> page.</p>
+	
+	<p>In the Settings window, you can set the maximum number of logs
+that you see in the list. For more information, see  ???
+      </p>
+	
+	<h2><a name="qa_settings"></a>Settings</h2><p>
+        <a class="indexterm" name="d0e1369"></a>Click the <span><strong class="guimenuitem">Settings</strong></span> menu item
+to change the settings for the Quick Access taskbar icon or for the Data Protector Express service.</p>
+	
+	<p><b>Login information  &nbsp;</b>Use the <span class="bold"><b>Hostname</b></span> field to change
+the Backup Server to use. Enter the hostname or IP address of the server. Use the <span class="bold"><b>Hostname</b></span> field to change the Backup Server to
+use. Enter the hostname or IP address of the server.</p>
+	
+	<p><b>Icon appearance  &nbsp;</b>The tray icon will show a flashing overlay in the following
+situations:</p><div class="itemizedlist"><ul type="disc"><li><p>When alerts are pending</p>
+	
+	</li><li><p>When a job is running</p>
+	
+	</li><li><p>When a job has failed.</p>
+	
+	</li></ul></div><p>Deselect the box for each situation which you do not
+want the Quick Access icon to flash.</p>
+	
+	<p><b>Automatically start this application when the operating system
+starts  &nbsp;</b>Deselect this check box if you want to manually start the Quick Access application.
+To manually start the Quick Access application, switch to the Data Protector Express installation directory, and run dpwingqa for Windows
+or dplingqa for
+Linux. Or on Windows, select the Quick Access link from the start
+menu.</p>
+	
+	<p><b>Automatically log in on startup  &nbsp;</b>Deselect this check box if you do not want to automatically
+log into the application, using the user name and password provided
+here. A logon window will appear at startup if this box is deselected.</p>
+	
+	<p><b>Maximum number of menu items for Jobs, Alerts, or Logs submenus  &nbsp;</b>Select the maximum number of jobs, alerts, or logs that you
+want to see.</p>
+	
+	<p><b>Service settings  &nbsp;</b>Use the Service Settings window to manage the Data Protector Express service on the local machine. These settings have the same meaning
+as those found in the operating system&#8217;s service manager program.
+The Manual choice is not available on Linux.</p>
+	
+	<h2><a name="qa_other_commands"></a>Other Commands</h2><p>Click the <span><strong class="guimenu">Open Administrator</strong></span> menu item to
+open the main Data Protector Express Administrator
+window using the logon information from the Quick Access application.</p>
+	
+	<p>Click the <span><strong class="guimenu">Logout</strong></span> menu item to log out from
+the Quick Access application. The application will disconnect from Data Protector Express. Click <span><strong class="guibutton">Login</strong></span> to log back into the application.</p>
+	
+	<p>Click the <span><strong class="guimenuitem">Exit</strong></span> menu item to exit
+the Quick Access application. If the Data Protector Express service
+is still running, the application will continue to run. To restart
+the application, access the application in the <span><strong class="guimenu">Start</strong></span> menu.</p>
+	
+	<p>Click the <span><strong class="guimenu">Open Administrator</strong></span> menu item to
+open the main Data Protector Express Administrator window using the logon information from the Quick Access application.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="using_administrator.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="administering_product.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="product_service.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Using the Administrator&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;About the Data Protector Express Service</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

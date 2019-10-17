@@ -1,0 +1,189 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Encryption and Compression</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="book.html" title="User&#8217;s Guide"><link rel="prev" href="media_rotation_and_scheduled_backup_jobs.html" title="Running Jobs with Rotations"><link rel="next" href="applications.html" title="Working with Third-Party Applications"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="applications.html">Next</a></p></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td bgcolor="#ffffff"><h1 class="firsttitle"><a name="encryption_and_compression"></a>Encryption and Compression</h1></td></tr></table></div></div></div><p>
+      <span class="bold"><b> In this chapter</b></span>
+    </p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+          <a href="encryption_and_compression.html#encryption">Encryption</a>
+        </p>
+	
+	</li><li><p>
+          <a href="encryption_and_compression.html#compression">Compression</a>
+        </p>
+	
+	</li><li><p>
+          <a href="encryption_and_compression.html#key_management">Key Management</a>
+        </p>
+	
+	</li></ul></div><h2><a name="encryption"></a>Encryption</h2><p>Encryption is the process of changing data into a
+form that cannot be read until it is deciphered, protecting the data
+from unauthorized access and use. Company policy normally determines
+when encryption is required. </p><div class="informalexample"><p>For example, it may be mandatory for company confidential and
+financial data, but not for personal data. Company policy will also
+define how encryption keys should be generated and managed.</p>
+	
+	</div><p>
+    </p>
+	
+	<p>The current version of Data Protector Express provides the user with the ability to encrypt the data that is written
+to the media and fully implements the Advanced Encryption Standard
+(AES) for both hardware and software encryption. </p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>Hardware encryption is supported on some backup devices,
+such as HP LTO-4 tape drives. It is faster than software encryption
+and requires no processing on the backup server. The encryption strength
+is determined by the backup device. HP LTO-4 tape drives always provide
+strong AES-256 encryption. This feature can be managed by a backup
+application that supports hardware encryption, such as Data Protector Express. </p>
+	
+	</li><li><p>Software encryption uses the encryption algorithms
+available within Data Protector Express. The user
+selects an encryption strength: Low 56 bit, Medium 128-bit or High
+256-bit. Each encryption key size causes the algorithm to behave slightly
+differently. Increasing software encryption strength makes the data
+more secure, but requires more processing power.</p>
+	
+	</li></ul></div><p>If your business requires you to use encryption, Data Protector Express allows you to set the required encryption
+types and levels. This chapter contains important information about
+data encryption.</p>
+	
+	<h3><a name="encryption_cryptographic_algorithms"></a>Cryptographic Algorithms</h3><p>Cryptographic algorithms are the basic components of cryptographic
+applications. It is important to understand that as you increase the
+complexity of the encryption the information gets closer to impossible
+to read and the load on your machine, for software-based encryption,
+will increase.</p>
+	
+	<p><b>Software  &nbsp;</b>Three cryptographic algorithms are provided. These three settings
+provide three levels of resistance which require progressively more
+CPU time to convert the same amount of data. The three options are
+for the software encryption mode only.</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>Low &#8211; DES 56-bit</p>
+	
+	</li><li><p>Medium &#8211; AES 128-bit</p>
+	
+	</li><li><p>High &#8211; AES 256-bit</p>
+	
+	</li></ul></div><p><b>Hardware  &nbsp;</b>The cryptographic algorithm provided by hardware devices that
+provide this feature is not under Data Protector Express control. The hardware provides configuration and operating parameters
+via a special encryption command. The device driver adjusts its crypto
+session settings from this input. Hardware encryption is an on/off
+feature, you do not have the ability to adjust the encryption level
+through the Data Protector Express interface. By
+default Data Protector Express will attempt to use
+the highest encryption algorithm supported on the device, if the device
+supports multiple algorithms. If the device does not support encryption,
+the user will be prompted with an alert telling them that the device
+cannot be used since it does not support hardware encryption.</p>
+	
+	<h3><a name="encryption_passphrase"></a>Passphrase</h3><p>The passphrase is a series of characters that must be provided
+by the user for input to the cryptographic key generation process. </p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>Passphrases must be no less than 8 logical characters.
+They may be created by the user or randomly generated by a separate
+application.</p>
+	
+	</li><li><p>If created by the user, the passphrase should be difficult
+to guess and should contain a mix of lowercase/uppercase letters,
+digits and special characters. </p>
+	
+	</li><li><p>The passphrase is one of the components Data Protector Express uses to generate the encryption key.
+A longer or random passphrase will increase the strength of the encryption
+key even more.</p>
+	
+	</li><li><p>To aid the user in remembering the passphrase, the
+user may enter a hint message. The use of this field is optional and
+provided to the user as prompt for remembering the passphrase.</p>
+	
+	</li><li><p>If a backup job spans multiple media, the same passphrase
+will be used for all media in the set.</p>
+	
+	</li></ul></div><p>Passphrases for the media are stored in the Data Protector Express catalog. This means the user is able to read and append to the encrypted
+media without being prompted for a passphrase as long as it is being
+accessed by the instance of Data Protector Express that first encrypted it </p>
+	
+	<p>Once a media is deleted or exported from the Data Protector Express catalog the passphrase is also deleted. There are two instances
+when the user needs to know the passphrase:</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>When importing the media to another machine or another
+instance of Data Protector Express</p>
+	
+	</li><li><p>During disaster recovery</p>
+	
+	</li></ul></div><div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Caution"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Caution]" height="25" src="images/caution.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>CAUTION: </b>Managing the passphrase is a critical component of any encryption
+system. Data may be stored for months or years, so passphrases must
+be archived securely. The user should keep a record or backup of encryption
+passphrases and store them in a secure place separate from the computer
+running Data Protector Express. If the user is unable
+to supply the passphrase when requested to do so, neither the user
+nor Data Protector Express Support will be able
+to access the encrypted data.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h3><a name="encryption_general_use"></a>Encryption
+Options</h3><p>Encryption is enabled on the job&#8217;s <span class="bold"><b>Encryption</b></span> page.</p>
+	
+	<p><b>Off  &nbsp;</b>Both hardware and software encryption are disabled.</p>
+	
+	<p><b>Automatic  &nbsp;</b>This selection will use hardware encryption, if it is available
+from the device; otherwise, software encryption will be used</p>
+	
+	<p><b>Software   &nbsp;</b>Software encryption will be used. When <span class="bold"><b>Software </b></span>is selected, the user can choose the strength
+of software encryption </p>
+	
+	<p><b>Hardware  &nbsp;</b>Hardware encryption will be used, if the device supports it.
+If it does not support encryption and this option is selected, the
+user will be prompted with an alert stating that the device cannot
+be used since it does not support hardware encryption. </p>
+	
+	<p><b>Software Strength  &nbsp;</b>Options for the software encryption strength are listed below
+as three selections, low, medium and high. <span class="bold"><b>Low</b></span> is the easiest method to decipher by outside methods, <span class="bold"><b>High</b></span> is the hardest method to decipher by outside
+methods. As you progress from low to high, the encryption algorithm
+requires more CPU computations for each block of data to be encrypted,
+which may slow down the data stream to the device and will increase
+CPU loading on the Media Server. </p>
+	
+	<p><b>Encryption passphrase / Verify Passphrase  &nbsp;</b>The user supplied portion of the encryption key. Data Protector Express will use this value, along with other
+information it generates, to calculate an encryption key for the media.
+The passphrase must be entered twice to minimize the change of making
+a mistake while typing.</p>
+	
+	<p><b>Hint  &nbsp;</b>The text entered here will be added to the log file of an import
+job if the media later needs to be imported and the incorrect passphrase
+is supplied. Use this field to create a reminder of the passphrase
+as Data Protector Express cannot recover a lost
+passphrase.</p>
+	
+	<h2><a name="key_management"></a>Key Management</h2><p>Data Protector Express has adopted
+a very simple key management strategy. A media is encrypted originally
+by configuring the job that creates it according to the parameters
+described above. From that point on, the media is known to the catalog.
+As long as the media is known, restore jobs may use the media without
+entering the passphrase again. If a media is unknown &#8212; because
+it was deleted from the catalog or because it came from a different
+catalog &#8212; you must import the media to make it known to the
+catalog again. The import process required you to supply the passphrase
+to complete the import. If the passphrase supplied does not match
+that used to encrypt the media, then the hint supplied at encryption
+time will be shown in the job log so you can try the import again.</p>
+	
+	<p>When media is encrypted the media is depicted on
+the <span><strong class="guilabel">Jobs and Media</strong></span> view with a lock on it. The
+Platinum colored lock indicates hardware, whereas the gold lock indicates
+software encryption. The Media details window shows the type of encryption
+used.</p>
+	
+	<h2><a name="compression"></a>Compression</h2><p>Software encryption disables hardware compression,
+although you will still be able to select <span class="bold"><b>Software
+compression.</b></span> </p>
+	
+	<p>If the backup device has hardware compression then performance
+will  be better if only hardware compression is used, and that there
+is little  to no benefit of having both enabled. Enabling software
+compression in this circumstance will reduce performance.</p>
+	
+	<p>If <span class="bold"><b>Hardware</b></span> encryption
+is selected, we recommend that <span class="bold"><b>Enable hardware
+compression</b></span> is also selected. Hardware encryption and hardware
+compression can be used on devices, such as the HP LTO-4 tape drive
+without any loss of backup speed.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="media_rotation_and_scheduled_backup_jobs.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top">&nbsp;</td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="applications.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Running Jobs with Rotations&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Working with Third-Party Applications</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

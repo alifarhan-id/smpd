@@ -1,0 +1,132 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Backup	 Domain Configuration </title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="book.html" title="User&#8217;s Guide"><link rel="prev" href="disaster_recovery_limitations.html" title="Limitations"><link rel="next" href="adv_job_opts.html" title="Advanced Job Options"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="adv_job_opts.html">Next</a></p></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td bgcolor="#ffffff"><h1 class="firsttitle"><a name="managing_domain"></a>Backup	 Domain Configuration </h1></td></tr></table></div></div></div><p>
+      <span class="bold"><b>In this chapter</b></span>
+    </p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+          <a href="managing_domain.html#domain_server_email">E-mail Settings</a>
+        </p>
+	
+	</li><li><p>
+          <a href="managing_domain.html#domain_server_execution">Execution Options</a>
+        </p>
+	
+	</li><li><p>
+          <a href="managing_domain.html#domain_server_barcode_filter">Barcode Filter</a>
+        </p>
+	
+	</li><li><p>
+          <a href="managing_domain.html#domain_server_performance">Performance Settings</a>
+        </p>
+	
+	</li><li><p>
+          <a href="managing_domain.html#domain_server_alerts">Alert Settings</a>
+        </p>
+	
+	</li><li><p>
+          <a href="managing_domain.html#domain_server_client_upgrade">Client Upgrade Settings</a>
+        </p>
+	
+	</li><li><p>
+          <a href="managing_domain.html#domain_security">Domain Security</a>
+        </p>
+	
+	</li></ul></div><p>To configure the Backup Server, select <span><strong class="guibutton">Domain Configuration</strong></span> command in the menu bar. This displays
+the <span><strong class="guilabel">Properties</strong></span> window for the domain. Select
+the particular property page you want to configure from the tasks
+list.</p>
+	
+	<h2><a name="domain_server_email"></a>E-mail Settings</h2><p>You can configure e-mail information for the Data Protector Express management domain. Jobs can be configured to automatically e-mail
+log to the job owner upon completion. Before Data Protector Express can send logs by email, the service must be configured to use an
+email server.</p>
+	
+	<p><b>Server address  &nbsp;</b>Enter the address of the mail server</p>
+	
+	<p><b>Server port  &nbsp;</b>Enter the appropriate SMTP port. The  default is 25, which is
+usually the correct value. If you are using a proxy server, you may
+have to enter a different port.</p>
+	
+	<p><b>From address  &nbsp;</b>Enter the e-mail address to be used in the <span class="italic">From </span>field for each job log e-mail. This e-mail address must be valid.</p>
+	
+	<h2><a name="domain_server_execution"></a>Execution Options</h2><p>To limit pre- and post-commands to those in the script
+directory, you can check the box next to <span><strong class="guilabel">Prevent execution
+of commands outside of script directory</strong></span>. You might choose
+to do this for security reasons by tightly controlling the commands
+that are available in the script directory.</p>
+	
+	<p>For more information on pre/post commands, see <a href="adv_job_opts.html#adv_jobs_exec_opts">Job Pre-Post
+Execution Commands</a>.</p>
+	
+	<h2><a name="domain_server_barcode_filter"></a>Barcode Filter</h2><p>You can define ranges of media barcodes that are
+available to any job within the Backup	 Domain. Barcode
+ranges defined for a particular job are only available within that
+single job.</p>
+	
+	<p>For more information on the use of barcode filters,
+see <a href="adv_job_opts.html#adv_jobs_barcode_opts">Barcode
+Filters for Jobs</a>.</p>
+	
+	<h2><a name="domain_server_performance"></a>Performance Settings</h2><p> The performance settings control the number of active clients
+(hosts) on the network and  the number of active selection lists on
+the database.  There are two parameters that can be configured to
+optimize resources consumed by  Data Protector Express. </p>
+	
+	<p><b>Max number of active hosts  &nbsp;</b>This number controls how many clients can be started for all
+active backup jobs  in the Backup	 Domain. This option is used to prevent packet loss
+from occurring if data  is transmitted over a network with limited
+available bandwidth.</p>
+	
+	<p><b>Max number of active selection lists  &nbsp;</b>This number controls how many hosts can build their selection
+list for all active  backup jobs in the Backup	 Domain. This is
+used to limit use of the database and keep it  responsive for active
+jobs.</p>
+	
+	<h2><a name="domain_server_alerts"></a>Alert Settings</h2><p>You can control the types of alerts that are logged
+in the operating system's event log by checking the boxes next to <span><strong class="guilabel">Error</strong></span>, <span><strong class="guilabel">Warning</strong></span>, <span><strong class="guilabel">Information</strong></span>, or <span><strong class="guilabel">License</strong></span>. We strongly recommend you always
+select the logging of <span><strong class="guilabel">Error</strong></span> and <span><strong class="guilabel">Warning</strong></span> alerts. By default, all alerts are logged.</p>
+	
+	<h2><a name="domain_server_client_upgrade"></a>Client Upgrade Settings</h2><p>When the Backup	 Domain is updated to a new version, the executables for all supported platforms
+are stored on the Backup	 Domain. This allows members of the Backup	 Domain to be upgraded
+ automatically whenever the Backup Server is
+upgraded to a new revision of  Data Protector Express. For installations with many clients, this feature can be a huge
+time and labor saver.</p>
+	
+	<p><b>Enable automatic upgrade  &nbsp;</b>When this option is enabled, clients will detect when a new
+version is available and automatically update themselves. During an
+automatic client upgrade, the installer will close any running Data Protector Express Administrator  and Quick Access. The
+client is marked as offline during the upgrade process.  If an automatic
+client upgrade fails, the upgrade will not be retried again unless
+the service is restarted. An upgrade might fail if there are running
+processes that cannot be killed or there are  permission restrictions
+on the client.</p>
+	
+	<p><b>Allow downgrade  &nbsp;</b>If you want the client to downgrade to an earlier version, you
+must explicitly select  this option. Otherwise, the client will only
+automatically upgrade to a newer version.</p>
+	
+	<p><b>Max number of active upgrade downloads  &nbsp;</b>Use this parameter to throttle how many clients will attempt
+to download a new version at one time.</p>
+	
+	<h2><a name="domain_security"></a>Domain Security</h2><p>Data Protector Express supports rich user,
+group and permission based security policies. Contact Technical Support
+for more information. When Data Protector Express is first installed, these features are disabled. The Administrator
+will not require a password to log in. </p>
+	
+	<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Warning"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Warning]" height="25" src="images/warning.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>WARNING! </b>When security is disabled, anyone using the Administrator can
+gain access to your data. We recommend you turn security on and set
+a password for the <span><strong class="guilabel">Admin</strong></span> user.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h3><a name="domain_security_options"></a>Options</h3><p><b>Enable Advanced Domain Security  &nbsp;</b>When enabled, the Administrator will present the user with a
+login screen at startup and all object property pages will have an
+additional page, <span><strong class="guilabel">Permissions</strong></span>, and the Logon Controls
+properties of Users and Groups will be enabled.</p>
+	
+	<h3><a name="set_password"></a>Setting a User Password</h3><p>When security is enabled, a new view, <span><strong class="guilabel">Security</strong></span>, will appear under the <span><strong class="guilabel">Advanced</strong></span> link in the <span><strong class="guilabel">Navigation</strong></span> bar. Clicking it will display a list of Users
+and Groups. The system comes preconfigured with one User, <span><strong class="guilabel">Admin</strong></span>, and one Group, <span><strong class="guilabel">Everyone</strong></span>. To
+set a password for a user, select the user and click the <span><strong class="guibutton">Change Password</strong></span> command in the command bar. For many
+users, simply setting a password on the Admin user will be sufficient
+to meet their security needs.</p>
+	
+	<p>For more details about the logon control properties, contact
+Technical Support.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="disaster_recovery_limitations.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top">&nbsp;</td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="adv_job_opts.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Limitations&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Advanced Job Options</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

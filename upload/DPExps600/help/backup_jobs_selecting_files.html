@@ -1,0 +1,61 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Selecting Files</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="backup_jobs.html" title="Configuring Backup Jobs"><link rel="prev" href="backup_jobs.html" title="Configuring Backup Jobs"><link rel="next" href="backup_jobs_devices.html" title="Selecting Devices"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="backup_jobs.html">Configuring Backup Jobs</a>&nbsp;&gt;&nbsp;Selecting Files</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="backup_jobs_devices.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="backup_jobs_selecting_files"></a><h1 class="sectiontitle">Selecting Files</h1></div></div></div><p>You use the <span><strong class="guimenu">Selection</strong></span> property page of a
+job to select the files to be backed up. Data Protector Express provides powerful selection filters that allow you to select exactly
+the files you want and to automatically update your selection when
+the job is run.</p>
+	
+	<p>Files, folders, and other containers (e.g., volumes and computers)
+are displayed in a tree view on the <span><strong class="guimenu">Selection</strong></span> page.
+All containers act similarly regarding selection, so any discussion
+about folders applies equally to any other container unless otherwise
+noted.</p>
+	
+	<p>You can select or deselect a file or folder by checking or clearing
+the selection box next to the folder. When you select a folder or
+other container, you automatically select everything within it including
+all files within all subfolders. If the checkbox for a folder is clear,
+no files and subfolders within that folder are selected. If the checkbox
+for a folder is shaded, some, but not all, of the files or subfolders
+within it are selected. </p>
+	
+	<p>You can select the contents of a folder in one of two ways:
+either by individually checking each file in that folder one-by-one
+or by checking the folder itself. Which method you choose is important
+because it affects which files Data Protector Express included
+in the selection list <span class="italic">after changes have been made to that
+folder</span>.</p>
+	
+	<div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Caution"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Caution]" height="25" src="images/caution.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>CAUTION: </b>If you select each file in the folder individually, when new
+files are added to the folder, Data Protector Express automatically selected for backup. However, if you select the folder <span class="italic">itself</span>, when new files are created in that folder, they
+are automatically selected for backup.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>In general, when selecting files for backup, especially for
+jobs designed for disaster protection, begin by selecting containers
+at the top of the hierarchy. Then deselect containers or files lower
+in the hierarchy that you do not need to back up.</p>
+	
+	<div class="informalexample"><p>For example, you could begin by selecting the network icon at
+the top of the hierarchy. This will automatically select all of the
+machines on the network and all of the volumes on those machines.
+If there are machines, volumes or folders you do not want backed up,
+clear their check boxes. When new machines or volumes are added to
+the network (that is to the current Backup	 Domain), these
+new machines and volumes will automatically be selected for backup.</p>
+	
+	</div><p>
+        <a class="indexterm" name="d0e1638"></a>By
+default, Data Protector Express backs up all volumes,
+folders and files that have been marked for the job. Selection filters
+let you identify specific criteria for excluding one or more of these
+marked objects. The filter criteria is applied when the job runs,
+in effect unmarking any objects that do not meet the criteria. Selection
+filters are optional. If no selection filter is specified, all of
+the files and folder that have been marked will be backed up per the
+job configuration settings. For further information, see the Data Protector Express Technical Reference Guide.</p>
+	
+	<p>
+        <a class="indexterm" name="d0e1644"></a>
+        <a class="indexterm" name="d0e1650"></a>Data Protector Express can be configured
+to include mapped drives during backup. By default they are excluded.
+Once configured, these drives will appear on the <span><strong class="guimenu">Selection</strong></span> page of a job. For further information, see the Data Protector Express Technical Reference Guide.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="backup_jobs.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="backup_jobs.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="backup_jobs_devices.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Configuring Backup Jobs&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Selecting Devices</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

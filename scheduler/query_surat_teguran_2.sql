@@ -1,0 +1,1 @@
+select * from p_gen_debt_letter_2(SYSDATE);

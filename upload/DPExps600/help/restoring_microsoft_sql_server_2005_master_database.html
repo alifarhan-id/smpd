@@ -1,0 +1,25 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Restoring Microsoft SQL Server master databases</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="applications_microsoft_sql_server.html" title="Working with Microsoft SQL Server"><link rel="prev" href="restoring_microsoft_sql_server_user_databases.html" title="Restoring Microsoft SQL Server user databases"><link rel="next" href="restoring_microsoft_sql_server_2000_master_database.html" title="Restoring Microsoft SQL Server 2000 master databases"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="applications_microsoft_sql_server.html">Working with Microsoft SQL Server</a>&nbsp;&gt;&nbsp;Restoring Microsoft SQL Server master databases</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="restoring_microsoft_sql_server_2000_master_database.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="restoring_microsoft_sql_server_2005_master_database"></a><h1 class="sectiontitle">Restoring Microsoft SQL Server master databases</h1></div></div></div><p>
+          <a class="indexterm" name="d0e5692"></a>A damaged master
+database is evident by the failure of the SQL Server to start, by
+segmentation faults or input/output errors or by a report from DBCC.
+An example of an error might be damage caused by media failure in
+the area in which master database is stored.</p>
+	
+	<p>The procedure used to recover a damaged master database is different
+from the procedure used to recover user databases. If the master database
+becomes unusable, it must be restored from a previous dump. All changes
+made to the master database after the last dump are lost when the
+dump is reloaded and therefore must be reapplied.</p>
+	
+	<p>It is strongly recommended that the master database be backed
+up each time it is changed. This is best accomplished by prohibiting
+the creation of user-defined objects in the master database and by
+being aware of the statements and system procedures, and the equivalent
+actions in SQL Server Management Studio, that modify it.</p>
+	
+	<p>Please refer to the documentation for Microsoft SQL Server for
+information on the proper way to restore the master databases.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="restoring_microsoft_sql_server_user_databases.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="applications_microsoft_sql_server.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="restoring_microsoft_sql_server_2000_master_database.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Restoring Microsoft SQL Server user databases&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Restoring Microsoft SQL Server 2000 master databases</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

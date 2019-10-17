@@ -1,0 +1,177 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Working with Tape Libraries</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="devices.html" title="Working With Devices"><link rel="prev" href="devices_view_commands.html" title="Device Commands"><link rel="next" href="sharing_storage_devices_on_a_SAN.html" title="Sharing storage devices on a SAN"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="devices.html">Working With Devices</a>&nbsp;&gt;&nbsp;Working with Tape Libraries</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="sharing_storage_devices_on_a_SAN.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="devices_libraries"></a><h1 class="sectiontitle">Working with Tape Libraries</h1></div></div></div><p>
+        <span class="bold"><b>In this chapter</b></span>
+      </p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+            <a href="devices_libraries.html#device_installation">Installation and Configuration</a>
+          </p>
+	
+	</li><li><p>
+            <a href="devices_libraries.html#viewing_library_barcodes">Barcodes and MIC (memory
+in cartridge)</a>
+          </p>
+	
+	</li><li><p>
+            <a href="devices_libraries.html#viewing_library_barcodes_filters">Barcode Filters</a>
+          </p>
+	
+	</li><li><p>
+            <a href="devices_libraries.html#viewing_libraries_initialization">Initialization Process</a>
+          </p>
+	
+	</li><li><p>
+            <a href="devices_libraries.html#device_media_management">Media Management</a>
+          </p>
+	
+	</li></ul></div><p>Tape libraries automate tape media handling which, in conjunction
+with the Data Protector Express backup schedules,
+allows hands-off backup operations. A tape library contains one or
+more tape drives, some number of storage slots for tape media, and,
+in some cases, import/export slots to add or remove media from the
+library.</p>
+	
+	<p>Data Protector Express support for tape libraries
+allows you to automate and consolidate backup in network environments
+and manage media efficiently. Data Protector Express has a built in media rotation schemes to help take advantage of
+the features of your library. Data Protector Express tape library support includes managing media using barcodes, using
+the on-board memory in some tape cartridges, such as Ultrium Memory
+in Cartridge, and user-configurable tape media load ports (mail slots). </p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>Always manage your tape media from the Data Protector Express interface. Your tape library may provide a front panel that allows
+you to carry out various media management tasks but if you use this
+for media operations the Data Protector Express catalog
+will not have the up-to-date media location information. For this
+reason, front panel media operations will require time-consuming inventory
+processes to update the catalog.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>If your library supports multiple tape devices and you want
+to use a specific device, you must select that device to use it. If
+you select the library, Data Protector Express will
+use the first available device in the library it finds.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h3><a name="device_installation"></a>Installation and Configuration</h3><p>If the tape library is installed correctly, Data Protector Express will automatically detect the tape library. When detected the tape
+library is added as an available device to the Data Protector Express catalog.</p>
+	
+	<p>Once you have installed Data Protector Express, expand the <span><strong class="guimenu">Devices</strong></span> view to locate the tape library.
+Note how the components of the tape library are displayed so that
+you can see how many devices (tape drives), import-export Slots (mail
+slots) and storage slots are associated with the library.</p>
+	
+	<p><b>Devices  &nbsp;</b>The tape drives in a tape library are viewed and managed in
+the same way as stand-alone tape drives.</p>
+	
+	<p><b>Storage Slots  &nbsp;</b>The Storage Slots folder displays the number of available slots.
+Each slot may contain blank (new) media, media containing Data Protector Express data, or media containing unknown (non-Data Protector Express) data. Data Protector Express inventories the media in the slots and displays the information
+about the media and its status in the view. This allows you to view
+all kinds of media, not just the media used by Data Protector Express, but you will not be able to select non-Data Protector Express media for a backup or restore job. </p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>It can take a long time to inventory the tape media in a tape
+library, which is why Data Protector Express usually
+performs a "light inventory" rather than running an identify job on
+all the slots in a loader. See the "Inventory Process" section below
+for more information.  </p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>Additional media slot configuration is accessed via the Element
+Status dialog for that slot, which is accessed by a right click on
+the desired slot. For example, you can use this to disable slots (using
+the &#8216;Reserve&#8217; option) and identify a cleaning cartridge.</p>
+	
+	<p><b>Import/Export Slots  &nbsp;</b>Some library devices provide special import/export mail slots
+an operator uses to enter or eject media to or from the device without
+removing the whole media repository or magazine. Depending on the
+device, more than one import/export slot can be provided. In case
+of a single mail slot, media are inserted one by one, while in case
+of multiple mail slots, a particular number of slots can be used in
+one enter/eject operation.</p>
+	
+	<h3><a name="viewing_library_barcodes"></a>Barcodes and MIC (memory
+in cartridge)</h3><p>If the tape library supports barcode and/or MIC (memory in cartridge),
+the details are added to the Data Protector Express catalog. The barcode information is hidden by default; to display
+this detail, right-click anywhere in the column title row to see available
+column headings and click on <span><strong class="guimenu">Media barcode</strong></span> to make
+the barcode information visible in the slots view.</p>
+	
+	<p>Barcode and MIC (memory in cartridge) technologies are used
+to reduce the time spent organizing and managing media in a library
+or an autoloader. In these devices, each medium is identified with
+a unique barcode or, where MIC is used, a chip is embedded in the
+tape cartridge which holds a unique identifier (as well as other information).</p>
+	
+	<p>Barcodes and MIC enable Data Protector Express to significantly reduce media recognition, labeling and cleaning
+tape detection times.</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>Scanning the barcode or MIC of the media is faster
+than reading the medium header, because Data Protector Express does not need to actually load the media into a tape.</p>
+	
+	</li><li><p>A barcode or MIC is a unique identifier for media
+in the Data Protector Express catalog. You should
+not have duplicate barcodes in your environment.</p>
+	
+	</li></ul></div><h3><a name="viewing_library_barcodes_filters"></a>Barcode Filters</h3><p>The barcode filter allows users to control access to media by
+barcode. The user can specify ranges, wildcards, or explicit barcodes
+that either include or exclude media for use by the product. This
+property only applies to libraries. Stand alone devices are not restricted
+in any way by it.</p>
+	
+	<p>The filter rules may be set for the whole domain and will be
+applied automatically to all tasks. Or, they may be set and applied
+at job level. Any filter rules applied at job level overwrite the
+default domain settings.</p>
+	
+	<p>For more information on setting barcode filters,
+see <a href="managing_domain.html#domain_server_barcode_filter">Barcode Filter</a>.</p>
+	
+	<h3><a name="viewing_libraries_initialization"></a>Initialization Process</h3><p>The traditional loader inventory mechanism is accomplished by
+running an identify job on all the slots in a library. This complete
+inventory can take a very long time, so Data Protector Express uses a "light inventory" process, which is known as an initialization
+process.  This initialization process consists of ...</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>Checking that the loader is ready for use. If the
+magazine door is open, this step will fail, and initialization will
+fail as a result.</p>
+	
+	</li><li><p>Querying the number of physical storage, import/export
+and device elements that the library contains. (These elements will
+be displayed in the Tape Library view.) </p>
+	
+	</li><li><p>Binding the loader to its physical devices. This ensures
+that the devices are associated with the library in the Data Protector Express catalog.</p>
+	
+	</li><li><p>Updating the status for each element in the loader.
+Barcodes are read at this time, and are associated with each element
+regardless of status (i.e. both Invalid and Valid elements get a barcode
+shown in the loader status pane). </p>
+	
+	</li></ul></div><p>Initialization occurs when the library driver starts (at service
+startup or when the driver is manually started), when the user selects
+the Initialize command on the loader object or when Data Protector Express detects that a user has changed the state of the loader (either
+by opening the front door or by using the front panel).</p>
+	
+	<p>During initialization, the library will attempt to perform barcode
+based identification of media. If a match is found, the loader will
+set that element&#8217;s status to Probably Valid. This means that
+if a user is using barcodes with their tape library, they will almost
+never need to run an identification job.</p>
+	
+	<p>When the job loads the tape it makes sure that the tape is really
+what the catalog says it is and, if necessary, updates the catalog
+to indicate what is really there. If the tape is, in fact, not usable
+because of the supplied media rules, the tape is re-stowed and another
+media is tried.</p>
+	
+	<div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>An Identify job will always physically mount media, and reassociate
+media to barcodes. This provides a mechanism for users to update barcodes
+on their media, should they ever need to. It also handles the case
+where barcodes are added to media after they have been used without
+barcodes.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h3><a name="device_media_management"></a>Media Management</h3><p>One benefit of using Data Protector Express with tape libraries is the ease with which you can schedule different
+backups for different days of the week/month/year. There are no specific
+media tasks that must be carried out before you run a backup job.
+As long as the library has valid media loaded in it, Data Protector Express will automatically use it automatically.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>Media is invalid if it has been used by another backup product,
+is dirty or has been corrupted, or simply has not been identified.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>Similarly, if you are restoring data from media that is already
+within the Data Protector Express catalog, there
+are no media management tasks. However, if you are restoring media
+from a different domain, you must first import it so that Data Protector Express can add the media to the
+database and associate all data objects on the tape with that media.</p>
+	
+	<p>For a detailed description of all media management jobs, please
+refer to <a href="devices_view_commands.html" title="Device Commands">Device Commands</a>. </p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="devices_view_commands.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="devices.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="sharing_storage_devices_on_a_SAN.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Device Commands&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Sharing storage devices on a SAN</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

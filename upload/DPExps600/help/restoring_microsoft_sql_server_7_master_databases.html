@@ -1,0 +1,285 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Restoring Microsoft SQL Server 7 master databases</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="applications_microsoft_sql_server.html" title="Working with Microsoft SQL Server"><link rel="prev" href="restoring_microsoft_sql_server_2000_master_database.html" title="Restoring Microsoft SQL Server 2000 master databases"><link rel="next" href="applications_microsoft_sharepoint.html" title="Protecting Microsoft Windows SharePoint Services"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="applications_microsoft_sql_server.html">Working with Microsoft SQL Server</a>&nbsp;&gt;&nbsp;Restoring Microsoft SQL Server 7 master databases</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="applications_microsoft_sharepoint.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="restoring_microsoft_sql_server_7_master_databases"></a><h1 class="sectiontitle">Restoring Microsoft SQL Server 7 master databases</h1></div></div></div><p>
+          <a class="indexterm" name="d0e6153"></a>A damaged master
+database is evident by the failure of the SQL Server to start, by
+segmentation faults or input/output errors or by a report from DBCC.
+An example of an error might be damage caused by media failure in
+the area in which master database is stored.</p>
+	
+	<p>The procedure used to recover a damaged master database is different
+from the procedure used to recover user databases. If the master database
+becomes unusable, it must be restored from a previous dump. All changes
+made to the master database after the last dump are lost when the
+dump is reloaded and therefore must be reapplied.</p>
+	
+	<p>It is strongly recommended that the master database be backed
+up each time it is changed. This is best accomplished by prohibiting
+the creation of user-defined objects in the master database and by
+being aware of the statements and system procedures, and the equivalent
+actions in SQL Enterprise Manager, that modify it.</p>
+	
+	<p>The most common statements and system procedures that modify
+master are:</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+              <span><strong class="command">DISK INIT</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">CREATE DATABASE</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">ALTER DATABASE</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">DISK MIRROR</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">DISK UNMIRROR</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">DISK REMIRROR</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_dropremotelogin</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_addumpdevice</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_dropdevice</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_addlogin</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_droplogin</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_addserver</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_dropserver</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_addremotelogin</strong></span>
+            </p>
+	
+	</li></ul></div><p>If a user database is created, expanded or shrunk after the
+most recent dump (backup) of the master database and if it becomes
+necessary to reload the master database, then that user database and
+all data in will be lost and must be restored from backup.</p><div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Caution"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Caution]" height="25" src="images/caution.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>CAUTION: </b>Because of this, always dump (back up) the master database after
+creating, expanding or shrinking user databases.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+        </p>
+	
+	<div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Caution"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Caution]" height="25" src="images/caution.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>CAUTION: </b>You must rebuild using the same character set and sort order
+as the master database dump that will be reloaded</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h4><a name="d0e6259"></a>To recover a damaged master database</h4><div class="itemizedlist"><ul type="disc"><li><p>
+              <a href="restoring_microsoft_sql_server_7_master_databases.html#SQL_7_rebuild_the_master_database" title="Rebuild the master database">Rebuild the master database</a>
+            </p>
+	
+	</li><li><p>
+              <a href="restoring_microsoft_sql_server_7_master_databases.html#SQL_7_restart_microsoft_SQL_server_in_single_user_mode" title="Restart Microsoft SQL Server in single-user mode">Restart Microsoft SQL Server in single-user mode</a>
+            </p>
+	
+	</li><li><p>
+              <a href="restoring_microsoft_sql_server_7_master_databases.html#SQL_7_restore_the_master_database_from_the_most_recent_backup" title="Restore the master database from the most recent backup">Restore the master database from the most recent backup</a>
+            </p>
+	
+	</li><li><p>
+              <a href="restoring_microsoft_sql_server_7_master_databases.html#SQL_7_apply_changes_to_the_master_database" title="Apply changes to the master database">Apply changes to the master database</a>
+            </p>
+	
+	</li><li><p>
+              <a href="restoring_microsoft_sql_server_7_master_databases.html#SQL_7_drop_invalid_databases_and_database_devices" title="Drop invalid databases and database devices">Drop invalid databases and database devices</a>
+            </p>
+	
+	</li><li><p>
+              <a href="restoring_microsoft_sql_server_7_master_databases.html#restor_the_SQL_server_7_msdb_database" title="Restore the msdb database">Restore the msdb database</a>
+            </p>
+	
+	</li></ul></div><p>Each of these six steps is described below in more detail:</p>
+	
+	<div class="procedure"><a name="SQL_7_rebuild_the_master_database"></a><p class="title"><b>Rebuild the master database</b></p><ol type="1"><li><p>From Windows Explorer select <span><strong class="guimenu">Start</strong></span> &gt; <span><strong class="guisubmenu">Programs</strong></span> &gt; <span><strong class="guimenuitem">Microsoft SQL Server</strong></span> then select the <span><strong class="guiicon">SQL Setup</strong></span> icon.</p>
+	
+	<p>(Alternatively, from the distribution media, from the directory
+containing the software compatible with your hardware platform&#8217;s
+processor architecture, run <span><strong class="command">SETUP.EXE.</strong></span>)</p>
+	
+	</li><li><p>Respond to the on-screen instructions until the <span><strong class="guimenu">Options</strong></span> window appears.</p>
+	
+	</li><li><p>Select <span><strong class="guimenuitem">Rebuild Master Database</strong></span> and click <span><strong class="guibutton">Continue</strong></span>. A confirmation window
+appears.</p>
+	
+	</li><li><p>Click <span><strong class="guibutton">Resume</strong></span>. The <span><strong class="guimenu">Rebuild
+Options</strong></span> window appears.</p>
+	
+	</li><li><p>To specify the character set, click <span><strong class="guimenuitem">Sets</strong></span> and complete the <span><strong class="guisubmenu">Select Character Set</strong></span> window
+that appears. Skip this step if you are using the default character
+set (ISO 8859-1).</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>You must use the same character set and sort order that were
+previously used for this master database.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></li><li><p>To specify the sort order, click <span><strong class="guibutton">Orders</strong></span> and complete the <span><strong class="guisubmenu">Select Sort Order</strong></span> window
+that appears. Skip this step if you are using the default sort order
+(dictionary order, case-insensitive).</p>
+	
+	</li><li><p>In the <span><strong class="guisubmenu">Rebuild Options</strong></span> window,
+click <span><strong class="guibutton">Continue</strong></span>. The <span><strong class="guisubmenu">SQL Server
+Installation Path</strong></span> window appears.</p>
+	
+	</li><li><p>If not correctly displayed in the <span><strong class="guisubmenu">SQL Server
+Installation Path</strong></span> window, enter the location of the existing
+SQL Server installation and click <span><strong class="guibutton">Continue</strong></span>.</p>
+	
+	<p>The Rebuild Master Database window appears. </p>
+	
+	</li><li><p>If it is not correctly displayed in the Rebuild Master
+Database window, enter the location and name of the existing MASTER
+device. Also enter a MASTER device size and click <span><strong class="guibutton">Continue</strong></span>.</p>
+	
+	<p>The setup program will then rebuild the master database.</p>
+	
+	</li><li><p>When rebuilding is complete and the completion window
+appears, click <span><strong class="guibutton">Exit</strong></span>.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>The files<code class="filename"> MASTER.DA@</code> and <code class="filename">MASTER.AL@ </code>are stored in the <code class="filename">\MSSQL\INSTALL</code> directory.
+When rebuilding the master database (or when installing SQL Server),
+one of these two files is used by the setup program. When the default
+sort order and character set are selected, <code class="filename">MASTER.DA@ </code>is expanded and copied onto the server, replacing <code class="filename">MASTER.DAT</code>. When an alternate character set and/or sort order is selected, <code class="filename">MASTER.AL@</code> is expanded, copied onto the server, and several
+SQL scripts are run.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></li></ol></div><div class="procedure"><a name="SQL_7_restart_microsoft_SQL_server_in_single_user_mode"></a><p class="title"><b>Restart Microsoft SQL Server in single-user mode</b></p><p>Before you can restore the master database, you must start Microsoft
+SQL Server in single-user mode.</p>
+	
+	<ol type="1"><li><p>Go to the <span><strong class="guimenu">SQL Server Manage</strong></span>r and right-click
+the SQL server instance. Select <span><strong class="guibutton">Properties</strong></span> to
+open the <span><strong class="guisubmenu">SQL Server Properties</strong></span> window.</p>
+	
+	</li><li><p>Under the <span><strong class="guisubmenu">General</strong></span> tab in the
+SQL Server Properties window, open the Startup Parameters window and
+type &#8220;&#8211;m&#8221; in the Parameter field.</p>
+	
+	</li><li><p>Click the <span><strong class="guibutton">Add</strong></span> command, and then
+click <span><strong class="guibutton">OK</strong></span>. Close the SQL Server Properties window
+by clicking <span><strong class="guibutton">OK</strong></span>.</p>
+	
+	</li><li><p>Restart the SQL server instance. (Right-click the SQL
+server instance and select <span><strong class="guibutton">Stop</strong></span>; right-click
+the SQL server instance and select <span><strong class="guibutton">Start</strong></span>.)</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>You may find it convenient to start the SQL Server in single-user
+mode using the command line program, <span><strong class="command">SQLSERVER.EXE</strong></span>, with option &#8220;/m&#8221;. This procedure will only work, however,
+if the SQL Server is configured to start using the current interactive
+user&#8217;s account.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></li></ol></div><div class="procedure"><a name="SQL_7_restore_the_master_database_from_the_most_recent_backup"></a><p class="title"><b>Restore the master database from the most recent backup</b></p><ol type="1"><li><p>Create a restore job and select the most recent backup
+version of the master database.</p>
+	
+	</li><li><p>Run the restore job.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>This may take some time, typically 10 to 15 minutes, depending
+on the size of the master database. Restore only the master database
+while in single user mode. Do not restore any other databases.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></li></ol></div><div class="procedure"><a name="SQL_7_apply_changes_to_the_master_database"></a><p class="title"><b>Apply changes to the master database</b></p><ol type="1"><li><p>Go to the SQL Server Enterprise Manger and right-click
+the SQL server instance. Select Properties to open the SQL Server
+Properties window.</p>
+	
+	</li><li><p>Under the <span><strong class="guimenu">General</strong></span> tab in the SQL Server
+Properties window, open the Startup Parameters window and remove &#8220;&#8211;m&#8221;
+from the list of existing parameters.</p>
+	
+	</li><li><p>Restart the SQL server instance. (Right-click the SQL
+server instance and select <span><strong class="guibutton">Stop</strong></span>; right-click
+the SQL server instance and select <span><strong class="guibutton">Start</strong></span>.)</p>
+	
+	<p>If there have been no changes to the master database since the
+last dump, then proceed to <a href="restoring_microsoft_sql_server_7_master_databases.html#SQL_7_drop_invalid_databases_and_database_devices" title="Drop invalid databases and database devices">Drop invalid databases and database devices</a>
+            </p>
+	
+	</li><li><p>If login IDs or devices have been added to or dropped
+from the master database since the last backup, those changes must
+be reapplied. Restart the server and reapply the changes manually
+or from saved batch files.</p>
+	
+	</li><li><p>If databases have been created, expanded or shrunk since
+the last dump of master, those databases must be dropped and then
+restored.</p>
+	
+	</li><li><p>If you have made many changes and have no recent dump,
+it is possible that by reloading master in some cases you can regain
+data in user databases that has been lost. This technique requires
+the use of <span><strong class="command">DISK REINIT </strong></span>and <span><strong class="command">DISK REFIT</strong></span> and can involve manual modifications to the master database tables.</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>Use <span><strong class="command">DISK REINIT</strong></span> to recreate rows
+in sysdevices for all database devices that have been added after
+the most recent dump. <span><strong class="command">DISK REINIT</strong></span> updates sysdevices
+just as <span><strong class="command">DISK INIT</strong></span> does, but it does not format
+the physical disk file, so existing data is preserved.</p>
+	
+	</li><li><p>Use <span><strong class="command">DISK REFIT</strong></span> to recreate rows
+in sysusages and sysdatabases for all <span><strong class="command">CREATE </strong></span>and <span><strong class="command">ALTER DATABASE</strong></span> statements that were performed after the
+most recent dump.</p>
+	
+	</li><li><p>
+                  <span><strong class="command">DISK REFIT </strong></span>scans the physical file
+associated with each space that is allocated to databases. It also
+adds the corresponding sysdatabases entries. Some of the information
+is not reconstructed perfectly.</p><div class="informalexample"><p>For example, the original virtual device number is not assigned,
+because it is not known. Instead, virtual device numbers are assigned
+sequentially. The database owner is not extracted while scanning the
+physical files; ownership is set to the system administrator. It is
+also not possible to determine how many sysusages entries originally
+existed. <span><strong class="command">DISK REFIT</strong></span> inserts a separate entry for
+each different segment type.</p>
+	
+	</div><p>
+                </p>
+	
+	</li><li><p>When this is done, correct the entries made by <span><strong class="command">DISK REFIT</strong></span> to sysdatabases and sysusages (if desired) and
+also add to syslogins any login IDs that were not retained. Then shut
+down and restart SQL Server. </p>
+	
+	</li></ul></div><div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Caution"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Caution]" height="25" src="images/caution.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>CAUTION: </b>Capturing the latest changes made to a database by using <span><strong class="command">DISK REFIT</strong></span> and <span><strong class="command">DISK REINIT</strong></span> to recreate
+the master database is possible, but it is preferable to keep the
+master database current by dumping it after creating or altering databases.
+Using <span><strong class="command">DISK REFIT</strong></span> and <span><strong class="command">DISK REINIT</strong></span> is a complicated process that can result in data loss because many
+of the changes made to a database often must be reconstructed manually
+in the master database. If you feel this technique is necessary, contact
+your primary support provider before beginning the recovery process.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></li></ol></div><div class="procedure"><a name="SQL_7_drop_invalid_databases_and_database_devices"></a><p class="title"><b>Drop invalid databases and database devices</b></p><ul><li><p>Use the SQL Enterprise manager to drop any invalid database
+devices and databases from the newly restored master database.</p>
+	
+	</li></ul></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>If you are recovering from a disaster where you have lost a
+database device file, the master database you have just restored still
+contains a reference to it. Data Protector Express will not be able to restore any databases contained on the database
+device until the file is restored or the database device is dropped.
+If the database device is dropped, Data Protector Express will automatically recreate the device when
+a database contained on the device is restored.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><div class="procedure"><a name="restor_the_SQL_server_7_msdb_database"></a><p class="title"><b>Restore the msdb database</b></p><p>When restoring the msdb database, keep the following considerations
+in mind:</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>The <span class="database">msdb </span>database supports SQL
+Executive and provides a storage area for scheduling information.
+The schedules that you implement using SQL Enterprise Manager are
+maintained in the <span class="database">msdb </span>database. This includes
+such things as the tasks that you schedule from the Task Scheduling
+window, the automatic backups you schedule from the Database Backup/Restore
+window and all replication tasks, which are automatically created
+by the system if the server is configured as a replication distributor.</p>
+	
+	</li><li><p>During installation of a server, the setup program
+automatically creates two devices (of 2MB and 1MB) on the same disk
+drive as the master database and then places the <span class="database">msdb</span> database on the 2MB device (MSDBDATA) and its transaction log on
+the 1MB device (MSDBLOG). Scheduling information is then stored in
+this database.</p>
+	
+	</li><li><p>During a rebuild of the master database, the setup
+program drops and recreates the <span class="database">msdb </span>database,
+which results in a loss of all scheduling information.</p>
+	
+	</li></ul></div><ol type="1"></ol></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="restoring_microsoft_sql_server_2000_master_database.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="applications_microsoft_sql_server.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="applications_microsoft_sharepoint.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Restoring Microsoft SQL Server 2000 master databases&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Protecting Microsoft Windows SharePoint Services</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

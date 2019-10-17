@@ -1,0 +1,168 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Preparing For a Disaster</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="disaster_recovery.html" title="Disaster Recovery"><link rel="prev" href="disaster_recovery.html" title="Disaster Recovery"><link rel="next" href="recovering_from_a_disaster.html" title="Recovering From a Disaster"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="disaster_recovery.html">Disaster Recovery</a>&nbsp;&gt;&nbsp;Preparing For a Disaster</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="recovering_from_a_disaster.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="create_the_disaster_recovery_backup"></a><h1 class="sectiontitle">Preparing For a Disaster</h1></div></div></div><p>
+        <a class="indexterm" name="d0e6985"></a>To prepare for a disaster, perform
+the following steps:</p>
+	
+	<div class="orderedlist"><ol type="1"><li><p>Run a backup of your system, configured as described
+in <a href="create_the_disaster_recovery_backup.html#dr_config_backups">Configuring Backups
+to Support Disaster Recovery</a>, and save boot images to the
+catalog. </p>
+	
+	</li><li><p>Create bootable media. If not created automatically
+in step 1 (See <a href="disaster_recovery.html#dr_advantage_of_bootable_devices">The Advantage of Bootable Backup Devices</a>),
+you will need to create bootable media for the Backup Server. You
+should also create bootable media for every machine in your backup
+domain that may require disaster recovery. See <a href="create_the_disaster_recovery_backup.html#dr_create_bootable_media">Create
+bootable media</a> in this section.</p>
+	
+	</li><li><p>Test the bootable media to make sure you have created
+it properly. See <a href="create_the_disaster_recovery_backup.html#dr_test_media">Test the media</a> in this section.</p>
+	
+	</li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>You should create at least one extra set of bootable media as
+protection in the event of media failure during disaster recovery.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h3><a name="dr_config_backups"></a>Configuring Backups
+to Support Disaster Recovery</h3><div class="procedure"><ol type="1"><li><p>Insert the first disaster recovery media.</p>
+	
+	</li><li><p>Create a backup job and open its property page.</p>
+	
+	</li><li><p>Select the machine to backup. A full backup is recommended
+for Disaster Recovery.</p>
+	
+	</li><li><p>Select the backup device to which you will write the backed
+up data.</p>
+	
+	</li><li><p>To prevent an out of sequence disaster
+recovery backup from affecting your current backup rotations: </p>
+	
+	<ol type="a"><li><p>	On the Configuration page, you can set the Backup
+mode to Copy.</p>
+	
+	</li></ol></li><li><p>To create bootable media for the
+Backup Server on an attached bootable backup device, do steps 7&#8211;9.</p>
+	
+	<ol type="a"><li><p>On the Configuration page, set the Write mode to Overwrite
+all media.</p>
+	
+	</li><li><p>On the Configuration page, make sure Split File is unselected.</p>
+	
+	</li><li><p>On the Advanced &gt; Options page, select Create DR Bootable
+Media (selected by default).</p>
+	
+	</li></ol></li><li><p>To update boot images of selected
+machines in the catalog, so they can be burned to bootable media in
+a separate step:</p>
+	
+	<ol type="a"><li><p>On the Advanced &gt; Options page, select Update DR information
+on selected machine.</p>
+	
+	</li></ol></li><li><p>Save and Run the job; inserting additional media as required.</p>
+	
+	</li><li><p>Once the backup job is complete, check the log page. You
+will be able to verify that the backup was successful. The Summary
+section of this page will also tell you if any items have failed.
+It is very important to check log files on a regular basis. If files
+have not been backed up, they cannot be restored.</p>
+	
+	</li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>If you have a bootable backup device, Data Protector Express makes each media bootable for the machine attached to that device.
+For example, if the full backup uses three media, all three media
+are bootable.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h3><a name="dr_create_bootable_media"></a>Create
+bootable media</h3><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>Even if you automatically created bootable media when you ran
+the disaster recovery backup (using a bootable backup device), you
+should consider creating another bootable media to protect against
+media failure.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>Users can create bootable CD or DVD media from the Backup Administrator
+as follows:</p>
+	
+	<div class="procedure"><ol type="1"><li><p>Log in to the Administrator</p>
+	
+	</li><li><p>Double-click Create Bootable CD-DVD from the Tasks view.</p>
+	
+	</li><li><p>Select the machine for which you want to create a bootable
+CD/DVD. You can only select machines with bootable images in the catalog.
+The bootable CD/DVD is customized for the operating system and device
+drivers of the selected machine. </p>
+	
+	</li><li><p>Select a CD or writable DVD drive on which to create the
+bootable CD/DVD.</p>
+	
+	</li><li><p>Start Recording to create the bootable CD/DVD. This process
+takes time, and the Status Information area displays the status and
+a progress bar.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>If you cannot create the bootable media directly from Data Protector Express, or if you want to save the boot image
+to an ISO file, you can select Save the Disaster Recovery image to
+a file instead of burning it now. Then you can burn the file to media
+using a third party program.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+          </p>
+	
+	</li><li><p>As soon as you create the bootable media, test the disaster
+recovery media on a test computer. See Test the media. After a successful
+test, store the CD or DVD. You should create a bootable CD or DVD
+for each machine connected to the Data Protector Express management domain.</p>
+	
+	</li><li><p>After the test is successful, store the disaster recovery
+media. If you have backed up to a tape or removable cartridge, be
+sure to write protect the cartridge.</p><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>Consider making duplicate bootable media in case the primary
+bootable media is unavailable or damaged. Write the ISO images to
+files so new media can be created if needed.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+          </p>
+	
+	</li></ol></div><h3><a name="dr_test_media"></a>Test the media</h3><p>Test your disaster recovery media as soon as you create it,
+to insure it will work in the event of a disaster. Consider creating
+alternative bootable media in case your new hardware does not support
+your current bootable media. For example, a bootable CD or DVD may
+not work with your new hardware, so if you created an additional set
+of bootable media for another bootable device you have, you could
+boot from that. </p>
+	
+	<p>To test the disaster recovery media you have created, perform
+the following steps. You will not lose any data on your system. This
+procedure is completely safe.</p>
+	
+	<div class="procedure"><ol type="1"><li><p>Shut down your system normally.</p>
+	
+	</li><li><p>If you are using a bootable CD or DVD, boot your computer
+from the disaster recovery media:</p>
+	
+	<ol type="a"><li><p>Inserting the disaster recovery CD or DVD into your computer.</p>
+	
+	</li><li><p>Turning on your computer.</p>
+	
+	</li><li><p>Performing any special steps for booting your computer
+from CD or DVD. (Refer to your system documentation.)</p>
+	
+	</li></ol></li><li><p>If you are using a bootable tape, boot your computer from
+the disaster recovery media by</p>
+	
+	<ol type="a"><li><p>Removing all media from all tape drives and/or library
+magazine slots.</p>
+	
+	</li><li><p>Inserting the first bootable media:</p>
+	
+	<ol type="i"><li><p>If you are using a single tape drive, insert the first
+bootable media into the drive.</p>
+	
+	</li><li><p>If you are using a library, insert the first (or only)
+bootable media into slot 1 of the magazine. If the full backup used
+two or more media, insert the rest of the full backup media into the
+library magazine in their proper order.</p>
+	
+	</li></ol></li><li><p>Performing any special steps for booting your computer
+from the tape drive. (Refer to your system documentation.) Most bootable
+drives use a combination of power cycling and pressing the Eject button
+on the front panel. Many also require that you update the computer
+BIOS.</p>
+	
+	</li></ol></li><li><p>If your system boots and displays any disaster recovery
+scree, the bootable media successfully passed the test and will function
+properly during an actual Disaster Recovery. </p>
+	
+	</li><li><p>If you are using a bootable device and your system hangs
+during startup or your operating system does not boot from the device,
+your device is not compatible with the bootable media. You will need
+to make new bootable media for disaster recovery.</p>
+	
+	</li><li><p>Select Exit and press Enter on the Disaster Recovery character
+screen or click Cancel on the Disaster Recovery Wizard screen.</p>
+	
+	</li><li><p>Select Exit and press Enter on the Disaster Recovery character
+screen or click Cancel on the Disaster Recovery Wizard screen.</p>
+	
+	</li></ol></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="disaster_recovery.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="disaster_recovery.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="recovering_from_a_disaster.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Disaster Recovery&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Recovering From a Disaster</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

@@ -1,0 +1,153 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Advanced Settings</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="restore_jobs.html" title="Configuring Restore and Verify Jobs"><link rel="prev" href="restore_jobs_config.html" title="Configuration"><link rel="next" href="devices.html" title="Working With Devices"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="restore_jobs.html">Configuring Restore and Verify Jobs</a>&nbsp;&gt;&nbsp;Advanced Settings</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="devices.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="adv_restore_verify_options"></a><h1 class="sectiontitle">Advanced Settings</h1></div></div></div><a class="indexterm" name="d0e2480"></a><a class="indexterm" name="d0e2485"></a><p>
+        <span class="bold"><b>In this section</b></span>
+      </p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+            <a href="adv_restore_verify_options.html#adv_restore_options">Advanced Restore
+Options</a>
+          </p>
+	
+	</li><li><p>
+            <a href="adv_restore_verify_options.html#adv_verify_options">Advanced Verify
+Options</a>
+          </p>
+	
+	</li><li><p>
+            <a href="adv_restore_verify_options.html#adv_log_opts">Log Options</a>
+          </p>
+	
+	</li><li><p>
+            <a href="adv_restore_verify_options.html#adv_exec_opts">Execution Options</a>
+          </p>
+	
+	</li><li><p>
+            <a href="adv_restore_verify_options.html#adv_barcode_opts">Barcode Filter
+Options</a>
+          </p>
+	
+	</li></ul></div><h2><a name="adv_restore_options"></a>Advanced Restore
+Options</h2><a class="indexterm" name="d0e2523"></a><a class="indexterm" name="d0e2528"></a><p>These options apply to all restore jobs regardless of the operating
+system.</p>
+	
+	<p><b>Eject media after use  &nbsp;</b>
+          <a class="indexterm" name="d0e2540"></a> When this
+option is checked, Data Protector Express automatically
+ejects the media at the end of the job. This feature only works on
+devices that support software eject.</p>
+	
+	<p><b>Auto Retension  &nbsp;</b>
+          <a class="indexterm" name="d0e2549"></a> When
+this option is checked, Data Protector Express automatically
+re-tensions the media at the beginning of the job. This feature winds
+the tape cartridge end-to-end, applying equal tension to the entire
+media for maximum media life and data integrity. Your device must
+support auto re-tension to use this feature.</p>
+	
+	<p><b>Restore files that are in use  &nbsp;</b><a class="indexterm" name="d0e2556"></a>Select this option to restore the backup copy of the open file.
+(On Windows platforms, you can access the restored file after you
+restart the computer.) If you select this option, the restored file
+will replace your open file. As a result, your current changes may
+be lost.</p>
+	
+	<p>Deselect this option to skip over all selected files that are
+in use. This is useful if the open files are more current than the
+backed up files.</p>
+	
+	<p><b>Omit security information  &nbsp;</b>This will remove any security information associated with the
+files and folders which were part of the backup.  The files and folders
+will be restored as if they were freshly created, inheriting whatever
+permissions would belong to new files.</p>
+	
+	<p><b>Reparse points [Windows only]  &nbsp;</b>
+          <a class="indexterm" name="d0e2575"></a> Check
+this option to restore the reparse point data. When this option is
+deselected, Data Protector Express will restore
+the object as a file or folder rather than as a reparse point.</p>
+	
+	<p><b>Mount Points [Windows only]  &nbsp;</b>
+          <a class="indexterm" name="d0e2584"></a> When
+checked, Data Protector Express includes the mount
+point information in the restore. If this option is not checked, Data Protector Express restores the object as a directory.</p>
+	
+	<p><b>Volume restrictions [Windows only]  &nbsp;</b>When enabled, volume quota information will be restored.</p>
+	
+	<p><b>Finalize recovery of Microsoft SQL and Exchange Server databases
+[Windows only]  &nbsp;</b>Check this option to process database transactions when the
+last incremental restore is complete.</p>
+	
+	<p><b>Restore all registry keys / Restore hardware registry keys
+[Windows only]  &nbsp;</b>Controls whether/how Data Protector Express will restore the described objects. These setting only applies if
+you are restoring the Registry System State object.</p>
+	
+	<p><b>Restore DFS/FRS shares as primary replica (authoritative restore)
+[Windows only]  &nbsp;</b>Use this option to control how a DFS or FRS share is being restored.
+Only check it if you want an authoritative restore. See the Microsoft
+documentation for more information on authoritative restores.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>Data filters, such as security information and directory attributes,
+cannot restore data that was not originally backed up to the media.
+For example, if you did not select <span><strong class="guimenuitem">Volume restrictions</strong></span> for the backup job, Data Protector Express cannot
+restore this information because it was never stored on the media.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h2><a name="adv_verify_options"></a>Advanced Verify
+Options</h2><p>
+        <a class="indexterm" name="d0e2618"></a>   <a class="indexterm" name="d0e2624"></a>The following advanced options
+are available for Verify jobs</p>
+	
+	<p><b>Eject media after use  &nbsp;</b>
+          <a class="indexterm" name="d0e2635"></a> When this
+option is checked, Data Protector Express automatically
+ejects the media at the end of the job. This feature only works on
+devices that support software eject.</p>
+	
+	<p><b>Auto Retension  &nbsp;</b>
+          <a class="indexterm" name="d0e2644"></a> When
+this option is checked, Data Protector Express automatically
+re-tensions the media at the beginning of the job. This feature winds
+the tape cartridge end-to-end, applying equal tension to the entire
+media for maximum media life and data integrity. Your device must
+support auto re-tension to use this feature.</p>
+	
+	<p><b>Native data streams format  &nbsp;</b>
+          <a class="indexterm" name="d0e2653"></a>When this option is selected, Data Protector Express will compare the data in native format. When unselected, only the
+data portion of the file will be verified. This must match the mode
+used during backup.</p>
+	
+	<p><b>Enable snapshots [Windows only]  &nbsp;</b>
+          <a class="indexterm" name="d0e2662"></a>   <a class="indexterm" name="d0e2668"></a>By default, the verify job creates
+a temporary  snapshot before verifying the selected file. Deselect
+this checkbox to disable snapshots. </p>
+	
+	<p><b>Reparse points [Windows only]  &nbsp;</b>
+          <a class="indexterm" name="d0e2679"></a> Check
+this option to verify the reparse point data. When this option is
+deselected, Data Protector Express will verify the
+object as a file or folder rather than as a reparse point.</p>
+	
+	<p><b>Mount Points [Windows only]  &nbsp;</b>
+          <a class="indexterm" name="d0e2688"></a> When
+checked, Data Protector Express includes the mount
+point information in the restore. If this option is not checked, Data Protector Express will verify the object as
+a directory.</p>
+	
+	<p><b>Volume restrictions [Windows only]  &nbsp;</b>When enabled, volume quota information will be verified.</p>
+	
+	<h2><a name="adv_log_opts"></a>Log Options</h2><p>These settings control how the results of the job
+are reported to the user. See <a href="adv_job_opts.html#adv_jobs_log_opts">Job Log options</a> for
+details.</p>
+	
+	<h2><a name="adv_exec_opts"></a>Execution Options</h2><p>These settings allow the user to execute external
+programs before and after backing up objects on a client. For example,
+this feature can be used to shut down a custom database before backup
+and restart it upon completion. to ensure the files are quiescent
+during the backup. . See <a href="adv_job_opts.html#adv_jobs_exec_opts">Job Pre-Post
+Execution Commands</a> for
+details.</p>
+	
+	<h2><a name="adv_barcode_opts"></a>Barcode Filter
+Options</h2><p>These settings control which media can be used by
+the job by specifying the acceptable barcodes. This feature is designed
+for use with tape libraries that support barcodes. See <a href="adv_job_opts.html#adv_jobs_barcode_opts">Barcode
+Filters for Jobs</a> for details.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="restore_jobs_config.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="restore_jobs.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="devices.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Configuration&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Working With Devices</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

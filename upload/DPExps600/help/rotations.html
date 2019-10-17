@@ -1,0 +1,70 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Scheduling, Rotations, and Media Management</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="book.html" title="User&#8217;s Guide"><link rel="prev" href="sharing_storage_devices_on_a_SAN.html" title="Sharing storage devices on a SAN"><link rel="next" href="schedule_considerations.html" title="Backup Schedule Considerations"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="schedule_considerations.html">Next</a></p></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td bgcolor="#ffffff"><h1 class="firsttitle"><a name="rotations"></a>Scheduling, Rotations, and Media Management</h1></td></tr></table></div></div></div><p>
+      <span class="bold"><b>In this chapter</b></span>
+    </p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+          <a href="schedule_considerations.html" title="Backup Schedule Considerations">Backup Schedule Considerations</a>
+        </p>
+	
+	</li><li><p>
+          <a href="scheduling_concepts.html" title="Scheduling Concepts">Scheduling Concepts</a>
+        </p>
+	
+	</li><li><p>
+          <a href="media_rotations.html" title="Media Rotation Types">Media Rotation Types</a>
+        </p>
+	
+	</li><li><p>
+          <a href="media_rotation_and_scheduled_backup_jobs.html" title="Running Jobs with Rotations">Running Jobs with Rotations</a>
+        </p>
+	
+	</li></ul></div><p>
+      <a class="indexterm" name="d0e3450"></a>   <a class="indexterm" name="d0e3456"></a>Ensuring that you have all the files needed to restore your system
+is a complex task. Typically, it is not practical &#8212; from either
+a time or a media perspective &#8212; to create a full backup every
+day. The solution involves running different types of jobs (full,
+incremental, differential or copy) on predefined schedule intervals
+using predefined numbers of media sets that get reused over time.
+The process of reusing media is referred to as <span class="italic">media rotation</span>. The media rotation type determines how
+and when each media set is used, how long it is retained once it contains
+data, and the granularity of your backup history.</p>
+	
+	<p>A rotation defines the times it will run (see <a href="scheduling_concepts.html#rotation_intervals">Intervals</a>) and how many <span class="italic">sets</span> it will use (see ???). When
+a job is configured to use a rotation in its schedule, the rotation
+set folders are created immediately. This allows the user to see what
+media sets the job will be requesting. If the rotation type is changed,
+the set folders are updated to reflect the new rotation type. When
+the job runs, it will look for media with specific names in specific
+folders. If it does not find the precise media it is looking for,
+it will format any available media according to the auto format rules
+or will prompt you to insert media into your device before it continues.
+When the number of rotation runs has been reached, the next backup
+run will select the oldest set in the interval to overwrite. </p>
+	
+	<p>
+      <a class="indexterm" name="d0e3474"></a>Data Protector Express provides several built in media rotation types. In many cases, the
+name of the rotation type indicates the number media sets used in
+the rotation. For example, the Simple 4 rotation type will use four
+media sets (at least four individual tapes) to complete the rotation.
+The media set names can be based either on the scheduled interval
+or on the type of fixed rotation.</p>
+	
+	<div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>It is strongly recommended that you let Data Protector Express format your media. In most cases there is never a need to pre-format
+media using the Format command and doing so will, if used improperly,
+make your media unavailable to your jobs.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+      <a class="indexterm" name="d0e3485"></a>The <span><strong class="guilabel">Jobs and Media</strong></span> view displays jobs, media
+and folders in the Data Protector Express catalog.
+When you first open the <span><strong class="guilabel">Jobs and Media</strong></span> view you
+will see a listing of your <span><strong class="guilabel">Home</strong></span> folder. Your <span><strong class="guilabel">Home</strong></span> folder is where Data Protector Express stores the jobs you create and the media created by those jobs. </p>
+	
+	<div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>When viewing the Jobs and Media view, clicking the <span><strong class="guilabel">Folders</strong></span> command will display a tree view of the <span><strong class="guilabel">Home</strong></span> folder hierarch that can be helpful in understanding
+the organization of media within jobs.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Caution"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Caution]" height="25" src="images/caution.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>CAUTION: </b>
+        <a class="indexterm" name="d0e3513"></a>
+        <a class="indexterm" name="d0e3519"></a>When you delete media, Data Protector Express deletes
+information about that media from its catalog. This includes any versions
+of files stored on that tape, which are also deleted from the catalog.
+Deleting media does not physically erase the media. The media remains
+unchanged; only the catalog is changed. You can still import that
+tape to another catalog or, if necessary, back into the original catalog.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="sharing_storage_devices_on_a_SAN.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top">&nbsp;</td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="schedule_considerations.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Sharing storage devices on a SAN&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Backup Schedule Considerations</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

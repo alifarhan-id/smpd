@@ -1,0 +1,89 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Configuring the Microsoft SQL Server</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="applications_microsoft_sql_server.html" title="Working with Microsoft SQL Server"><link rel="prev" href="sql_server_concepts.html" title="Microsoft SQL server concepts"><link rel="next" href="notes_for_backup_jobs_with_microsoft_sql_server.html" title="Backuping up Microsoft SQL Server"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="applications_microsoft_sql_server.html">Working with Microsoft SQL Server</a>&nbsp;&gt;&nbsp;Configuring the Microsoft SQL Server</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="notes_for_backup_jobs_with_microsoft_sql_server.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="configuring_the_microsoft_sql_server"></a><h1 class="sectiontitle">Configuring the Microsoft SQL Server</h1></div></div></div><p>
+          <a class="indexterm" name="d0e5165"></a>You can configure any Data Protector Express feature by selecting the object from
+the <span class="bold"><b>Catalog</b></span>
+          <span class="bold"><b> </b></span>view and updating information on its property pages.</p>
+	
+	<div class="procedure"><ol type="1"><li><p>Select the <span><strong class="guimenu">Administration</strong></span> desk bar
+and open the <span><strong class="guisubmenu">Catalog</strong></span> view. </p>
+	
+	</li><li><p>Select <span><strong class="guimenuitem">Network</strong></span>, then select
+the Microsoft SQL Server on your system.</p>
+	
+	</li><li><p>Expand the object until you see a list of database instances.</p>
+	
+	<div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>Switch to the <span><strong class="guisubmenu">Folders</strong></span> view to display
+a hierarchical tree of the Data Protector Express management domain.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></li><li><p>Right-click the database instance and display its property
+pages.</p>
+	
+	</li><li><p>Select the <span><strong class="guimenuitem">Configuration</strong></span> command
+to display the <span><strong class="guisubmenu">Configuration</strong></span> page.</p>
+	
+	</li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>We recommend that you use the default values on the <span><strong class="guisubmenu">Configuration</strong></span> page.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+          <span class="bold"><b>
+            <span><strong class="guimenuitem">User name</strong></span>
+          </b></span> Data Protector Express sends this name to Microsoft
+SQL Server whenever the SQL administrator user name is required. Type
+the Microsoft SQL administrator name in this field. The default is <span class="bold"><b>sa</b></span>.</p>
+	
+	<p>
+          <span class="bold"><b>
+            <span><strong class="guimenuitem">Password</strong></span> </b></span> Data Protector Express sends this SQL administrator
+password to Microsoft SQL Server with the SQL administrator&#8217;s
+user name whenever required. There is no default value.</p>
+	
+	<p>
+          <span class="bold"><b>
+            <span><strong class="guimenu">Force Modes</strong></span> </b></span> <a class="indexterm" name="d0e5247"></a>   <a class="indexterm" name="d0e5253"></a>As explained
+in the next section, the Backup mode setting of a backup job affects
+Microsoft SQL Server database instances differently than file types.
+The Force modes settings control how Data Protector Express backs up the database instances.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>The settings here are only applicable to Microsoft SQL Server
+database instances; all other file types are backed up in the job&#8217;s
+default mode.<div class="informalexample"><p>For example, if the <span class="bold"><b>Backup mode</b></span> of a job is set to <span><strong class="guimenuitem">Incremental</strong></span>
+                <span class="bold"><b> </b></span>and the <span><strong class="guimenuitem">Force modes</strong></span> setting for incremental jobs is set to <span class="bold"><b>
+                  <span><strong class="guimenuitem">Full</strong></span>
+                </b></span>, Data Protector Express will back up the SQL Server database instance in <span class="bold"><b>
+                  <span><strong class="guimenuitem">Full</strong></span>
+                </b></span> mode, but all other file
+types in <span><strong class="guimenuitem">Incremental</strong></span> mode</p>
+	
+	</div>.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>You can use this feature to ensure that the databases in the
+instance are always backed up in full mode, but that other files are
+only backed up when changed. This guarantees the greatest security
+for the most crucial files that is, the SQL Server database instances,
+while not making jobs unnecessarily large by not backing up the entire
+network that is, by backing up only the changed files.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+          <span><strong class="guimenuitem">Full</strong></span>
+          <span class="bold"><b> </b></span>When the <span class="bold"><b>Backup mode</b></span> of a job is
+set to <span><strong class="guimenuitem">Full</strong></span>, Data Protector Express checks this setting to see how the job should be run with SQL database
+instances. <span><strong class="guimenuitem">Full</strong></span> is the only possible setting,
+so the database instances will be backed up in this mode. In this
+case, both the databases and the transaction logs are backed up.</p>
+	
+	<p>
+          <span><strong class="guimenuitem">Differential</strong></span>
+          <span class="bold"><b> </b></span> When the <span class="bold"><b>Backup mode</b></span> of a job is set to <span><strong class="guimenuitem">Differential</strong></span>, Data Protector Express checks this setting to see how the job
+should be run with SQL database instances. By default, Data Protector Express runs the jobs as an incremental job and
+so only the transaction logs are backed up.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>There is no distinct <span><strong class="guimenuitem">Differential</strong></span> job mode for SQL Sever database instances.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+        </p>
+	
+	<p>If you want jobs with a <span><strong class="guimenuitem">Differential</strong></span> backup mode to back up both the database and the transaction logs,
+change this setting to <span><strong class="guimenuitem">Full</strong></span>. In this case, Data Protector Express will treat the SQL Server database instances
+as if it were running a job in <span><strong class="guimenuitem">Full</strong></span> backup
+mode.</p>
+	
+	<p>
+          <span><strong class="guimenuitem">Incremental</strong></span> When the <span class="bold"><b>Backup mode</b></span> of a job is set to <span><strong class="guimenuitem">Incremental</strong></span> , Data Protector Express checks this setting to see how the job should be run with SQL databases.
+By default, Data Protector Express runs the jobs
+as an incremental job and so only the transaction logs are backed
+up.</p>
+	
+	<p>If you want jobs with an <span><strong class="guimenuitem">Incremental</strong></span>  backup mode to back up both the database and the transaction logs,
+change this setting to <span><strong class="guimenuitem">Full</strong></span>. In this case, Data Protector Express will treat the SQL Server database files
+as if it were running a job in <span><strong class="guimenuitem">Full</strong></span> backup
+mode.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="sql_server_concepts.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="applications_microsoft_sql_server.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="notes_for_backup_jobs_with_microsoft_sql_server.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Microsoft SQL server concepts&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Backuping up Microsoft SQL Server</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

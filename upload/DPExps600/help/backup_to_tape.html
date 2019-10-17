@@ -1,0 +1,106 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>A Simple, Immediate Backup</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="overview.html" title="Overview"><link rel="prev" href="overview_architecture.html" title="Concepts"><link rel="next" href="restore_from_tape.html" title="Restore to a Different Location"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="overview.html">Overview</a>&nbsp;&gt;&nbsp;A Simple, Immediate Backup</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="restore_from_tape.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="backup_to_tape"></a><h1 class="sectiontitle">A Simple, Immediate Backup</h1></div></div></div><p>We will do a simple backup of selected files to a local backup
+device. This will illustrate many of the backup features available
+in Data Protector Express. For many organizations,
+a simple backup such as this may be all that is needed. Organizations
+with more complex needs can use this simple backup as a starting point
+for exploring the other capabilities of Data Protector Express. </p>
+	
+	<div class="procedure"><ol type="1"><li><p>Make sure the device is powered up and insert a blank
+piece of media. You do not need to format the media. Data Protector Express will do that, if necessary, when it runs
+the job.</p>
+	
+	</li><li><p>Start the Administrator. The initial view will show a
+list of tasks to choose from. Double-click the <span class="bold"><b>Backup</b></span> icon to start creating a backup job.</p>
+	
+	</li><li><p>Enter a job name, such as &#8220;My First Backup&#8221;
+and click <span><strong class="guibutton">OK</strong></span>. The job name is simply a friendly
+name used to identify each job.</p>
+	
+	</li><li><p>Now you are ready to select folders and files for backup.
+Navigate down the network, machine and file system to locate the files
+that you wish to back up. Check the box to select the files/folders
+to be backed up. By checking the box next to a folder we are selecting
+all its subfolders and the files in them.</p>
+	
+	<div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>The top left section of the property page is called the Task
+bar. It shows the different configuration tasks available to fully
+configure a job. Default values are supplied for many of the configuration
+values so you don't have to visit all of them. Your current position
+is highlighted by a bold label.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></li><li><p>Now you need to select your device for backup. Click on
+the <span><strong class="guimenu">Devices</strong></span> link in the Task bar. </p>
+	
+	<p>You can click on the <span><strong class="keycap">+</strong></span> to the left of a device type
+(e.g., <span><strong class="guimenu">Tape Devices</strong></span>) to display all available devices
+of that type. If not already selected, select the device you want
+to use for this backup by clicking the associated checkbox. The Device
+View allows you to locate and select devices by type, regardless of
+where they are in the network. The Network view allows you to locate
+select devices on specific machines. Select a class of decide, like
+Tape Devices, will configure the job to use all tape devices available
+when the job runs even in the drive was not available when the job
+was created.</p>
+	
+	</li><li><p>Click on the <span><strong class="guimenu">Encryption</strong></span> link in the
+Task bar if you want to change the default encryption or compression
+settings. By default, encryption is off and compression is on. For
+more information, see <a href="encryption_and_compression.html" title="Encryption and Compression"><i>Encryption and Compression</i></a>.</p>
+	
+	<p>
+            </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>This option should be used with care. It requires an encryption
+passphrase. If you lose the passphrase, you will not be able to recover
+your data.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+          </p>
+	
+	</li><li><p>Click on the <span><strong class="guimenu">Configuration</strong></span> link to
+see the job settings, the media that the job will use and how the
+media will be formatted. For this example, accept the default settings.
+For more information on backup job options, see <a href="backup_configuration.html" title="Configuration">Configuration</a>.</p>
+	
+	</li><li><p>You may ignore the <span><strong class="guisubmenu">Advanced </strong></span> options
+for this example.</p>
+	
+	</li><li><p>Click <span><strong class="guibutton">OK</strong></span> to complete the backup
+job configuration. Click <span><strong class="guimenuitem">Yes</strong></span> at the prompt
+to see the new job (command) in your <code class="filename">Home</code> folder.</p>
+	
+	</li><li><p>Select the new job object and click the <span><strong class="guibutton">Run</strong></span> button on the Command bar to start the job. Hold the cursor over
+the Data Protector Express icon (the
+Quick Access program) in the Windows System tray, normally in the
+bottom right corner of your screen. You can see that the job is running.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>During execution of the job you may notice a flashing red button
+in the lower right portion of the screen. This indicates an <span class="italic"></span> that requires your
+intervention. Click the button to open the alert details and resolve
+the issue.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+            </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>The Quick Access program is installed and available on all clients
+but it only runs automatically on the Backup Server.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+          </p>
+	
+	</li><li><p>The status of the job is visible in the lower left hand
+pane, the <span><strong class="guilabel">Info bar</strong></span>, of the Administrator. Alternately,
+click on the <span><strong class="guilabel">Status and Logs </strong></span>link in the top
+left hand area &#8212; the <span><strong class="guilabel">Navigation bar</strong></span>. For
+more detailed information click on <span><strong class="guimenuitem">Status</strong></span> in the <span><strong class="guilabel">Command bar</strong></span>. The job's property page
+will open and show the status of the running job.</p>
+	
+	</li><li><p>It is a good practice to check the logs after a job runs
+to ensure that there were no problems. Click <span><strong class="guimenuitem">Status and
+Logs</strong></span> in the Navigation bar. Locate your job in the list,
+click on the <span><strong class="guibutton">+</strong></span> sign to expand the job and select
+the most recent run. The property pane will show the firs page of
+the job log. To see the entire log, click the <span><strong class="guibutton">View Log</strong></span> button in the Command bar.</p>
+	
+	</li><li><p>Select the log entry for the backup job and double-click
+to open it. Scroll through the log to check that everything is OK.
+If the <span><strong class="guibutton">Next</strong></span> button is bold, there are additional
+pages to check. Click <span><strong class="guibutton">Close</strong></span> when you have finished
+reading the log.</p>
+	
+	</li><li><p>You have now created and run your first tape backup job.</p>
+	
+	</li></ol></div><p>Once you have created your backup (or any) job, it can be quickly
+and easily located again in your <code class="filename">Home</code> folder. </p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>With the settings in this tutorial, this job will overwrite
+the media when you run it again. If you do not wish this to happen,
+you need to select a <span><strong class="guimenuitem">Write Mode</strong></span> of <span><strong class="guimenuitem">Append to all media</strong></span> in the <span><strong class="guimenu">Modes</strong></span> section of the <span><strong class="guilabel">Configuration</strong></span> page.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="overview_architecture.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="overview.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="restore_from_tape.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Concepts&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Restore to a Different Location</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

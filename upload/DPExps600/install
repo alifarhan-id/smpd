@@ -1,0 +1,67 @@
+#!/bin/sh -
+
+# Display help screen
+printUsage()
+	{
+	echo "Usage: $0 [option]"
+	echo "   -c   start character-based installer"
+	echo "   -g   start graphical installer"
+	echo "   -h   display this help screen"
+	}
+
+# Determine platform, processor, and architecture
+determineProc()
+	{
+	# Determine platform
+	case `uname -s` in
+		Linux)
+			PLATFORM=lin
+			;;
+
+		SunOS)
+			PLATFORM=sol
+			echo Detected an unsupported operating system.
+			;;
+		*)
+			echo Detected an unsupported operating system.
+			exit 1
+			;;
+	esac
+
+	# Determine processor
+	PROC=`uname -p`
+	if [ $PROC = "unknown" ]; then
+		PROC=`uname -m`
+	fi
+
+	# Determine architecture
+	case $PROC in
+		x86_64)
+			ARCH=x86_64
+			;;
+		*)
+			ARCH=x86
+			;;
+	esac
+	}
+
+# Determine executable name for the gil loader
+determineExecName()
+	{
+	FILENAME=`find "${0%/install}/lin/$ARCH" -name "*gil" -type f -print`
+	}
+
+# Check for help
+if [ "$1" = "-h" ] ; then
+	printUsage
+	exit 0
+fi
+
+# Start installer
+determineProc
+determineExecName
+echo "Executing $FILENAME" $@
+chcon -t texrel_shlib_t lin/$ARCH/lib??linsup.so >/dev/null 2>&1
+exec "$FILENAME" $@
+
+exit 0

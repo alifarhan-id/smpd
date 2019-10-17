@@ -1,0 +1,71 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Restoring Microsoft Exchange Databases</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="applications_microsoft_exchange.html" title="Microsoft Exchange Server"><link rel="prev" href="about_working_with_microsoft_exchange_server.html" title="Backing up Microsoft Exchange Server"><link rel="next" href="disaster_recovery_with_microsoft_exchange_server.html" title="Disaster Recovery with Microsoft Exchange Server"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="applications_microsoft_exchange.html">Microsoft Exchange Server</a>&nbsp;&gt;&nbsp;Restoring Microsoft Exchange Databases</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="disaster_recovery_with_microsoft_exchange_server.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="restoring_microsoft_exchange_databases"></a><h1 class="sectiontitle">Restoring Microsoft Exchange Databases</h1></div></div></div><p>
+          <a class="indexterm" name="d0e4543"></a>   <a class="indexterm" name="d0e4549"></a>To restore the Microsoft Exchange Server databases, you
+must restore the database files and all of the log files created since
+the last full backup job. To do so, you either (1) restore the databases
+from the last full backup <span class="italic">if the last backup (the previous
+day&#8217;s) was a full backup;</span> (2) restore the databases
+from the most recent full backup and the last differential backup <span class="italic">if the last backup was a differential backup;</span> or (3) restore
+the databases from the last full backup and all of the <span class="italic">incremental </span>backups made between that day and the present day.</p>
+	
+	<p>To restore a Microsoft Exchange server, see <a href="disaster_recovery_with_microsoft_exchange_server.html" title="Disaster Recovery with Microsoft Exchange Server">Disaster Recovery with Microsoft Exchange Server</a>. </p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>When you restore the databases, you must create and run a separate
+job for each set of transaction logs you need to restore. You cannot
+skip any logs and the logs must be restored in sequential order. Thus,
+when recreating the databases, you must first restore the actual databases
+(created by a backup job running in <span class="italic">full </span>backup
+mode). Next, you must restore the transaction logs in the order created <span class="italic">and</span> in separate jobs. No log can be skipped when restoring.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><div class="informalexample"><p>For example, if you did a <span class="italic">full</span> backup on
+Monday and <span class="italic">incremental </span>backups each day Tuesday
+through Friday, in order to restore the databases to their state at
+the close of business Friday, you must run five separate jobs: one
+restoring the actual databases from Monday&#8217;s full backup job
+and then four additional <span class="italic">separate </span>jobs restoring
+each transaction log in sequential order, beginning Tuesday and continuing
+with each log sequentially until Friday.</p>
+	
+	</div><div class="procedure"><a name="d0e4589"></a><p class="title"><b>To restore the Microsoft Exchange Server Databases</b></p><ol type="1"><li><p>Find the date of the last full backup of the databases.</p>
+	
+	</li><li><p>Create a restore job.</p>
+	
+	</li><li><p>On the <span><strong class="guimenu">Selection</strong></span> property page, locate
+and select the Microsoft Exchange Server storage group. </p>
+	
+	</li><li><p>In the <span><strong class="guimenu">Versions of</strong></span> window, click the <span><strong class="guibutton">Details</strong></span> button. </p>
+	
+	</li><li><p>Sequentially move through the versions in the Available
+versions list by date until you find the most recent full backup of
+the storage group. This version will be selected for restoring when
+it is selected in the <span><strong class="guisubmenu">Available versions</strong></span> list.</p>
+	
+	</li><li><p>Click <span><strong class="guibutton">OK</strong></span> to restore that version.</p>
+	
+	</li><li><p>If the most recent backup was a full backup, skip the
+rest of these steps and restart the Microsoft Exchange Server storage
+group. As the service is restarted, it automatically restores all
+of the transactions from the transaction logs.</p>
+	
+	</li><li><p>If the most recent backup job was a differential job <span class="italic">and you have performed no incremental jobs between the date of the
+last full backup and the most recent backup,</span> then create
+and run a new restore job, selecting the latest version of the storage
+group. Then restart the Microsoft Exchange Server storage group. As
+the service is restarted, it automatically restores all of the transaction
+from the transaction logs.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>If you have performed any incremental jobs since the date of
+the last full backup, continue with the next step.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></li><li><p>If you have run an incremental backup job after the most
+recent full backup job, you must create and run a separate restore
+job for each backup performed after the most recent full backup. Sequentially
+select versions of the storage group from the <span><strong class="guisubmenu">Available
+versions</strong></span> field in the <span><strong class="guimenu">Versions of</strong></span> window
+of the storage group. Run and complete each restore job before creating
+and running a new restore job.</p>
+	
+	</li><li><p>Continue to create and run restore jobs until you have
+restored the latest version of the storage group. Then restart the
+Microsoft Exchange Server storage group. As the service is restarted,
+it automatically restores all of the transaction from the transaction
+logs.</p>
+	
+	</li></ol></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="about_working_with_microsoft_exchange_server.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="applications_microsoft_exchange.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="disaster_recovery_with_microsoft_exchange_server.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Backing up Microsoft Exchange Server&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Disaster Recovery with Microsoft Exchange Server</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

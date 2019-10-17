@@ -1,0 +1,1 @@
+select * from sikp. f_update_t_target_realisasi_sementara();

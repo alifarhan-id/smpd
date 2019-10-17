@@ -1,0 +1,117 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Concepts</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="overview.html" title="Overview"><link rel="prev" href="overview.html" title="Overview"><link rel="next" href="backup_to_tape.html" title="A Simple, Immediate Backup"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="overview.html">Overview</a>&nbsp;&gt;&nbsp;Concepts</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="backup_to_tape.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="overview_architecture"></a><h1 class="sectiontitle">Concepts</h1></div></div></div><p>Data Protector Express is designed to operate within your existing network to protect your
+vital data. Each <span class="italic">machine</span> that will
+be protected must have Data Protector Express installed. One machine acts as the Backup Server which
+houses the <span class="italic">catalog</span> and establishes
+a Backup	 Domain. Other machines become <span class="italic">clients</span> of the Backup	 Domain by identifying themselves as clients of
+the Backup Server during installation. </p>
+	
+	<p>Data Protector Express can back up data from
+clients over a network to a backup device attached to a remote machine. A client with an attached device acts as a <span class="italic">Media Server</span>. </p>
+	
+	<p>When a machine is being backed up or restored it is operating
+the client role. When it is providing access to a backup device it
+is operating as a Media Server. And when a machine is hosting the
+catalog it is operating as the Backup Server. A
+single machine can operate in one or more roles at the same time.</p>
+	
+	<p>Data on client machines is read and written with <span class="italic">agents</span> such as the File System, Windows System
+State, Microsoft SQL, and Microsoft Exchange agents. The configuration
+of agents is done on a client by client basis.</p>
+	
+	<p>A typical installation of Data Protector Express may look like Figure 1 below.</p>
+	
+	<div class="figure"><a name="d0e354"></a><img src="./images/config_standard.gif"><p class="title"><b>Figure: Basic Architecture</b></p></div><a class="indexterm" name="d0e360"></a><h2><a name="d0e363"></a>Terminology</h2><p>The following terminology is used throughout this document ...</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+            <span class="italic">Clients</span>&#8212; A client is any
+computer (or <span class="italic">Machine</span>) in the Backup	 Domain other than
+the Backup Server. This includes file servers, application servers, and user PCs (desktops
+and laptops). All client computers must have Data Protector Express installed. For licensing purposes, clients are classified as being <span class="italic">server</span> or <span class="italic">workstation</span> class machines. All clients are considered to be server class clients
+unless they are running Windows XP, Vista, or Windows 7.</p>
+	
+	</li><li><p>
+            <span class="italic">Backup	 Domain</span>&#8212; A Backup	 Domain is a collection
+of computers and backup devices that is managed together as a group.
+A Backup	 Domain can encompass an entire company or each department could be a separate
+domain, even though they are all on the same network. All resources
+in a Backup	 Domain can be accessed by all members of the Backup	 Domain and centrally
+managed from a single Data Protector Express interface.
+Each file server, application server, user PC, and attached peripherals
+such as backup devices can be the member of only one Backup	 Domain. Each Backup	 Domain has one
+and only one Backup Server.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>A Backup	 Domain is completely independent of any Windows Active Directory domain.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>The Data Protector Express administrator can
+administer more than one Backup	 Domain from a single computer. However, the Data Protector Express interface cannot manage more than one Backup	 Domain at the same
+time. The administrator must log off of one Backup	 Domain and log
+into another.</p>
+	
+	</li><li><p>
+            <span class="italic">Backup Server</span>&#8212; Each Backup	 Domain has one and only one Backup Server.  The Backup Server is
+responsible for coordinating the backup activities of all other machines
+in the Backup	 Domain. All license information is also contained on the Backup Server.</p>
+	
+	</li><li><p>
+            <span class="italic">Catalog</span>&#8212;
+A catalog is a special-purpose database that contains all the information
+about a Backup	 Domain. There is one and only one catalog for each Backup	 Domain. The catalog
+must reside on the Backup Server machine.</p>
+	
+	</li><li><p>
+            <span class="italic">Job</span>&#8212; A job
+is an object stored in the catalog that represents the settings for
+a task the user has configured. Jobs come in one of four types: backup,
+restore, verify, and copy media.</p>
+	
+	</li><li><p>
+            <span class="italic">Backup devices</span>&#8212;
+A backup device is any device to which files can be backed up. This
+includes tape drives, tape libraries, hard disks (as virtual tape
+libraries), and Network Attached Storage (NAS) appliances. Backup
+devices are attached to media servers. Each Backup	 Domain must have
+at least one backup device, such as a tape device, tape library, virtual
+library, or CD device. This backup device can belong to only one Backup	 Domain; it cannot
+be shared among multiple domains. However, a Backup	 Domain could have
+multiple backup devices.</p>
+	
+	</li><li><p>
+            <span class="italic">Media Server</span>&#8212;
+A media server is any machine in the Backup	 Domain to which
+a backup device is attached. Any machine in the Backup	 Domain can act
+as a media server. There can be multiple media servers in a Backup	 Domain. The media
+server allows its attached backup devices to be shared by all the
+machines in the same Backup	 Domain</p>
+	
+	</li><li><p>
+            <span class="italic">Media</span>&#8212; Backed
+up files are written to media.  Media can be a physical tape or a
+virtual &#8220;tape&#8221; in a virtual tape library on a disk drive.
+Media cannot be used in another Backup	 Domain without
+importing the media into the other Backup	 Domain. </p>
+	
+	</li><li><p>
+            <span class="italic">Media Rotation</span> &#8212;
+Rotations are a means of efficiently using you available media to
+maintain data history. When using a rotation your backups alternate
+among a set of multiple media, reusing older media when necessary.
+The type of media rotation you select is based on how often you want
+to back up your data, how long you want to retain the data, and the
+number of media you want to use.</p>
+	
+	</li><li><p>
+            <span class="italic">Disaster Recovery</span> (DR) &#8212; Disaster Recovery is the process of restoring a machine
+that has suffered a catastrophic failure such as hardware failure
+or critical system data loss. The recovery process entails reformatting
+the affected system's hard drive and restoring the operating system,
+system settings, applications, and data from a backup. This feature
+replaces the traditional tedious task of finding installation disks,
+installing operating systems and applications, patching them and restoring
+data with a simple restore process directly from backups.</p>
+	
+	</li><li><p>
+            <span class="italic">Full System Recovery</span> &#8212; Full system recovery is the process of recovering all of
+the data on a machine. It differs from DR in that a full system recovery
+does not reformat the disks prior to restoring the data.</p>
+	
+	</li></ul></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="overview.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="overview.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="backup_to_tape.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Overview&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;A Simple, Immediate Backup</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

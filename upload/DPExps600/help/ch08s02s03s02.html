@@ -1,0 +1,26 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Using Data Protector Express with SQL Server&#8217;s
+Backup Routine</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="notes_for_backup_jobs_with_microsoft_sql_server.html" title="Backuping up Microsoft SQL Server"><link rel="prev" href="ch08s02s03s01.html" title="Microsoft SQL Server Databases and the backup mode"><link rel="next" href="notes_for_restore_jobs_with_microsoft_sql_server.html" title="Restoring Microsoft SQL Server"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="notes_for_backup_jobs_with_microsoft_sql_server.html">Backuping up Microsoft SQL Server</a>&nbsp;&gt;&nbsp;Using Data Protector Express with SQL Server&#8217;s
+Backup Routine</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="notes_for_restore_jobs_with_microsoft_sql_server.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="d0e5482"></a><h1 class="sectiontitle">Using Data Protector Express with SQL Server&#8217;s
+Backup Routine</h1></div></div></div><p>
+            <a class="indexterm" name="d0e5487"></a>Microsoft SQL Server has default utilities
+and commands for backing up data. When you use Data Protector Express to back up SQL Server databases, you can still use these default
+SQL Server utilities and commands.</p>
+	
+	<p>
+            </p><div class="informalexample"><p>For example, you can use the DUMP command to dump transaction
+logs to the dump device (preferably, a separate disk drive). You can
+set this up to occur at regular intervals, such as every 15 minutes
+or every hour. Next, you can create a backup job that backs up these
+transaction logs onto archival media every day.</p>
+	
+	</div><p>
+          </p>
+	
+	<p>In general, when you implement Data Protector Express to back up your SQL Server databases, continue to use SQL Server&#8217;s
+internal commands to duplicate and back up transaction logs. Set up
+a separate Data Protector Express backup job to
+write these duplicated transaction logs to archival media.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="ch08s02s03s01.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="notes_for_backup_jobs_with_microsoft_sql_server.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="notes_for_restore_jobs_with_microsoft_sql_server.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Microsoft SQL Server Databases and the backup mode&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Restoring Microsoft SQL Server</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

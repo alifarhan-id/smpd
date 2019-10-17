@@ -1,0 +1,261 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Configuration</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="backup_jobs.html" title="Configuring Backup Jobs"><link rel="prev" href="backup_jobs_encryption.html" title="Encryption"><link rel="next" href="advanced_options_for_backup_jobs.html" title="Advanced Settings"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="backup_jobs.html">Configuring Backup Jobs</a>&nbsp;&gt;&nbsp;Configuration</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="advanced_options_for_backup_jobs.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="backup_configuration"></a><h1 class="sectiontitle">Configuration</h1></div></div></div><p>The Configuration page contains the settings that control when
+the job will run and how media will be managed. The page is divided
+into a number of sections, some of which are only visible based on
+the scheduling choice.</p><div class="itemizedlist"><ul type="disc"><li><p>
+              <a href="backup_configuration.html#backup_schedule">Schedule Settings</a>
+            </p>
+	
+	</li><li><p>
+              <a href="backup_configuration.html#backup_modes">Mode Settings</a>
+            </p>
+	
+	</li><li><p>
+              <a href="backup_configuration.html#backup_dates">Scheduled Dates</a> (only visible when
+Schedule Type is <span><strong class="guilabel">Run on selected days</strong></span>)</p>
+	
+	</li><li><p>
+              <a href="backup_configuration.html#backup_intervals">Interval Settings</a> (only visible when
+Scheduled Type is <span><strong class="guilabel">Run repeatedly</strong></span>)</p>
+	
+	</li><li><p>
+              <a href="backup_configuration.html#backup_media_to_use">Media to be
+used</a>
+            </p>
+	
+	</li><li><p>
+              <a href="backup_configuration.html#backup_auto_format">Auto format mode</a>
+            </p>
+	
+	</li></ul></div><p>
+      </p>
+	
+	<h2><a name="backup_schedule"></a>Schedule Settings</h2><p>The <span><strong class="guilabel">Schedule Settings</strong></span> box contains several
+settings that control when jobs are run and how the jobs use media. </p>
+	
+	<h3><a name="d0e1723"></a>Schedule Type</h3><p>This setting is the first step in choosing when the job will
+run. Once scheduled, the Data Protector Express service
+will ensure the job is started. If one or more job runs are missed
+because the service is not running at the scheduled time, the service
+will determine the backup mode with the largest interval setting (Daily,
+Weekly, Monthly, Yearly) that was missed and run it.</p>
+	
+	<p><b>Not scheduled  &nbsp;</b>The job will be run manually by the user when desired.</p>
+	
+	<p><b>Run on selected days  &nbsp;</b>The job will run only on a selected day (or days) at a specified
+time. When this option is selected an additional setting, <span><strong class="guilabel">Scheduled Dates</strong></span>, will appear.</p>
+	
+	<p><b>Run repeatedly  &nbsp;</b>The job will run on a regular interval. Use this setting to
+set up a job with media rotation. When this option is selected an
+additional set of options, <span><strong class="guilabel">Interval Settings</strong></span>,
+will appear. For more information see <a href="rotations.html" title="Scheduling, Rotations, and Media Management"><i>Scheduling, Rotations, and Media Management</i></a>.</p>
+	
+	<h3><a name="d0e1750"></a>Start Time</h3><p>This setting is only visible for jobs that will be run on a
+schedule. It specifies the time of day that the job should start.
+For jobs that are scheduled to run more than once, all runs will happen
+at the same time of day.</p>
+	
+	<h3><a name="d0e1754"></a>Rotation Type and Sets</h3><p>This setting is only available when the job is scheduled
+to run repeatedly. The <span><strong class="guilabel">Rotation type</strong></span> and <span><strong class="guilabel">Sets</strong></span> controls allow you to specify a set of preconfigured
+rotations. The Custom Rotation type is a special case. It unlocks
+the user interface to allow the user to configure his own rotation.
+For more information about setting up rotations, see <a href="rotations.html" title="Scheduling, Rotations, and Media Management"><i>Scheduling, Rotations, and Media Management</i></a>.</p>
+	
+	<h3><a name="d0e1766"></a>Type of Fixed Rotation</h3><p>This setting is only available when creating a custom rotation.
+For more information about setting up rotations, see <a href="rotations.html" title="Scheduling, Rotations, and Media Management"><i>Scheduling, Rotations, and Media Management</i></a>.</p>
+	
+	<h2><a name="backup_modes"></a>Mode Settings</h2><p>The <span><strong class="guilabel">Mode</strong></span> box contains several settings
+the control the type of backup and automatic verify that will be performed,
+how used media will be treated, and what to do when a file won't fit
+on the current media. Man of these settings are set automatically
+when a schedule rotation is in effect. When a rotation controls theses
+settings they become disabled in the Administrator.</p>
+	
+	<h3><a name="d0e1779"></a>Backup mode</h3><p>
+        <a class="indexterm" name="d0e1783"></a>   <a class="indexterm" name="d0e1789"></a>Data Protector Express supports the back modes listed below. For scheduled automatic rotation
+jobs, Data Protector Express uses the backup mode
+for each backup set as indicated on the <span><strong class="guimenu">Schedule</strong></span> page; for unscheduled or manual jobs, Data Protector Express uses the settings set by the user. </p>
+	
+	<p><b>Full  &nbsp;</b>This setting instructs Data Protector Express to back up all selected files. </p>
+	
+	<p><b>Differential  &nbsp;</b>This setting instructs Data Protector Express to back up all selected files that have changed since the <span class="italic">last full</span>
+          <span class="bold"><b> </b></span>backup. </p>
+	
+	<p><b>Incremental  &nbsp;</b>This setting instructs Data Protector Express to back up all selected files that have changed since the <span class="italic">last</span> full, differential, or incremental backup. </p>
+	
+	<p><b>Copy  &nbsp;</b>This setting instructs Data Protector Express to back up <span class="italic">all</span> selected files, but it has no
+effect on any future scheduled job. Use this option when you wish
+to make a record of files or systems at a particular time, but do
+not wish to disrupt the normal backup schedule.</p>
+	
+	<div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Caution"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Caution]" height="25" src="images/caution.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>CAUTION: </b>Incremental jobs<a class="indexterm" name="d0e1833"></a> are the shortest and smallest jobs to run, but they present
+some issues related to full data recovery. The difference between
+an incremental and a differential backup is important -- incremental
+backup jobs back up only files that have changed since the last full,
+differential or incremental backup, while differential backup jobs
+back up all files changed since the last <span class="italic">full</span> backup. If incremental backup media sets are overwritten or recycled
+before another full backup is performed, this can create a gap in
+available data if you need to recover files from the overwritten media. </p><p>Exclusive use of incremental backup jobs to ensure
+full data recovery after a disaster is not recommended, <span class="italic">unless you are using a schedule that retains one full
+backup and all subsequent incremental backups </span>before overwriting
+any media. However, to ensure successful data recovery with incremental
+jobs, follow these guidelines:</p>
+	
+	<p>Have at least as many incremental media as there
+are days between full or differential backup jobs. For example, if
+you run full backup jobs every five days, have at least four incremental
+media; if you run full backup jobs every seven days, have at least
+six incremental media.</p>
+	
+	<p>Never recycle incremental media between differential
+or full backup jobs. If you run more than one incremental job in a
+row, be certain to not recycle any of the media used during this string
+of incremental jobs.</p>
+	
+	</td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h3><a name="d0e1851"></a>Auto verify mode</h3><p>
+        <a class="indexterm" name="d0e1855"></a>After Data Protector Express backs up a set of data, it can verify that the data was backed up
+correctly. Data Protector Express reads the files
+from the media and performs the selected verification type. If any
+discrepancies between the two files are found, the file is reported
+in the job log.</p>
+	
+	<p><b>Full Verify  &nbsp;</b>This setting instructs Data Protector Express to compare every selected file stored on the media with the original
+file from the PC desktop or file or application server. If the file
+has changed since it was backed up, the full verify process will report
+that the file on the media does not match the file on disk. This does
+not mean that the backup was unsuccessful.</p>
+	
+	<p><b>Quick Verify  &nbsp;</b>This setting instructs Data Protector Express to be certain that every file backed up onto the media is in readable
+condition. It does not verify that the data matches the file, only
+that the data stored on the media can be read.</p>
+	
+	<p><b>No Verify  &nbsp;</b>This setting instructs Data Protector Express to skip the verification step. It is not recommended.</p>
+	
+	<div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>Verifying that data has been correctly written to the media
+is an essential part of a comprehensive backup program. Also, verifying
+the files ensures that the media and the media drive are working correctly.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h3><a name="d0e1879"></a>Write mode</h3><p>
+        <a class="indexterm" name="d0e1883"></a>For automatic rotation jobs, Data Protector Express overwrites all media. For other jobs, Data Protector Express uses the write mode settings set by the
+user. This mode determines whether the old data on the media is <span class="italic">overwritten</span> with new data or whether the new data is <span class="italic">appended</span> to the end of the old data. When media is overwritten,
+all of the data previously stored on it is lost. Appending data will
+preserve the old data. </p>
+	
+	<p><b>Append to all media  &nbsp;</b>This setting instructs Data Protector Express to append all data to the end of the media. No data is overwritten.
+Select this setting for permanent storage.</p>
+	
+	<p><b>Append to first media, overwrite others  &nbsp;</b>This setting instructs Data Protector Express to append data to the end of the first media, but to overwrite all
+media that follows. For example, Data Protector Express will not overwrite the first media inserted, but will overwrite
+the second, third and later media. This setting is useful if you have
+a set of media with old data you no longer need. By selecting this
+option, Data Protector Express preserves your most
+recent data on the first media, but overwrites older, unneeded media.</p>
+	
+	<p><b>Overwrite all media  &nbsp;</b>This setting instructs Data Protector Express to overwrite all media. All data on media that is overwritten is
+lost. Use this option for media that are going to be recycled.</p>
+	
+	<h3><a name="d0e1910"></a>Split File</h3><p>
+        <a class="indexterm" name="d0e1914"></a>   <a class="indexterm" name="d0e1920"></a>The Split File mode determines
+how Data Protector Express will handle a file if
+the file is too large to fit on the current media. Selecting this
+option to instruct Data Protector Express to split
+a file across two media if it will not fit on the current backup media.
+If this option is not selected then file that don't fit on the media
+will be restarted on the next media. </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Warning"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Warning]" height="25" src="images/warning.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>WARNING! </b>If you use the split file option, files that span two media
+will require both media for restore. If one is lost then the file
+cannot be recovered.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+        </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Warning"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Warning]" height="25" src="images/warning.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>WARNING! </b>Files protected with split file mode cannot be restored during
+Disaster Recovery. They must be restored after the DR process has
+completed.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+      </p>
+	
+	<h2><a name="backup_dates"></a>Scheduled Dates</h2><p>This setting is only visible when the schedule type
+is set to run on selected days. It consists of a list of selected
+days to run the job. To add days to or remove days from the schedule,
+click the <span><strong class="guibutton">Calendar...</strong></span> button to open the schedule
+calendar. To schedule the job to run on a day, right-click on the
+day in the calendar and select <span><strong class="guilabel">Daily</strong></span>. To unschedule
+a day, right-click on it and select <span><strong class="guilabel">None</strong></span>. </p>
+	
+	<h2><a name="backup_intervals"></a>Interval Settings</h2><p>This setting is only visible when the job is scheduled to be
+run repeatedly. It contains controls for specifying which types of
+jobs (full, incremental, or differential) will be run on which intervals
+and the number of media sets that will be used. You can use the <span><strong class="guibutton">Calendar...</strong></span> button to view of the schedule. The calendar
+will show when daily, weekly, monthly and yearly backups will be run.
+Clicking a day will display a message along the bottom of the dialog
+explaining the type of job that will be run, the name of the media
+that will be created, and whether the media will be appended to or
+overwritten. To override the schedule on a an individual day, right-click
+on the day and select the new backup type or deselect the day to stop
+the backup on that day. For more information see <a href="rotations.html" title="Scheduling, Rotations, and Media Management"><i>Scheduling, Rotations, and Media Management</i></a>.</p>
+	
+	<div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>It's a good idea to deselect holidays from you schedule if you
+don't have a tape library or if nobody will be available to put the
+correct media into the device.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h2><a name="backup_media_to_use"></a>Media to be
+used</h2><p>
+        <a class="indexterm" name="d0e1963"></a>Select the folder in which the job will look for existing
+media that it can reuse. Note that the default folder is the current
+Job folder. If you wish to use media from another folder, specify
+which folder by clicking the Add button to open a catalog browser
+and navigating to the desired folder.</p>
+	
+	<h2><a name="backup_auto_format"></a>Auto format mode</h2><h3><a name="d0e1971"></a>Auto format mode</h3><p>
+        <a class="indexterm" name="d0e1975"></a>Before data can be written to media, the media must be
+formatted. When media is formatted, any data on it is lost and all
+record of the media is removed from the catalog.</p>
+	
+	<p><b>No auto format  &nbsp;</b>Instructs Data Protector Express to send an
+alert to the alert window if it encounters media that needs to be
+formatted (either blank or unrecognized media). While waiting for
+a user reply, Data Protector Express scans the network
+for devices with the media it was expecting. </p>
+	
+	<p><b>Auto format blank media only  &nbsp;</b>Instructs Data Protector Express to automatically
+format all new or blank media. However, if Data Protector Express encounters unrecognized media, it sends an alert to the alert window
+and then scans the network for the media it was expecting. This setting
+can help prevent data from being accidentally destroyed by formatting,
+while not needlessly querying the user before formatting a blank media.</p>
+	
+	<p><b>Auto format all media  &nbsp;</b>Instructs Data Protector Express to automatically
+format all of the media inserted into the tape drive which require
+formatting. With this setting selected, Data Protector Express will automatically format all new or blank media and all unrecognized
+media.</p>
+	
+	<h3><a name="d0e1994"></a>New media location</h3><p>
+        <a class="indexterm" name="d0e1998"></a>Specifies the folder in which Data Protector Express will store any new media created while the job is run. By default, Data Protector Express stores media under the backup job to
+ensure the media isn't used by another backup job. To change the default,
+click the&nbsp;<span><strong class="guibutton">Browse</strong></span> button and select the
+folder from the <span><strong class="guimenu">Browse</strong></span> dialog box.</p>
+	
+	<p>When Data Protector Express runs any scheduled
+automatic rotation job, it automatically creates media folders for
+the job. The folders are organized by the name of the job and the
+various rotation sets in that job.</p>
+	
+	<h3><a name="d0e2010"></a>Move media to new media location on overwrite</h3><p>Setting this checkbox moves media from the Media to be used
+folder to the New media location folder when it is used. </p>
+	
+	<p>
+        </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Warning"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Warning]" height="25" src="images/warning.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>WARNING! </b>If this option is turned off it is possible for a job to exhaust
+its set of available media to use and stop running.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+      </p>
+	
+	<h3><a name="d0e2020"></a>Rename media to new media</h3><p>Setting this checkbox renames existing media being overwritten
+to the name which would have been used had it been freshly formatted.
+When this is off, previously formatted media used by this job will
+retain the name it was given when it was used previously.</p>
+	
+	<h3><a name="d0e2024"></a>New media name</h3><p>
+        <a class="indexterm" name="d0e2028"></a>Enter
+the name Data Protector Express gives to any new
+media it creates while running the job. For scheduled automatic rotation
+jobs, Data Protector Express automatically updates
+this setting to match the media&#8217;s place in the rotation schedule
+and this setting has no effect. </p>
+	
+	<p>For manual rotation and unscheduled jobs, Data Protector Express assigns any new media it creates the name listed
+in this field. This is also true for automatic rotation jobs that
+are &#8220;forced&#8221; to run. If the job creates more than one
+media, the job will use this setting as a template to create a unique
+media name containing this setting.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="backup_jobs_encryption.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="backup_jobs.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="advanced_options_for_backup_jobs.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Encryption&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Advanced Settings</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

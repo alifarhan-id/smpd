@@ -1,0 +1,94 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Restoring Microsoft SQL Server user databases</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="applications_microsoft_sql_server.html" title="Working with Microsoft SQL Server"><link rel="prev" href="notes_for_restore_jobs_with_microsoft_sql_server.html" title="Restoring Microsoft SQL Server"><link rel="next" href="restoring_microsoft_sql_server_2005_master_database.html" title="Restoring Microsoft SQL Server master databases"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="applications_microsoft_sql_server.html">Working with Microsoft SQL Server</a>&nbsp;&gt;&nbsp;Restoring Microsoft SQL Server user databases</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="restoring_microsoft_sql_server_2005_master_database.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="restoring_microsoft_sql_server_user_databases"></a><h1 class="sectiontitle">Restoring Microsoft SQL Server user databases</h1></div></div></div><p>
+          <a class="indexterm" name="d0e5578"></a>To restore a database,
+begin by restoring the most recent <span class="bold"><b>full</b></span> backup of the database, followed by <span class="italic">all</span> the
+database logs, that is, backups made with the <span class="bold"><b>Backup mode </b></span>set to either <span class="bold"><b>incremental </b></span>or <span class="bold"><b>differential</b></span>.</p>
+	
+	<p>When a database is restored, if the database does not yet exist, Data Protector Express will create the database where the database
+was originally located. </p>
+	
+	<div class="procedure"><a name="d0e5601"></a><p class="title"><b>To restore a lost or damaged database</b></p><ol type="1"><li><p>If the transaction log of the damaged or inaccessible
+user database is on an undamaged device, make a backup of the transactions
+before proceeding. (This lets you preserve up to the minute transactions
+that are not included on the backup tape.)</p>
+	
+	<p>You may use
+either a DUMP TRANSACTION statement on the SQL server or use a Data Protector Express <span class="bold"><b>Incremental</b></span> backup job to back up only the transactions logs.</p>
+	
+	</li><li><p>If you are restoring the database because the data in
+the database is no longer needed or is incorrect, skip to step 3.
+The following instructions are for recreating database devices and
+the database which had existed previously.</p>
+	
+	<p>During the
+restore processes, Data Protector Express will recreate
+the database and all segments exactly as they existed when the backup
+was performed.</p>
+	
+	<p>To do this, Data Protector Express first determines
+if the database exists. If the database does exist, Data Protector Express will use the database as is <span class="italic">without any further processing
+or changes</span>.</p>
+	
+	</li><li><p>If the database does not exist, Data Protector Express next identifies the database devices on which the database was originally
+located. If the appropriate database <span class="italic">device </span>already
+exists, Data Protector Express will use that device
+as is without further processing.</p>
+	
+	<p>If the database <span class="italic">device</span> does not exist, Data Protector Express <span class="italic">recreates</span> the database device at its <span class="italic">original</span> location and with its original size. After all
+the database devices are created, Data Protector Express then creates the database with all the original options at the original
+locations.</p>
+	
+	<div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>This method makes disaster recovery simple. The user simply
+create a restore job and allows Data Protector Express to recreate whatever is needed in order to successfully restore
+the database.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>If a disk drive fails and is not replaced, Data Protector Express will be unable to restore your database because it will be unable
+to recreate a database device. <div class="informalexample"><p>For example, if a segment of your database resides on a database
+named &#8216;DATA&#8217; at <code class="filename">D:\MSSQL\DATA\DATA.DAT</code>, if <code class="filename">D:</code> is lost and not replaced, when Data Protector Express attempts to recreate the database device,
+it will fail, since<code class="filename"> D: </code>no longer exists.</p>
+	
+	</div>
+              </p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>To avoid this problem, manually recreate the database device
+at some other valid location. It must be at least as large as the
+original database device since Data Protector Express will attempt to create a database segment on it the same size as
+the original database.</p>
+	
+	<p>An alternative method is to manually create the entire database
+itself. Thus, when Data Protector Express attempts
+to restore the database, since the database already exists, it will
+use that preexisting database. This allows you to restore a database
+in a new location, since Data Protector Express does
+not check to see if it is the original device before restoring the
+database, because the database already exists.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>An alternative method is to manually create the entire database
+itself. Thus, when Data Protector Express attempts
+to restore the database, since the database already exists, it will
+use that preexisting database. This allows you to restore a database
+in a new location, since Data Protector Express does
+not check to see if it is the original device before restoring the
+database, because the database already exists.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>Using Data Protector Express,
+create a restore job and run the job to restore the database. You
+must start with a full backup version of the database to restore which
+was created using a Full backup job. </p>
+	
+	</li><li><p>Create additional restore jobs to restore each transaction
+log backed up after the full database you restored. You must create
+and run a separate restore job for each transaction log.</p>
+	
+	<p>
+              </p><div class="informalexample"><p>For example, if you ran a full backup on Friday and incremental
+jobs (that is, jobs that backed up only the transaction logs) on the
+following Monday and Tuesday, you must first restore the database
+using Friday&#8217;s version of the database. Next, create a run and
+restore job that restores Monday&#8217;s version (Monday&#8217;s transaction
+log). Finally, create and run a job that restores Tuesday&#8217;s
+version (Tuesday&#8217;s transaction log).</p>
+	
+	</div><p>
+            </p>
+	
+	<p>In the <span class="italic">last</span> incremental restore job, click
+the <span><strong class="guibutton">Advanced Options</strong></span> button and select the <span><strong class="guimenuitem">Finalize recovery of MS SQL databases </strong></span> check box. If
+you do not select this check box, the database will be offline.</p>
+	
+	</li></ol></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="notes_for_restore_jobs_with_microsoft_sql_server.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="applications_microsoft_sql_server.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="restoring_microsoft_sql_server_2005_master_database.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Restoring Microsoft SQL Server&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Restoring Microsoft SQL Server master databases</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

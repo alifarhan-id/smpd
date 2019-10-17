@@ -1,0 +1,22 @@
+#backup database setiap jam 12 siang dan jam 9 malam
+#0 12 * * * /home/mpdklu/scheduler/daily_dump.sh
+0 21 * * * /home/mpdklu/scheduler/daily_dump.sh
+
+#cek payment due date tiap jam 8 pagi
+#0 8 * * * /home/mpdklu/scheduler/cek_payment_due_date.sh
+
+#update denda skpdkb jabatan
+#1 0 * * * /home/mpdklu/scheduler/query_update_denda_skpdkb_jabatan.sql
+
+#surat teguran 1 tiap jam 00:01
+#0 1 * * * /home/mpdklu/scheduler/surat_teguran_1.sh
+
+#surat teguran 2 tiap jam 03:00
+#0 3 * * * /home/mpdklu/scheduler/surat_teguran_2.sh
+
+#surat teguran 3 tiap jam 05:00
+#0 5 * * * /home/mpdklu/scheduler/surat_teguran_3.sh
+
+
+#bphtb delete expired tiap jam 7 malam
+#0 19 * * * /home/mpdklu/scheduler/delete_bphtb_belum_bayar.sh

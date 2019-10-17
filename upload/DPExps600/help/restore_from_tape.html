@@ -1,0 +1,92 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Restore to a Different Location</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="overview.html" title="Overview"><link rel="prev" href="backup_to_tape.html" title="A Simple, Immediate Backup"><link rel="next" href="administering_product.html" title="Administering Backup"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="overview.html">Overview</a>&nbsp;&gt;&nbsp;Restore to a Different Location</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="administering_product.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="restore_from_tape"></a><h1 class="sectiontitle">Restore to a Different Location</h1></div></div></div><p>We will do a simple restore of selected files from the backup
+media we created in the previous step. This will illustrate many of
+the restore features available in Data Protector Express. </p>
+	
+	<div class="procedure"><ol type="1"><li><p>Make sure the device is powered up and insert the backup
+media into it.</p>
+	
+	</li><li><p>Select <span><strong class="guilabel">Tasks</strong></span> in the <span><strong class="guilabel">Navigation bar</strong></span> and double click the <span><strong class="guibutton">Restore</strong></span> icon.</p>
+	
+	</li><li><p>Enter a name for the restore job, such as &#8220;My
+First Restore&#8221; and click <span><strong class="guibutton">OK</strong></span>.</p>
+	
+	</li><li><p>Now you are ready to select folders and files
+for restore. </p>
+	
+	<p>Navigate down the network, machine
+and file system to locate the files that you included in your first
+backup. In this view, only files and folders that have been backed
+up will appear. Check the box to select the files/folders to be restored.
+By checking the box next to a folder, we are selecting all its subfolders
+and the files in them.</p>
+	
+	</li><li><p>For this first restore job, we want to restore
+the files to a different location. This will allow you to compare
+the original files with the restored files. </p>
+	
+	<p>To
+do this task, we need the move functionality. Click on the <span><strong class="guiicon">Move</strong></span> icon in the <span><strong class="guimenu">Tool bar</strong></span>.</p>
+	
+	<p>We recommend that you create a new folder to hold
+the restored files. In the Select destination for move operation dialog,
+select the  <code class="filename">C:</code> drive, click on the <span><strong class="guimenuitem">New</strong></span> command, enter a name for your newly
+restored folder and click <span><strong class="guibutton">OK</strong></span>.</p>
+	
+	<p>Select the new folder as the destination for the
+move operation and click <span><strong class="guibutton">OK</strong></span>. </p>
+	
+	<p>Your new folder is now visible under the <code class="filename">C:</code> drive. Expand the folder to see how the
+files will be visible after the restore job is finished. You can refine
+the restore selection by clicking in the boxes to select or deselect
+the required folders and files.  Only the selected folders and files
+will be restored. </p>
+	
+	<p>As you navigate the restore view you will see a list
+of file and folder versions at the bottom of the view. That list represents
+each backup that the selected object was backed up in. When multiple
+versions of a file have been backed up, they will appear in this list
+and can be selected. If you don't select an item in the version list,
+the most recently backed up version will be restored.</p>
+	
+	</li><li><p>Select the device containing your
+backup. Click on the <span><strong class="guimenu">Devices</strong></span> link in
+the <span><strong class="guilabel">Task bar</strong></span> as in the configuration
+of the backup job. </p>
+	
+	</li><li><p>You may ignore the <span><strong class="guilabel">Configuration</strong></span> and <span><strong class="guilabel">Advanced</strong></span> links for this example.</p>
+	
+	</li><li><p>Click <span><strong class="guibutton">OK</strong></span> to complete the job configuration. Click <span><strong class="guimenuitem">Yes</strong></span> at the prompt to see the new job (command) in your <code class="filename">Home</code> folder.</p>
+	
+	</li><li><p>Select the new job object and click the <span><strong class="guibutton">Run</strong></span> button on the Command bar to start the job. If you have installed
+the Quick Access Control, hold the cursor over the Data Protector Express icon in the Windows System tray, normally in
+the bottom right corner of your screen. You can see that the job is
+running.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>During execution of the job you may notice a flashing
+red button in the lower right portion of the screen. This indicates
+an <span class="italic"></span> that requires your intervention. Click the button to
+open the alert details and resolve the issue.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+          </p>
+	
+	</li><li><p>The status of the job is visible in the lower left hand
+pane, the <span><strong class="guilabel">Info bar</strong></span>, of the Administrator. Alternately,
+click on the <span><strong class="guilabel">Status and Logs </strong></span>link in the top
+left hand area &#8212; the <span><strong class="guilabel">Navigation bar</strong></span>. For
+more detailed information click on <span><strong class="guimenuitem">Status</strong></span> in the <span><strong class="guilabel">Command bar</strong></span>. The job's property page
+will open and show the status of the running job.</p>
+	
+	</li><li><p>It is a good practice to check the logs after a job runs
+to ensure that there were no problems. Click <span><strong class="guimenuitem">Status and
+Logs</strong></span> in the Navigation bar. Locate your job in the list,
+click on the <span><strong class="guibutton">+</strong></span> sign to expand the job and select
+the most recent run. The property pane will show the first page of
+the job log. To see the entire log, click the <span><strong class="guibutton">View Log</strong></span> button in the Command bar.</p>
+	
+	</li><li><p>Select the log entry for the restore job and double-click
+to open it. Scroll through the log to check that everything is OK.
+If the <span><strong class="guibutton">Next</strong></span> button is bold, there
+are additional pages to check. Click <span><strong class="guibutton">Close</strong></span> when you have finished reading the log.</p>
+	
+	</li><li><p>You have now created and run your first restore job.</p>
+	
+	</li></ol></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="backup_to_tape.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="overview.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="administering_product.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">A Simple, Immediate Backup&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Administering Backup</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

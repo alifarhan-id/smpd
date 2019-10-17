@@ -1,0 +1,121 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Scheduling Concepts</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="rotations.html" title="Scheduling, Rotations, and Media Management"><link rel="prev" href="schedule_considerations.html" title="Backup Schedule Considerations"><link rel="next" href="media_rotations.html" title="Media Rotation Types"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="rotations.html">Scheduling, Rotations, and Media Management</a>&nbsp;&gt;&nbsp;Scheduling Concepts</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="media_rotations.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="scheduling_concepts"></a><h1 class="sectiontitle">Scheduling Concepts</h1></div></div></div><p>One of the greatest values of a data protection solution like Data Protector Express is the ability to define data retention
+policies. Retention policies allow you to balance your data protection
+and historical retention needs with the economic realities of media
+material and management costs.</p>
+	
+	<h2><a name="media_set"></a>Media Sets</h2><p>Data Protector Express organizes media into
+sets based on the rotation type and schedule interval. Whether the
+job requires several or only one physical media to complete, they
+are identified in the Data Protector Express catalog
+as a set. When more than one physical media is required for a job, Data Protector Express will create a unique name for each media
+in the set.</p>
+	
+	<p>When planning scheduled backup jobs, it is important to know
+whether one or several physical media will be required to complete
+a backup job. This can usually be estimated by comparing the size
+of the backup selection to the capacity of the selected media. If
+you do not want Data Protector Express to use more
+than one media for a backup job, then you must select fewer files
+to back up.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>The terms media can be used to refer to both physical media,
+like an LTO tape, or to the catalog object Data Protector Express uses to keep track of file versions that have been backed up.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+      </p>
+	
+	<h2><a name="rotation_intervals"></a>Intervals</h2><p>Job schedules are defined using the Intervals <span><strong class="guilabel">Daily</strong></span>, <span><strong class="guilabel">Weekly</strong></span>, <span><strong class="guilabel">Monthly</strong></span>, and <span><strong class="guilabel">Yearly</strong></span>. Intervals are used to defined which days a job
+will run, what type of backup (full, incremental, differential, or
+copy) will be done, and how many sets of media are dedicated to the
+interval. The size of an interval refers to the amount of time between
+runs of that interval. </p>
+	
+	<p>When the <span><strong class="guilabel">Run repeatedly</strong></span> schedule type is
+chosen the job <span><strong class="guilabel">Configuration</strong></span> page will show an
+additional section, <span><strong class="guilabel">Interval settings</strong></span>, that control
+the schedule parameters. Each interval type is listed along with a
+textual description of its current setting. To customize the settings
+for an interval , click on one of the interval buttons. Most schedules
+are defined in terms of the following intervals:</p>
+	
+	<p><b>Daily  &nbsp;</b>&#8212; run on sequential weekdays. </p>
+	
+	<p><b>Weekly  &nbsp;</b>&#8212; run once per week on the day specified by the user,
+for example, Friday.</p>
+	
+	<p><b>Monthly  &nbsp;</b>&#8212; run once per month on a day specified by the user such
+as the first day, the last day, the first Monday, and others. You
+can also specify how many months should elapse between monthlies.
+Setting the monthly interval to every 3 months will create a backup
+every quarter.</p>
+	
+	<p><b>Yearly  &nbsp;</b>&#8212; run once per year on a specified day of the year. By
+increasing the interval you can also schedule a job to run once every
+so many years.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>There are also <span><strong class="guilabel">Hourly</strong></span> and Minutely intervals
+that are less commonly used. The concepts behind using them are similar
+to those of the intervals discussed above.</p><p>For all intervals there is a setting that controls the number
+of sets. This settings determines how many sets of that backup interval
+will be created before Data Protector Express goes
+back and overwrites the first. For example, if your schedule starts
+in January and calls for three monthly sets, you will have a set for
+January, a set for February, and a set for March. In April, the job
+will overwrite the set from January.</p>
+	
+	<p>When configuring a rotation the Calendar view displays the schedule
+graphically. The interval type for each day is displayed in the calendar.
+Clicking on a day in the calendar will display the type of backup,
+the write mode, and the name of the media that will be used on that
+day. </p><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>You can change the interval for a given day of a schedule by
+right-clicking on the day in the calendar and selecting the desired
+type. </p><p>You can prevent the job from running on a given day. This is
+helpful for times when you know the job won't complete because you
+won't be able to supply the right media for the job &#8212; as in
+the case of holidays.</p>
+	
+	<p>You can enable or disable jobs from running on specified days
+of the week by clicking the name of the day in the heading of the
+calendar view. For example, if you want daily backups on Saturdays.</p>
+	
+	</td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+        </p>
+	
+	</td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h2><a name="interval_restore_implications"></a>Implications
+for Restoring Data</h2><p>Intervals also define the granularity of the data you can restore.
+Rotations are set up to capture more granularity in the recent past
+and less granularity as data gets older. Larger intervals, like Yearly
+and Monthly, produce lower granularity data history. Smaller intervals,
+like Daily, produce higher granularity history. Take, for example,
+a rotation with three full monthly backup sets on the last day of
+each month, four full weekly backup sets created on each Friday, and
+four incremental daily backup sets created Monday through Thursday.
+Now suppose you have a critical file that changes daily. On Wednesday,
+you are asked to retrieve the file as of a specific date. With this
+rotation you can roll back to the Monday and Tuesday versions of the
+file in the current week and the Wednesday, Thursday, and Friday versions
+of the file in the previous week. Beyond that, you will only have
+the versions of the file as they existed on Friday for the previous
+four weeks previous to the current week. And beyond that you will
+only have the versions of the file that existed on the last day of
+the month for the previous three months.</p>
+	
+	<p>The catalog keeps track of the files and versions that have
+been backed up so you don't have to remember what media they are on.
+This knowledge makes the restoration process very simple. You only
+need to specify the files you want restored and Data Protector Express will prompt you for the media it needs restore the files. Full reconstruction
+of data may require multiple media sets. For example, to reconstruct
+the data for a Wednesday from a GFS 20 set rotation type, you will
+require the full backup media set from the previous end of week and
+all of the incremental media sets from that week (that is, Mondays,
+Tuesdays and Wednesdays). In some circumstances, the preceding full
+backup media set will be a monthly or yearly job and not a weekly
+job. As long as none of these media sets has been overwritten, full
+data recovery is possible.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>When a full backup media set is reused, any incremental or differential
+backups relative to that full backup will no longer be usable for
+full system restores. However, files on those media are still recoverable.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>Yearly backups only provide you with access to files present
+on your computer or network on that one day each year. No copy exists
+for files that were created after the oldest yearly backup and then
+deleted before the most recent yearly backup.  It is the responsibility
+of the user to manage the retention of media containing critical business
+data.  </p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="schedule_considerations.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="rotations.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="media_rotations.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Backup Schedule Considerations&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Media Rotation Types</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

@@ -1,0 +1,39 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Running Jobs with Rotations</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="rotations.html" title="Scheduling, Rotations, and Media Management"><link rel="prev" href="media_rotations.html" title="Media Rotation Types"><link rel="next" href="encryption_and_compression.html" title="Encryption and Compression"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="rotations.html">Scheduling, Rotations, and Media Management</a>&nbsp;&gt;&nbsp;Running Jobs with Rotations</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="encryption_and_compression.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="media_rotation_and_scheduled_backup_jobs"></a><h1 class="sectiontitle">Running Jobs with Rotations</h1></div></div></div><p>The info bar displays the <span><strong class="guilabel">Current rotation set</strong></span> and the <span><strong class="guilabel">Next rotation set</strong></span> in the <span><strong class="guilabel">Rotation Details</strong></span> section of the info bar. Before the job
+is run the first time, both fields have the same value. Once the job
+runs successfully, the current rotation set field will display the
+media that has just been used and the next rotation set field displays
+the media that will be used next.</p>
+	
+	<p><b>Initial run  &nbsp;</b>The initial run of a rotation job is uses the largest schedule
+interval in the rotation. For example, suppose a job is configured
+to use a GFS 20 rotation starting on a Thursday, October 28th, 2010.
+Even though a Thursday in the middle of a month would normally be
+classified as a Daily backup, the first time the job is run, a Yearly
+backup will be performed.</p>
+	
+	<p><b>Missed jobs   &nbsp;</b>If, for some reason, a run of the job was missed &#8212; for
+example, because the Backup Server was turned off at the scheduled run time
+&#8212; the scheduler will determine the largest interval missed and
+run it automatically a few minutes after Data Protector Express starts again.</p>
+	
+	<p><b>Failed jobs  &nbsp;</b>If a job fails, it will not automatically be run again. However,
+you can manually rerun by clicking the <span><strong class="guibutton">Run</strong></span> command
+in the command bar.</p>
+	
+	<p><b>Pausing and continuing a schedule  &nbsp;</b>You can stop a scheduled job from running for a period of time
+by clicking the <span><strong class="guibutton">Pause Schedule</strong></span> command in the
+command bar. To turn the scheduled job back on, click the <span><strong class="guibutton">Continue Schedule</strong></span> command in the command bar. As with
+the initial and skipped jobs, the scheduler will start again with
+the largest schedule interval that was skipped.</p>
+	
+	<p><b>Forcing a run  &nbsp;</b>At times it may be desirable to start a job before it's scheduled
+time. Clicking the <span><strong class="guibutton">Run next schedule</strong></span> command
+in the command bar will cause the next scheduled interval to be run
+immediately. The job will not be run again when it's originally scheduled
+time arrives. And forcing a run to start ahead of schedule will not
+affect the scheduling of subsequent runs. They will run at their normally
+scheduled time.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="media_rotations.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="rotations.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="encryption_and_compression.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Media Rotation Types&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Encryption and Compression</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

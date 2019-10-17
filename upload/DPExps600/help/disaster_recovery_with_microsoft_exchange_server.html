@@ -1,0 +1,148 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Disaster Recovery with Microsoft Exchange Server</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="applications_microsoft_exchange.html" title="Microsoft Exchange Server"><link rel="prev" href="restoring_microsoft_exchange_databases.html" title="Restoring Microsoft Exchange Databases"><link rel="next" href="exc_mailbox.html" title="Mailbox Backup and Recovery"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="applications_microsoft_exchange.html">Microsoft Exchange Server</a>&nbsp;&gt;&nbsp;Disaster Recovery with Microsoft Exchange Server</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="exc_mailbox.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="disaster_recovery_with_microsoft_exchange_server"></a><h1 class="sectiontitle">Disaster Recovery with Microsoft Exchange Server</h1></div></div></div><p>
+          <a class="indexterm" name="d0e4654"></a>   <a class="indexterm" name="d0e4660"></a>The Data Protector Express Agent for
+Microsoft Exchange lets you work with databases instead of individual
+information stores. Each storage group is identified as a single object,
+which you can back up and restore.</p>
+	
+	<p>To recover from a disaster, first perform a general system-level
+disaster recovery to restore the basic system. See <a href="disaster_recovery.html">Disaster Recovery</a>. Then perform the following steps.</p>
+	
+	<div class="procedure"><a name="exchange_system_level_disaster_recovery"></a><p class="title"><b>System-level Disaster Recovery</b></p><p>A Microsoft Exchange Server requires the Windows Active Directory
+to be restored. Microsoft recommends restoring the entire Windows
+Active Directory system state. Follow the steps below to restore the
+Windows Active Directory.</p>
+	
+	<ol type="1"><li><p>When Windows restarts the first time after the recovery,
+the Starting Windows screen appears during startup. Press <span><strong class="guibutton">F8</strong></span>.</p>
+	
+	</li><li><p>Select <span><strong class="guimenuitem">Directory Services Restore Mode</strong></span> and press <span><strong class="guibutton">Enter</strong></span>.</p>
+	
+	</li><li><p>Log in to the system.</p>
+	
+	</li><li><p>Start Data Protector Express.</p>
+	
+	</li><li><p>Create a restore job.</p>
+	
+	</li><li><p>Select Active Directory Database for the restore job from
+the list on the <span><strong class="guibutton">Selection</strong></span> page.</p>
+	
+	</li><li><p>Run the restore job.</p>
+	
+	</li><li><p>Exit Data Protector Express.</p>
+	
+	</li></ol></div><div class="procedure"><a name="preparing_to_restore_the_microsoft_exchange_server"></a><p class="title"><b>Preparing to Restore the Microsoft Exchange Server</b></p><ol type="1"><li><p>Restart the computer, letting Windows load normally.</p>
+	
+	</li><li><p>Verify that the various Microsoft Exchange services are
+loaded and running. </p>
+	
+	</li><li><p>From the <span><strong class="guimenu">Windows Start</strong></span> menu, select <span><strong class="guimenuitem">Microsoft Exchange, System Manager</strong></span>. </p>
+	
+	</li><li><p>For each storage group to be restored, dismount and change
+the properties for each store with a storage group: </p>
+	
+	<ol type="a"><li><p>Right-click the store within the storage group. A pop-up
+menu appears.</p>
+	
+	</li><li><p>Select <span><strong class="guimenuitem">Properties</strong></span>. The <span><strong class="guimenu">Properties</strong></span> screen appears.</p>
+	
+	</li><li><p>Select the<span><strong class="guisubmenu"> Database</strong></span> tab.</p>
+	
+	</li><li><p>Select <span><strong class="guimenuitem">This database can be overwritten by
+a restore</strong></span>.</p>
+	
+	</li><li><p>Click <span><strong class="guibutton">OK</strong></span>.</p>
+	
+	</li><li><p>Right-click the store again. A pop-up menu appears.</p>
+	
+	</li><li><p>Select<span><strong class="guimenuitem"> Dismount Store</strong></span>, if the
+option is available.</p>
+	
+	</li><li><p>Click <span><strong class="guibutton">Yes</strong></span> to confirm. The store
+is dismounted, which means it can be restored.</p>
+	
+	</li><li><p>Exit the System Manager.</p>
+	
+	</li></ol></li><li><p>Access the Exchange Server subdirectory on the computer,
+for example, <code class="filename">c:\Program Files\Exchsrvr\mdbdata</code>.</p>
+	
+	</li><li><p>Delete all storage group and log files associated with
+each storage group to be restored.</p>
+	
+	<div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Caution"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Caution]" height="25" src="images/caution.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>CAUTION: </b>Do NOT delete the actual subdirectories.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></li><li><p>If you do not have a default installation, use the Exchange
+system manager to locate the following files and then delete them:</p>
+	
+	<ol type="a"><li><p>Log file (<code class="filename">.LOG</code>) for each storage
+group.</p>
+	
+	</li><li><p>Exchange database (<code class="filename">.EDB</code>) for each
+store in the storage group.</p>
+	
+	</li><li><p>Exchange streaming database (<code class="filename">.STM</code>) for each store in the storage group.</p>
+	
+	</li></ol></li></ol></div><div class="procedure"><a name="restoring_the_microsoft_exchange_MTA_database"></a><p class="title"><b>Restoring the Microsoft Exchange MTA Database</b></p><ol type="1"><li><p>Restore the Microsoft Exchange MTA (Message Transfer Agent)
+database.</p>
+	
+	<ol type="a"><li><p>Access Data Protector Express.</p>
+	
+	</li><li><p>Create a restore job.</p>
+	
+	</li><li><p>Click the Microsoft Exchange Server in the <span><strong class="guimenu">Folders</strong></span> panel to display the MTA database, <span><strong class="guimenuitem">Queued Messages
+(MTA)</strong></span>, in the list in the <span><strong class="guimenuitem">Name</strong></span> column to the right of the <span><strong class="guimenu">Folders</strong></span> panel.</p>
+	
+	</li><li><p>Select <span><strong class="guimenuitem">Queued Messages (MTA)</strong></span> from the list in the <span><strong class="guisubmenu">Name</strong></span> column to the
+right of the <span><strong class="guimenu">Folders</strong></span> panel.</p>
+	
+	</li><li><p>Run the restore job.</p>
+	
+	</li><li><p>Exit Data Protector Express.</p>
+	
+	</li></ol></li><li><p>Start the MTA service:</p>
+	
+	<ol type="a"><li><p>Right-click <span><strong class="guimenuitem">My Computer</strong></span> on
+the desktop. A pop-up menu appears.</p>
+	
+	</li><li><p>Select <span><strong class="guimenuitem">Manage</strong></span>. The <span><strong class="guimenu">Computer Management </strong></span>screen appears.</p>
+	
+	</li><li><p>Expand the <code class="filename">Services and Applications</code> folder.</p>
+	
+	</li><li><p>Scroll down and right-click on Microsoft Exchange MTA
+Stacks. A pop-up menu appears.</p>
+	
+	</li><li><p>Select <span><strong class="guibutton">Start</strong></span>.</p>
+	
+	</li><li><p>Close the Computer Management screen.</p>
+	
+	</li></ol></li></ol></div><div class="procedure"><a name="proc_restoring_microsoft_exchange_databases"></a><p class="title"><b>Restoring Microsoft Exchange Databases</b></p><ol type="1"><li><p>Restore the appropriate Exchange databases:</p>
+	
+	<ol type="a"><li><p>Access Data Protector Express.</p>
+	
+	</li><li><p>Create a restore job.</p>
+	
+	</li><li><p>Click the Microsoft Exchange Server in the <span><strong class="guimenu">Folders</strong></span> panel to display the storage groups in the list in the <span><strong class="guisubmenu">Name </strong></span>column to the right of the <span><strong class="guimenu">Folders</strong></span> panel.</p>
+	
+	</li><li><p>Select the storage groups you want to include in the restore
+job from the list in the <span><strong class="guisubmenu">Name</strong></span> column to the
+right of the <span><strong class="guimenu">Folders</strong></span> panel.</p>
+	
+	</li><li><p>Run the restore job.</p>
+	
+	</li><li><p>Exit Data Protector Express.</p>
+	
+	</li></ol></li><li><p>Mount the Exchange databases for each storage group that
+you restored:</p>
+	
+	<ol type="a"><li><p>From the <span><strong class="guimenu">Start</strong></span> menu, select <span><strong class="guimenuitem">Microsoft Exchange, System Manager</strong></span>.</p>
+	
+	</li><li><p>Right-click the database within the storage group. A pop-up
+menu appears.</p>
+	
+	</li><li><p>Select <span><strong class="guimenuitem">Mount</strong></span>. The system mounts
+the database.</p>
+	
+	</li><li><p>Click <span><strong class="guibutton">OK</strong></span>.</p>
+	
+	</li><li><p>Exit the System Manager.</p>
+	
+	</li></ol></li></ol></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="restoring_microsoft_exchange_databases.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="applications_microsoft_exchange.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="exc_mailbox.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Restoring Microsoft Exchange Databases&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Mailbox Backup and Recovery</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

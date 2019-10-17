@@ -1,0 +1,39 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Limitations</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="disaster_recovery.html" title="Disaster Recovery"><link rel="prev" href="recovering_from_a_disaster.html" title="Recovering From a Disaster"><link rel="next" href="managing_domain.html" title="Backup Domain Configuration "><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="disaster_recovery.html">Disaster Recovery</a>&nbsp;&gt;&nbsp;Limitations</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="managing_domain.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="disaster_recovery_limitations"></a><h1 class="sectiontitle">Limitations</h1></div></div></div><p>Some editions of Data Protector Express do
+not support the Disaster Recovery feature. If your edition does not
+support Disaster Recovery, any job that attempts to use the feature
+will report that the feature is not licensed. If you need this feature,
+contact your reseller to purchase an edition of Data Protector Express that supports Disaster Recovery.</p>
+	
+	<p>Local Disaster Recovery (DR) operates without the benefit of
+the Data Protector Express catalog. When it restores
+data it restores the entire contents of each media provided. The media
+can be supplied in any order but if there are incremental or differential
+backups on the media set along with the full backup, objects will
+be restored in the order they are found on media and the results may
+not contain the most current versions of the backed-up data.</p>
+	
+	<p>Local DR does not currently support split spanning of objects.
+Any objects that are split spanned on the backup media will not be
+restorable during the DR process but must be restored after the DR
+process has completed. If the split objects are critical to the functioning
+of the system, your system may not function after the recovery process.
+Since there is no easy way to know which objects are split across
+media, it is best to unselect Split File in your backup properties
+configuration, when creating a DR backup.</p>
+	
+	<h3><a name="d0e7444"></a>Completing the Data Restore</h3><p>At this point, your machine is backed up to the state of the
+backup media you restored. If you have incremental or differential
+backups since that backup, you will want to restore those as well. </p>
+	
+	<p>In addition, some data requires that a system service be running
+to successfully recover it, including SQL databases and Exchange.
+These objects are skipped during the DR restore process and must be
+restored in a separate restore job once disaster recovery is complete.
+This applies if you are running an older Windows environment with
+SQL or Exchange. For a newer Windows environment with Exchange 2010,
+the recovery is done automatically through the disaster recovery procedures
+outlined in this section. </p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="recovering_from_a_disaster.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="disaster_recovery.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="managing_domain.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Recovering From a Disaster&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Backup	 Domain Configuration </p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

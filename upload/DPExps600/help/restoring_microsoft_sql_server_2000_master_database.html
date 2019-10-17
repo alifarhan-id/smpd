@@ -1,0 +1,302 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Restoring Microsoft SQL Server 2000 master databases</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="applications_microsoft_sql_server.html" title="Working with Microsoft SQL Server"><link rel="prev" href="restoring_microsoft_sql_server_2005_master_database.html" title="Restoring Microsoft SQL Server master databases"><link rel="next" href="restoring_microsoft_sql_server_7_master_databases.html" title="Restoring Microsoft SQL Server 7 master databases"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="applications_microsoft_sql_server.html">Working with Microsoft SQL Server</a>&nbsp;&gt;&nbsp;Restoring Microsoft SQL Server 2000 master databases</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="restoring_microsoft_sql_server_7_master_databases.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="restoring_microsoft_sql_server_2000_master_database"></a><h1 class="sectiontitle">Restoring Microsoft SQL Server 2000 master databases</h1></div></div></div><p>
+          <a class="indexterm" name="d0e5709"></a>A damaged master
+database is evident by the failure of the SQL Server to start, by
+segmentation faults or input/output errors or by a report from DBCC.
+An example of an error might be damage caused by media failure in
+the area in which master database is stored.</p>
+	
+	<p>The procedure used to recover a damaged master database is different
+from the procedure used to recover user databases. If the master database
+becomes unusable, it must be restored from a previous dump. All changes
+made to the master database after the last dump are lost when the
+dump is reloaded and therefore must be reapplied.</p>
+	
+	<p>It is strongly recommended that the master database be backed
+up each time it is changed. This is best accomplished by prohibiting
+the creation of user-defined objects in the master database and by
+being aware of the statements and system procedures, and the equivalent
+actions in SQL Enterprise Manager, that modify it.</p>
+	
+	<p>The most common statements and system procedures that modify
+master are:</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+              <span><strong class="command">CREATE DATABASE</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">ALTER DATABASE</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_dropremotelogin</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_addumpdevice</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_dropdevice</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_addlogin</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_droplogin</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_addserver</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_dropserver</strong></span>
+            </p>
+	
+	</li><li><p>
+              <span><strong class="command">sp_addremotelogin</strong></span>
+            </p>
+	
+	</li></ul></div><p>If a user database is created, expanded or shrunk after the
+most recent dump (backup) of the master database and if it becomes
+necessary to reload the master database, then that user database and
+all data in will be lost and must be restored from backup.</p><div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Caution"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Caution]" height="25" src="images/caution.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>CAUTION: </b>Because of this, always dump (back up) the master database after
+creating, expanding or shrinking user databases.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+        </p>
+	
+	<h4><a name="d0e5788"></a>To recover a damaged master database</h4><div class="orderedlist"><ol type="1"><li><p>
+              <a href="restoring_microsoft_sql_server_2000_master_database.html#stop_the_product_and_SQL_server" title="Stop the Data Protector Express and SQL Server&#xA;services">Stop the Data Protector Express and SQL Server
+services</a>
+            </p>
+	
+	</li><li><p>
+              <a href="restoring_microsoft_sql_server_2000_master_database.html#rebuild_the_master_database" title="Rebuild the master database">Rebuild the master database</a>
+            </p>
+	
+	</li><li><p>
+              <a href="restoring_microsoft_sql_server_2000_master_database.html#restart_SQL_server_in_single_user_mode" title="Restart SQL Server in single-user mode">Restart SQL Server in single-user mode</a>
+            </p>
+	
+	</li><li><p>
+              <a href="restoring_microsoft_sql_server_2000_master_database.html#restore_the_master_database_from_the_most_recent_backup" title="Restore the master database from the most recent backup">Restore the master database from the most recent backup</a>
+            </p>
+	
+	</li><li><p>
+              <a href="restoring_microsoft_sql_server_2000_master_database.html#apply_changes_to_the_master_database" title="Apply changes to the master database">Apply changes to the master database</a> any changes that were not included in the most recent backup.</p>
+	
+	</li><li><p>
+              <a href="restoring_microsoft_sql_server_2000_master_database.html#drop_invalid_databases" title="Drop invalid databases">Drop invalid databases</a> from the
+newly restored master database.</p>
+	
+	</li><li><p>
+              <a href="restoring_microsoft_sql_server_2000_master_database.html#start_the_product_and_SQL_services" title="Start the Data Protector Express and SQL Server services">Start the Data Protector Express and SQL Server services</a>
+            </p>
+	
+	</li><li><p>
+              <a href="restoring_microsoft_sql_server_2000_master_database.html#restore_the_msdb_database" title="Restore the msdb database">Restore the msdb database</a>
+            </p>
+	
+	</li></ol></div><p>Each of these steps is described below in more detail.</p>
+	
+	<div class="procedure"><a name="stop_the_product_and_SQL_server"></a><p class="title"><b>Stop the Data Protector Express and SQL Server
+services</b></p><ol type="1"><li><p>Exit Data Protector Express.</p>
+	
+	</li><li><p>Stop the Data Protector Express service by using one of the following methods:</p>
+	
+	<ol type="a"><li><p>Using the Windows Command Line</p>
+	
+	<ol type="i"><li><p>Open a command prompt.</p>
+	
+	</li><li><p>Switch to the following directory:</p>
+	
+	<p>
+                      <code class="filename">C:\Program Files\HP\Data Protector Express</code>
+                    </p>
+	
+	</li><li><p>Type the following command at the command prompt:</p>
+	
+	<p>
+                      <span><strong class="command">dpwinsvc -x</strong></span>
+                    </p>
+	
+	<p>This command stops the Data Protector Express service on the local machine.</p>
+	
+	</li></ol></li><li><p>Using the Microsoft Management Console (MMC):</p>
+	
+	<ol type="i"><li><p>Right-click the <span><strong class="guiicon">My Computer</strong></span> icon and
+select <span><strong class="guimenuitem">Manage</strong></span>.</p>
+	
+	</li><li><p>In the left pane of the window, select <span><strong class="guimenuitem">Services
+and Applications Services</strong></span>.</p>
+	
+	</li><li><p>In the right pane of the window, locate the Data Protector Express service.</p>
+	
+	</li><li><p>Right-click the service and select <span><strong class="guibutton">Stop</strong></span>.</p>
+	
+	</li></ol></li></ol></li><li><p>Stop the SQL Server service using the SQL Server Enterprise
+Manager.</p>
+	
+	</li></ol></div><div class="procedure"><a name="rebuild_the_master_database"></a><p class="title"><b>Rebuild the master database</b></p><ol type="1"><li><p>Open a command prompt.</p>
+	
+	</li><li><p>Switch to the <code class="filename">Program Files\Microsoft SQL Server\80\Tools\Binn</code> directory.</p>
+	
+	</li><li><p>Run<code class="filename"> Rebuildm.exe</code>.</p>
+	
+	</li><li><p>In the <span><strong class="guisubmenu">Rebuild Master</strong></span> dialog
+box, click <span><strong class="guibutton">Browse</strong></span>.</p>
+	
+	</li><li><p>In the <span><strong class="guisubmenu">Browse for Folder </strong></span>dialog
+box, select the <code class="filename">\Data </code>folder on the SQL Server
+2000 compact disc or in the shared network directory from which SQL
+Server 2000 was installed, and then click <span><strong class="guibutton">OK</strong></span>.</p>
+	
+	</li><li><p>Click <span><strong class="guibutton">Settings</strong></span>. In the <span><strong class="guisubmenu">Collation Settings</strong></span> dialog box, verify or change settings
+used for the <span class="database">master</span> database and all other databases. </p>
+	
+	<p>Initially, the default collation settings are shown, but these
+may not match the collation selected during setup. You can select
+the same settings used during setup or select new collation settings.
+When done, click <span><strong class="guibutton">OK</strong></span>.</p>
+	
+	</li><li><p>In the <span><strong class="guisubmenu">Rebuild Master</strong></span> dialog
+box, click <span><strong class="guibutton">Rebuild</strong></span> to start the process. </p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>To continue, you may need to stop a server that is running.</p><p>The Rebuild Master utility reinstalls the master database.</p>
+	
+	</td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></li></ol></div><div class="procedure"><a name="restart_SQL_server_in_single_user_mode"></a><p class="title"><b>Restart SQL Server in single-user mode</b></p><ol type="1"><li><p>Open a command prompt.</p>
+	
+	</li><li><p>Switch to the <code class="filename">Program Files\Microsoft SQL Server\mssql\binn</code> directory.</p>
+	
+	</li><li><p>Issue the following command:</p>
+	
+	<div class="cmdsynopsis"><p><span><strong class="command">sqlservr &#8211;c &#8211;m</strong></span></p></div><p>If you are restoring the master database for a named instance,
+issue the following command instead:</p>
+	
+	<div class="cmdsynopsis"><p><span><strong class="command">sqlservr &#8211;c &#8211;m &#8211;s name</strong></span></p></div><p>where name is the name of the named instance.</p>
+	
+	</li><li><p>Leave the command prompt open.</p>
+	
+	</li></ol></div><div class="procedure"><a name="restore_the_master_database_from_the_most_recent_backup"></a><p class="title"><b>Restore the master database from the most recent backup</b></p><ol type="1"><li><p>Open Data Protector Express with the
+service stopped.</p>
+	
+	</li><li><p>Create a restore job, selecting only the master database.</p>
+	
+	</li><li><p>Run the restore job.</p>
+	
+	</li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>This may take some time, typically 10 to 15 minutes, depending
+on the size of the master database. Restore only the master database
+while in single user mode. Do not restore any other databases.</p><p>If for some reason, your restore operation doesn&#8217;t work,
+rebuild the master database and attach all of your databases that
+reside in the data directory. To attach databases: </p><div class="itemizedlist"><ul type="disc"><li><p>In Enterprise Manager, right-click Databases and select
+Attach Database.</p>
+	
+	</li><li><p>In Query Analyzer, write and run a script that is
+similar to the following sample:</p>
+	
+	<p>
+                  <span><strong class="command">EXEC sp_attach_db
+@dbname = N'test_database', @filename1 = N'c:\Program Files\Microsoft
+SQL Server\MSSQL\Data\test_database.mdf', @filename2 = N'c:\Program
+Files\Microsoft SQL Server\MSSQL\Data\test_database.ldf'</strong></span>
+                </p>
+	
+	</li></ul></div><p>
+          </p>
+	
+	</td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><div class="procedure"><a name="apply_changes_to_the_master_database"></a><p class="title"><b>Apply changes to the master database</b></p><ol type="1"><li><p>Go to the SQL Server  Manager and right-click the SQL
+server instance. Select <span><strong class="guimenuitem">Properties</strong></span> to open
+the SQL Server Properties window.</p>
+	
+	</li><li><p>Under the <span><strong class="guisubmenu">General</strong></span> tab in the
+SQL Server Properties window, open the Startup Parameters window and
+remove &#8220;&#8211;m&#8221; from the list of existing parameters.</p>
+	
+	</li><li><p>Restart the SQL server instance. (Right-click the SQL
+server instance and select <span><strong class="guibutton">Stop</strong></span>; right-click
+the SQL server instance and select <span><strong class="guibutton">Start</strong></span>.)</p>
+	
+	<p>If there have been no changes to the master database since the
+last dump, then proceed to <a href="restoring_microsoft_sql_server_2000_master_database.html#drop_invalid_databases" title="Drop invalid databases">Drop invalid databases</a>
+            </p>
+	
+	</li><li><p>If login IDs or devices have been added to or dropped
+from the master database since the last backup, those changes must
+be reapplied. Restart the server and reapply the changes manually
+or from saved batch files.</p>
+	
+	</li><li><p>If databases have been created, expanded or shrunk since
+the last dump of master, those databases must be dropped and then
+restored.</p>
+	
+	</li></ol></div><div class="procedure"><a name="drop_invalid_databases"></a><p class="title"><b>Drop invalid databases</b></p><ul><li><p>Use the SQL Enterprise manager to drop any invalid database
+devices and databases from the newly restored master database.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>If you are recovering from a disaster where you have lost a
+database device file, the master database you have just restored still
+contains a reference to it. Data Protector Express will not be able to restore any databases contained on the database
+device until the file is restored or the database device is dropped.
+If the database device is dropped, Data Protector Express will automatically recreate the device when a database contained
+on the device is restored.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></li></ul></div><div class="procedure"><a name="start_the_product_and_SQL_services"></a><p class="title"><b>Start the Data Protector Express and SQL Server services</b></p><ol type="1"><li><p>Start the Data Protector Express service by using one of the following methods:</p>
+	
+	<ol type="a"><li><p>Using the Windows Command Line</p>
+	
+	<ol type="i"><li><p>Open a command prompt.</p>
+	
+	</li><li><p>Switch to the following directory:</p>
+	
+	<p>
+                      <code class="filename">C:\Program Files\HP\Data Protector Express</code>
+                    </p>
+	
+	</li><li><p>Type the following command at the command prompt:</p>
+	
+	<p>
+                      <span><strong class="command">dpwinsvc -s</strong></span>
+                    </p>
+	
+	<p>This command starts the Data Protector Express service
+on the local machine.</p>
+	
+	</li></ol></li><li><p>Using the Microsoft Management Console (MMC)</p>
+	
+	<ol type="i"><li><p>Right-click the <span><strong class="guiicon">My Computer</strong></span> icon and
+select <span><strong class="guimenuitem">Manage</strong></span>.</p>
+	
+	</li><li><p>In the left pane of the window, select<span><strong class="guimenuitem"> Services
+and Applications Services</strong></span>.</p>
+	
+	</li><li><p>In the right pane of the window, locate the Data Protector Express service.</p>
+	
+	</li><li><p>Right-click the service and select <span><strong class="guibutton">Start</strong></span>.</p>
+	
+	</li></ol></li></ol></li><li><p>Restart the SQL Server service using the SQL Server Enterprise
+Manager.</p>
+	
+	</li></ol></div><div class="procedure"><a name="restore_the_msdb_database"></a><p class="title"><b>Restore the msdb database</b></p><p>When restoring the msdb database, keep the following considerations
+in mind:</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>The msdb database supports SQL Executive and provides
+a storage area for scheduling information. The schedules that you
+implement using SQL Enterprise Manager are maintained in the msdb
+database. This includes such things as the tasks that you schedule
+from the Task Scheduling window, the automatic backups you schedule
+from the Database Backup/Restore window and all replication tasks,
+which are automatically created by the system if the server is configured
+as a replication distributor.</p>
+	
+	</li><li><p>During installation of a server, the setup program
+automatically creates two devices (of 2MB and 1MB) on the same disk
+drive as the master database and then places the msdb database on
+the 2MB device (MSDBDATA) and its transaction log on the 1MB device
+(MSDBLOG). Scheduling information is then stored in this database.</p>
+	
+	</li><li><p>During a rebuild of the master database, the setup
+program drops and re-creates the msdb database, which results in a
+loss of all scheduling information.</p>
+	
+	</li></ul></div><ol type="1"></ol></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="restoring_microsoft_sql_server_2005_master_database.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="applications_microsoft_sql_server.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="restoring_microsoft_sql_server_7_master_databases.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Restoring Microsoft SQL Server master databases&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Restoring Microsoft SQL Server 7 master databases</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

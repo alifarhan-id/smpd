@@ -1,0 +1,163 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Device Commands</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="devices.html" title="Working With Devices"><link rel="prev" href="configuring_physical_devices.html" title="Device Properties"><link rel="next" href="devices_libraries.html" title="Working with Tape Libraries"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="devices.html">Working With Devices</a>&nbsp;&gt;&nbsp;Device Commands</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="devices_libraries.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="devices_view_commands"></a><h1 class="sectiontitle">Device Commands</h1></div></div></div><p>There are several physical operations that can be performed
+on a selected device. Some of these operations affect the device itself,
+while others affect the current media in the device.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>Not all operations are available on all devices. For example,
+an optical device does not support the Rewind command. Check your
+hardware documentation to determine which of the following commands
+are supported by your device. Only supported commands will appear
+on the <span><strong class="guimenu">context</strong></span> menu and the command bar.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p><a name="device_identify"></a><b>Identify  &nbsp;</b>
+          <a class="indexterm" name="d0e2951"></a>   <a class="indexterm" name="d0e2955"></a>   <a class="indexterm" name="d0e2961"></a>   <a class="indexterm" name="d0e2967"></a>Use this command
+to get the name of the media currently loaded in the device. Data Protector Express tries to identify the tape or other media
+that is currently loaded in the device. If Data Protector Express cannot identify the media, it reads the media header, a process
+that may take up to several minutes. The name of the media appears
+on the log file for the media job and in the Media column of the device
+list.</p>
+	
+	<p><a name="device_import"></a><b>Import  &nbsp;</b>
+          <a class="indexterm" name="d0e2978"></a>   <a class="indexterm" name="d0e2982"></a>   <a class="indexterm" name="d0e2988"></a>This command allows you to use data on
+media that was created in another Data Protector Express management domain. To use media that was not created in the current
+catalog, you must import that media into the current catalog.</p>
+	
+	<p>You might import media in one the following situations:</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>To use media created by an earlier version of Data Protector Express.</p>
+	
+	</li><li><p>To use media created in a different Data Protector Express management domain.</p>
+	
+	</li><li><p>To use media accidentally deleted from the catalog.</p>
+	
+	</li></ul></div><p>When you select the Import command a property page will open
+and prompt you for the media password and the encryption passphase.
+The media password is only applicable to media created with older
+version of Data Protector Express and can usually
+be left empty. </p>
+	
+	<p>An encryption passphrase is only required for encrypted media.
+If the supplied passphrase is not correct, the job log will present
+you with the hint supplied at the time of the media's creation.</p>
+	
+	<p><a name="device_format"></a><b>Format  &nbsp;</b>
+          <a class="indexterm" name="d0e3015"></a>
+          <a class="indexterm" name="d0e3021"></a>
+          <a class="indexterm" name="d0e3025"></a>Use this command to
+format media currently loaded in the selected device.</p>
+	
+	<p>When you format new media, Data Protector Express opens the <span><strong class="guimenu">Format Media</strong></span> dialog box. Use this dialog
+box to name the media and select a media folder in which to store
+the media. Data Protector Express will format the
+media currently loaded in the device you select. If you select a library,
+select the storage slot that holds the media you want to use. When
+you format media, you can also set your choice of encryption levels.
+Any backup job that uses media pre formatted with encryption must
+specify the same encryption parameters.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>Data Protector Express is designed to manage
+your media for you. This command should only be used by knowledgeable
+users and only after determining that the built in media management
+does not provide the desired effects.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p><a name="device_erase"></a><b>Erase  &nbsp;</b>
+          <a class="indexterm" name="d0e3044"></a>   <a class="indexterm" name="d0e3048"></a>   <a class="indexterm" name="d0e3052"></a>   <a class="indexterm" name="d0e3056"></a>   <a class="indexterm" name="d0e3060"></a>This command erases the media
+currently loaded in the selected device. It has the following options:</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>The <span><strong class="guimenuitem">Quick Erase</strong></span> option
+erases the first block and then writes an end of data marker to that
+first block. The other blocks of the tape are not erased, but when
+that tape is read, Data Protector Express treats
+it as if it were blank because it encounters the end of data marker
+in the first block.</p>
+	
+	</li><li><p>The <span><strong class="guimenuitem">Secure Erase </strong></span>option
+erases every block on the tape. This operation can be very time consuming,
+lasting several hours. However, it will physically erase every block
+on the tape. If you want to destroy sensitive data, use this command.</p>
+	
+	</li></ul></div><p>Some devices support both options; some support only one of
+the two erase options. Only options supported by the selected device
+will be available.</p>
+	
+	<p><a name="device_retension"></a><b>Retension Media  &nbsp;</b>
+          <a class="indexterm" name="d0e3086"></a>   <a class="indexterm" name="d0e3090"></a>Occasionally when a tape is repeatedly fast-forwarded
+and rewound for only short distances, tension differences develop
+in the tape that cause the tape drive to falsely believe it has reached
+the end or beginning of the tape. You can use this<span class="bold"><b> </b></span>command fast-forwards the tape to the end of the tape
+and then rewinds it to the beginning. This command can be useful in
+some circumstances. By retensioning on the tape, you can sometimes
+make an otherwise unusable tape operational again.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>If you need to retension tapes regularly to use them, consider
+servicing your tape drive or replacing your tapes. </p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p><a name="device_eject"></a><b>Eject   &nbsp;</b>
+          <a class="indexterm" name="d0e3107"></a>   <a class="indexterm" name="d0e3111"></a>You can use this command to eject media from the selected
+device or eject the media magazines from the selected library. Some
+device magazines will not be ejectable.</p>
+	
+	<p><a name="device_restore_catalog"></a><b>Restore Catalog  &nbsp;</b>
+          <a class="indexterm" name="d0e3122"></a>   <a class="indexterm" name="d0e3128"></a>   <a class="indexterm" name="d0e3132"></a>The <span><strong class="guimenuitem">Restore Catalog</strong></span> command provides a quick method of restoring your current catalog,
+for example in case it has been corrupted. For example, you might
+use this command if the Data Protector Express Backup Server has
+crashed. Use this command only when your current set of media is intact.
+.</p>
+	
+	<p>The <span><strong class="guimenuitem">Restore Catalog</strong></span> command
+differs significantly from the <span><strong class="guimenuitem">Import Media</strong></span> command in that it command <span class="italic">replaces</span> the current
+catalog with the last known good catalog on that media. <span><strong class="guimenuitem">The Import Media</strong></span> command, on the other hand, <span class="italic">does not replace</span> the current catalog; it only adds additional
+data to it.</p>
+	
+	<p>The advantage of the <span><strong class="guimenuitem">Restore Catalog</strong></span> command is that it provides a quick and easy way to replace a lost
+or corrupted Data Protector Express catalog. You
+could use the <span><strong class="guimenuitem">Import Media</strong></span> command to restore
+a corrupted catalog, but this process requires importing all of your
+media rather than simply reading the media containing the catalog.</p><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>It's a good idea to make a regular backup of the Data Protector Express catalog. It will be included automatically
+in any full backup of the Backup	 Domain</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+      </p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>All information in the current Data Protector Express catalog will be lost when you use the <span><strong class="guimenuitem">Restore Catalog</strong></span> command. This command does not append data to the current catalog;
+it replaces the current catalog with the last known good catalog on
+that media.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>You will be prompted stop and restart the service. Use the Data Protector Express Service Control Manager to start and
+stop the Data Protector Express service.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p><a name="device_clean"></a><b>Clean Device  &nbsp;</b>
+          <a class="indexterm" name="d0e3184"></a>   <a class="indexterm" name="d0e3188"></a>   <a class="indexterm" name="d0e3194"></a>The <span><strong class="guimenuitem">Clean Device</strong></span> command will run the backup device through a cleaning cycle.</p>
+	
+	<p>This command is supported only by libraries. If a device in
+a library provides notification that it needs cleaning and the library
+has a cleaning cartridge available, a cleaning cycle will be performed
+automatically at the start of a backup job. If you are using a device
+that is not a library, you must manually clean the device at the manufacturer&#8217;s
+suggested intervals.</p>
+	
+	<p>To clean a device in a library, highlight the device and select <span><strong class="guimenuitem">Clean Device</strong></span> from the <span><strong class="guibutton">Command</strong></span> bar. Data Protector Express will check to see
+if one of the slots holds a cleaning cartridge. If it does, the cleaning
+cycle will be performed in the background; if not, an error message
+is shown.</p>
+	
+	<p>If the <span><strong class="guimenuitem">Clean Device</strong></span> command
+is missing, it is not available for your backup device. In this case,
+a cleaning cycle can often be performed by manually inserting a cleaning
+cartridge into the backup device.</p>
+	
+	<p><b>Start, Stop and Rescan  &nbsp;</b>
+          <a class="indexterm" name="d0e3223"></a>Sometimes you will need to restart a device that has,
+for some reason, failed to initialize properly. A device may have
+stopped for any number of reasons, such as a power failure or a connecting
+cable malfunction. Virtual devices on a network appear disabled if
+the network connection has failed.</p>
+	
+	<p>When a device is not initialized, it appears with a yellow warning
+icon. Some devices may take some time to initialize, during which
+the warning icon will continue to appear. If a device shows the warning
+icon after it is initialized, press <span><strong class="guibutton">F5</strong></span>
+        <span class="bold"><b> </b></span>to refresh the device display.</p>
+	
+	<p>If you don't see a device that you expect to see connected to
+a machine, select the <span><strong class="guilabel">Device</strong></span> folder under the
+machine and click the <span><strong class="guibutton">Rescan for New Devices</strong></span> command.</p>
+	
+	<p>If there is some other problem with the device or the controller,
+the warning icon will not disappear. You must identify and correct
+the problem yourself. Then you must restart <span class="italic">both </span>Data Protector Express and the Data Protector Express service. When Data Protector Express restarts, it will initialize the device driver again. Check the <span class="bold"><b>Devices </b></span>view to see that the devices are now
+properly working and that they no longer display the warning icon.
+Any duplicate or old devices that are offline can be deleted from
+the <span class="bold"><b>Catalog</b></span>
+        <span class="bold"><b> </b></span>view.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="configuring_physical_devices.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="devices.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="devices_libraries.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Device Properties&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Working with Tape Libraries</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

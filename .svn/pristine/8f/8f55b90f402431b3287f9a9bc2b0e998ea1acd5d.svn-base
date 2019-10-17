@@ -1,0 +1,86 @@
+.page-header.navbar.navbar-fixed-top, .page-header.navbar.navbar-static-top {
+    z-index:12;
+}
+
+.space-1 {
+    margin-top:5px;
+}
+
+.space-2 {
+    margin-top:10px;
+}
+
+.space-3 {
+    margin-top:15;
+}
+
+.space-4 {
+    margin-top:20px;
+}
+
+.space-5 {
+    margin-top:25px;
+}
+
+.form-control.required {
+    background: #fbec88 !important;
+    border: 1px solid #fad42e !important;
+    color: #363636 !important;
+    font-size: 14px !important;
+    padding: 6px 12px !important;
+}
+
+.home {
+    background:#ab002a;
+    color:#ffffff;
+}
+
+.inbox {
+    background: #F5C032 !important;
+    color:#ffffff;
+}
+
+.inbox:hover {
+    background: #EEEEEE !important;
+    color:#71BD59 !important;
+}
+
+.dropdown-user:hover {
+    color:#71BD59 !important;
+}
+
+.green {
+    color:#237119;
+}
+
+.red {
+    color:#DC1515;
+}
+
+.dark-blue {
+    color:#3A4892;
+}
+
+.cursor-pointer {
+    cursor:pointer;
+}
+
+.jqx-fill-state-normal {
+    border: 1px solid #aaa;
+}
+
+.white {
+    color:#ffffff;
+}
+
+.btn {
+    vertical-align:top !important;
+}
+
+div.portlet-body a img.img-app {
+    transform:scale(.7);
+}
+
+div.portlet-body a img.img-app:hover {
+    transform:scale(1);
+}

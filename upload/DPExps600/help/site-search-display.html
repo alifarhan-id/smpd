@@ -1,0 +1,113 @@
+<html>
+<head><SCRIPT LANGUAGE="JavaScript">
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+function initArray(){
+this.length=initArray.arguments.length;
+for (var i=0;i<this.length;i++){
+this[i]=initArray.arguments[i];
+   }
+}
+var sr=new initArray("4b","5b","8b","8b");
+function doSrch(){
+if (sr[0]=="4b"){
+parStr();
+}
+findw = parent.main.document.searcher.findword.value
+findw=findw.toLowerCase();
+disp = "";
+document.write('<HTML><BODY BGCOLOR="white">'
+ +'<FORM NAME="isn"><TABLE BORDER=0 '
+ +'WIDTH="100"><TR><TD><SE'
+ +'LECT NAME="isn1" SIZE=6>');
+flg=2; // Set flag to "no matches found"
+for (i=0;i<stp;i++){
+fold=sr[i].toLowerCase();
+if (fold.indexOf(findw)>-1){
+pos=sr[i].indexOf("~");
+pos1=sr[i].indexOf("|");
+disp="<OPTION VALUE='"+sr[i].substring(0,pos);
+if (flg!=3){
+//  disp+='<TD><SELECT NAME="isn1" SIZE=6>'+disp;
+disp+="' onClick='' SELECTED>";
+}
+else{
+disp+="' onClick=''>";
+}
+disp+=sr[i].substring(pos+1,pos1);
+document.write(disp);
+flg=3; // Set flag to "matches found"
+   }
+}
+if (flg!=2){
+document.write('</SELECT></TD></tr><tr><TD VALIGN=TOP'
+ +'><INPUT TYPE="button" NAME="button" Value'
+ +'=" Select and Go " onClick="doloc(this.fo'
+ +'rm)"><BR>');
+}
+document.write('<BR><FONT COLOR="#000000"><B>');
+if (flg!=3){
+document.write('</TD></tr><tr><TD VALIGN=CENTER><FONT '
+ +'COLOR="#000000"><B><BR>No matches found'
+ +' for "'+findw+'"<P>Please perform'
+ +' another search.</B></FONT>');
+}
+else{
+document.write('These topic(s) w'
+ +'ere<BR>found using the following keyword: "'+findw+'"');
+}
+document.write('</B></FONT></TD></TR></TABLE>'
+ +'</FORM></BODY></HTML><P>');
+}
+function parStr() {
+var srs = parent.find;
+var i=0; 
+while (srs.indexOf("*")>=0) {
+pos=srs.indexOf("*");
+sr[i]=srs.substring(0,pos);
+srs=srs.substring(pos+1,srs.length);
+i++;
+stp=i;
+   }
+}
+function doloc() {
+durl=(document.isn.isn1.options[document.isn.isn1.selectedIndex].value);
+mainframeset=parent.parent.location.href;
+
+/* This next line will target the selection
+to the main pane of your frameset. */
+/*parent.parent.window.location.href=durl; */
+/*parent.main.location.href=durl; */
+/*parent.location.href=durl; */
+/* parent.parent.window.lpmainpane.location.href=durl; */
+parent.parent.lpmainpane.location.href=durl;
+/* this opens the selection in the main pane of the help system frameset */
+
+/* window.open(durl); */ /* this opens the selection in a new browser window */
+
+
+/* But if you wish to target the selection to the top
+(just as you would use <A HREF="filenm" TARGET="_top">)
+simply uncomment this next line and use it instead: 
+parent.location.href=durl;  
+and comment out the line now being used above. */
+} 
+// End -->
+</SCRIPT></head>
+
+<body bgcolor="white">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- Begin
+if (parent.test != "a") {
+doSrch();
+}
+// End -->
+</SCRIPT>
+
+</body>
+</html>

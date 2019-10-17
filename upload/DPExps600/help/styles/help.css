@@ -1,0 +1,336 @@
+h1 {
+font-family: Arial;
+font-size: 18pt;
+font-weight: normal;
+}
+h1.firsttitle {
+font-family: Arial;
+font-size: 18pt;
+font-weight: normal;
+color: #0066ff;
+}
+h1.sectiontitle	{
+font-family: Arial;
+font-size: 18pt;
+font-weight: normal;
+color: #0066ff;
+margin-top:	0pt;
+}
+
+h2 {font-family: Arial;
+color: #0066ff;
+font-size: 14pt;
+font-weight: normal;
+}
+
+h2.subtitle	{font-family: Arial;
+font-size: 10pt;
+color: #000000;
+background-color: #FFFFFF;
+}
+h3 {font-family: Arial;
+font-size: 10pt;
+color: #0066ff;
+}
+h4 {font-family: Arial;
+font-size: 10pt;
+color: #000000;
+font-weight: bold;
+}
+h5 {font-family: Arial;
+	font-style:	italic;
+	font-size: 10pt;
+	color: #000000;
+	}
+h6 {
+font-family: Arial;
+font-style:	italic;
+font-size: 10pt;
+font-weight: normal;
+}
+
+p {font-family:	Arial;
+	font-size: 10pt;
+	margin-top:	6pt;
+	margin-bottom: 6pt;
+	}
+.small {
+font-size: 9pt;
+}
+
+th {
+font-family: Arial;
+font-size: 10pt;
+font-weight: bold;
+}
+
+div.table thead	th {
+font-family: Arial;
+font-size: 10pt;
+font-weight: bold;
+background-color: #0066FF;
+color: #FFFFFF;
+}
+
+div.table tfoot	th {
+font-family: Arial;
+font-size: 9pt;
+color: #000000;
+font-weight: normal;
+text-align:	left;
+background-color: #FFFFFF;
+}
+div.table {
+margin-bottom: 20pt;
+}
+div.table table	{
+border-color: #CCCCCC;
+}
+
+table.messageset {
+margin-bottom: 15pt;
+border-color: #0066FF;
+}
+
+td {
+font-family: Arial;
+font-size: 10pt;
+}
+	.heading2 {
+		color: #0066FF;
+		height:	4pt;
+		margin-top:	0pt;
+		font-size: 2pt;
+	}
+	.heading3 {
+	color: #0066FF;
+		height:	2pt;
+		margin-top:	0pt;
+		font-size: 2pt;
+	}
+	div.procedure {
+	margin-left: 0pt;
+	}
+	div.itemizedlist {
+	margin-left: 0pt;
+	}
+	.copyright {
+	color: #999999;
+	font-size: 8pt;
+	}
+	ol	{
+	color: #000000;
+	font-family: Arial;
+	font-size: 10pt;
+	margin-left: 20pt;
+	}
+	
+	ol ol {
+	color: #000000;
+	font-family: Arial;
+	font-size: 10pt;
+	margin-left: 25pt;
+	}
+	
+	ol li p	 {
+	color: black;
+	font-family: Arial;
+	}
+	
+	ul li p	 {
+	color: black;
+	font-family: Arial;
+	}
+	
+	ul	{
+	color: #0066FF;
+	font-family: Arial;
+	margin-left: 12pt;
+	}
+ul ul {
+	color: #000000;
+	font-family: Arial;
+	margin-left: 12pt;
+	}
+	
+dt {
+font-family: Arial;
+font-size: 10pt;
+}
+
+.masterbanner {
+color: #FFFFFF;
+background-color: #0066FF;
+font-family: Arial;
+font-size: 18pt;
+font-weight: normal;
+}
+			
+	span.italic	{font-style: italic}
+	span.strong	{font-weight: bold}
+	span.underline {text-decoration: underline}
+	span.accel {text-decoration: underline}
+	span.strikethrough {text-decoration: line-through}
+	span.blue {color: blue}
+	span.red {color: red}
+	div.mediaobject	{align:	center;}
+	div.figure {
+	width: 100%;
+	}
+	div.figure p.title {
+	font-family: Arial;
+	font-size: 10pt;
+	font-weight: normal;
+	text-align:	left;
+	}
+	div.table p.title {
+	font-family: Arial;
+	font-size: 10pt;
+	font-weight: normal;
+	text-align:	left;
+	}
+	
+	div.equation p.title {
+	font-family: Arial;
+	font-size: 10pt;
+	font-weight: bold;
+	text-align:	left;
+	}
+	
+	div.example	p.title	{
+	font-family: Arial;
+	font-size: 10pt;
+	font-weight: bold;
+	text-align:	left;
+	}
+	div.mediaobject	img{
+	float: none;
+	}
+	
+	div.titlepage {
+	margin-bottom: 0pt;
+	}
+	
+	.spacefortitle {
+	color: #0066ff;
+	}
+	.spacerforchapter {
+	color: #cccccc;
+	}
+	.navheader {
+	font-family: Arial;
+	font-size: 11pt;
+	}
+	
+	.navfooter {
+	font-family: Arial;
+	font-size: 11pt;
+	}
+	h3.title2 {
+	margin-bottom: 0pt;
+	}
+	h4.title3 {
+	margin-bottom: 0pt;
+	}
+	
+	.admonup {
+	color: #555555;
+	height:	3px;
+	}
+	
+	.admonbottom {
+	color: #555555;
+	height:	1 px;
+	}
+	.admontitle	{
+	font-weight: bold;
+	}
+	div.indexdiv h3{
+	color: #0066FF;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 12pt;
+	}
+	
+	span.glossterm {
+	font-family: Arial;
+	font-style:	italic;
+	font-weight: bold;
+	}
+	
+	pre.screen {
+	background-color: #CCCCCC;
+	 }
+	 
+	 a.tocmenulink:link	{
+	 color:	#003366;
+	 text-decoration: none;
+	font-family: Arial;
+	font-size: 10pt;
+	background-color:transparent;
+	 }	
+	 
+	 a.tocmenulink:visited {
+	 color:	#003366;
+	 text-decoration: none;
+	font-family: Arial;
+	font-size: 10pt;
+	background-color:transparent;
+	 }
+	
+	 a.tocmenulink:hover {
+	 color:	#0066ff;
+	 text-decoration: underline;
+	 font-family: Arial;
+	font-size: 10pt;
+	background-color:transparent;
+	 }
+	 
+	 a.tocmenulink:active {
+	 color:	#0066ff;
+	 text-decoration: underline;
+	 font-family: Arial;
+	font-size: 10pt;
+	background-color:transparent;
+	 }
+	 div.toc {
+	
+	 background-color: #ffffff;
+	 padding-left: 5pt;
+	 padding-right:	4pt;
+	 margin-bottom:	0pt;
+	 }
+	 
+	 table.helpnav {
+	 cell-padding: 10pt;
+	 cell-spacing: 5pt;
+	 background-color: #cccccc;
+	 width:	100%;
+	 }
+	 
+	 td.helpnav	{
+	 font-family: Arial;
+	 font-weight: bold;
+	 
+	 }
+	 
+	 div.list-of-figures {
+	
+	 background-color: #ffffff;
+	 padding-left: 5pt;
+	 padding-right:	4pt;
+	 padding-top: 10pt;
+	 }
+	
+	div.list-of-tables {
+	 background-color: #ffffff;
+	 padding-left: 5pt;
+	 padding-right:	4pt;
+	 padding-top: 10pt;
+	}
+	
+	dl.tocsubmenu {
+	position: static;
+	display: none;
+	background-color: #ffffff;
+	}

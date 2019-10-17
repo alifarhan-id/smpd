@@ -1,0 +1,159 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Disaster Recovery</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="book.html" title="User&#8217;s Guide"><link rel="prev" href="applications_certificate_services.html" title="Working with Certificate Services"><link rel="next" href="create_the_disaster_recovery_backup.html" title="Preparing For a Disaster"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="create_the_disaster_recovery_backup.html">Next</a></p></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td bgcolor="#ffffff"><h1 class="firsttitle"><a name="disaster_recovery"></a>Disaster Recovery</h1></td></tr></table></div></div></div><p>
+      <span class="bold"><b> In this chapter</b></span>
+    </p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+          <a href="disaster_recovery.html#important_guidelines">Important guidelines</a>
+        </p>
+	
+	</li><li><p>
+          <a href="create_the_disaster_recovery_backup.html" title="Preparing For a Disaster">Preparing For a Disaster</a>
+        </p>
+	
+	</li><li><p>
+          <a href="recovering_from_a_disaster.html" title="Recovering From a Disaster">Recovering From a Disaster</a>
+        </p>
+	
+	</li><li><p>
+          <a href="disaster_recovery_limitations.html" title="Limitations">Limitations</a>
+        </p>
+	
+	</li></ul></div><p>Recovering from a catastrophic disaster can be a time and labor
+intensive task. Typically new hardware must be acquired and installed.
+The environment of the machine, including the operating system and
+applications, needs to be restored to the new hardware. Only then
+can backed up data be restored. You can configure your regular backups
+so you can accomplish disaster recovery from your backup media, quickly
+and easily, using theData Protector Express Bare
+Metal Disaster Recovery (BMDR) agent. </p>
+	
+	<p>The BMDR agent recovers your machine by booting it from bootable
+media, repartitioning its disks, and then restoring the machine&#8217;s
+data. Bootable media, or boot images, which include a minimal OS,
+device drivers, and your backup software, are created by properly
+configuring your regular backup. During a backup of your system, you
+can create a boot image of any machine in the backup, save or update
+the boot image in the catalog, save the ISO to a file, or burn the
+boot image (of the media server) to the beginning of your backup media.</p>
+	
+	<p>While you need boot media of your Backup Server on hand for
+disaster recovery, for all other machines in your backup domain, an
+updated boot image which can be burned to media, along with fully
+backed up data, is sufficient preparation for disaster recovery.</p>
+	
+	<p>Once the machine boots, you can restore your backup data from
+a locally attached backup device, or for clients running supported
+Operating Systems, the restore can be run over the network. Some final
+steps to restore third party data and any incremental or differential
+backups complete the recovery of the machine. </p>
+	
+	<p>To effectively use the BMDR agent you must prepare for disaster
+and test your preparations periodically.</p>
+	
+	<h2><a name="important_guidelines"></a>Important guidelines</h2><p>Disaster Recovery of a Backup Server requires bootable media
+on hand to start the disaster recovery process. Once the Backup Server
+boots, its data can be restored from backup media loaded in an attached
+device. All data on the media will be restored. </p>
+	
+	<p>Disaster recovery of clients in the Backup Domain also requires
+bootable media. which can be created at disaster recovery time from
+up to date boot images stored in the catalog. Use Make bootable CD/DVD
+from the Task menu on the Backup Administrator, to burn the stored
+boot image of any client to CD/DVD, or to create a file of the ISO
+image which can be burned to media using third party software. </p>
+	
+	<p>Once you boot a client, you can restore data from a locally
+attached device loaded with your backup data (all data on the backup
+media will be restored), or for client machines with supported Operating
+Systems, you can choose Network Disaster Recovery. Network Disaster
+Recovery allows you to configure a restore job, selecting the data
+you wish to restore using the Backup Administrator, and restoring
+data over the network.</p>
+	
+	<h3><a name="d0e6889"></a>Boot Media</h3><p>Boot images must be written at the beginning of media, so they
+must be written to blank media, or must overwrite existing media.
+To create a bootable image for disaster recovery, you should select
+the Write Mode <span><strong class="guilabel">Overwrite all media</strong></span> on the backup
+job&#8217;s Configuration page Settings. Data Protector Express then writes system configuration information to the backup media
+in support of disaster recovery making the media bootable. </p>
+	
+	<h4><a name="d0e6896"></a>When to create new bootable media</h4><p>
+      <a class="indexterm" name="d0e6900"></a>You should keep bootable
+media on hand for every machine which may require disaster recovery. </p>
+	
+	<p>Your bootable media may become <span class="italic">obsolete</span> whenever any of the following occurs:</p>
+	
+	<div class="orderedlist"><ol type="1"><li><p>Add or remove hardware from your computer.</p>
+	
+	</li><li><p>Change firmware or update device drivers.</p>
+	
+	</li><li><p>Change your disk drive configuration (e.g., modify
+volumes or partitions).</p>
+	
+	</li></ol></div><p>You should create new bootable media in any of the above cases.</p>
+	
+	<h3><a name="d0e6923"></a>Restoring to dissimilar hardware</h3><p>When performing disaster recovery, the hardware on the target
+system must be nearly identical to the source system with the following
+exceptions:</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>You may change your video adapter as long as the new
+video adapter is VGA compatible.</p>
+	
+	</li><li><p>You may increase the size of your hard disk.</p>
+	
+	</li><li><p>Your SCSI, ATAPI, Fibre Channel or USB tape drive
+and adapter <span class="italic">must be the same or use the same driver</span> as it did when the disaster recovery media was created.</p>
+	
+	</li><li><p>Your SCSI, IDE, Fibre Channel or USB tape drive and
+adapter must be the same or use the same driver as it did when the
+disaster recovery media was created.</p>
+	
+	</li><li><p>You may change network cards, USB ports and USB peripherals, <span class="italic">except</span> tape drives, without restriction.</p>
+	
+	</li><li><p>
+          <span class="italic">You may not perform disaster recovery to
+a USB hard drive</span>
+          <span class="italic"> or to Fibre Channel devices</span>
+          <span class="italic">.</span> </p>
+	
+	</li></ul></div><p>Disaster recovery allows device drivers to be added during a
+recovery in the event that hardware changes require additional drivers.
+Changing processors, motherboards, or other hardware components, will
+not prevent disaster recovery from working. </p>
+	
+	<h3><a name="dr_advantage_of_bootable_devices"></a>The Advantage of Bootable Backup Devices</h3><p>Certain devices, bootable backup devices, allow you to create
+bootable media at backup time. The boot image is written directly
+to the beginning of the backup media, prepending the backed up data.
+Disaster Recovery with bootable media created this way is simplified
+because the backup media provides the boot image of the machine being
+recovered and the data, which is restored when the machine is booted
+with it.</p>
+	
+	<p>If you create a backup to a bootable backup device that supports
+bootable media, as long as your backup is written from the beginning
+of the media, the media will be bootable and can be used for Bare-Metal
+Disaster Recovery. </p>
+	
+	<p>Bootable backup devices that support bootable media and bare-metal
+recovery include:</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>tape drives that support HP One-Button Disaster Recovery
+technology (see description below) and</p>
+	
+	</li><li><p>removable cartridge disk drives.</p>
+	
+	</li></ul></div><p>Removable cartridge disk drives support the creation of bootable
+media with both the boot image and the backed up data, as do tape
+drives with One-Button Disaster Recovery (OBDR). OBDR is a firmware
+feature which enables a tape drive to act like a bootable CD-ROM in
+Disaster Recovery mode. When you create a backup on an OBDR tape drive
+to new media, or select the Write Mode Overwrite all media (on the
+backup job&#8217;s configuration settings page), Data Protector Express automatically makes the media bootable. When you run One-Button
+Disaster Recovery, your tape drive goes into a special Disaster Recovery
+mode that enables it to restore your operating system, reboot from
+the most recent backup cartridge, and restore the backup data from
+the media.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="applications_certificate_services.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top">&nbsp;</td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="create_the_disaster_recovery_backup.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Working with Certificate Services&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Preparing For a Disaster</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

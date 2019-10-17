@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document>
+	<cgiurl>$website$</cgiurl>
+	<edition>
+		<lt>0</lt>
+		<separator>
+		</separator>
+		<menu>
+			<name>
+				<eng>Web</eng>
+				<cht>Web</cht>
+				<chs>Web</chs>
+				<kor>웹</kor>
+				<jpn>ウェブ</jpn>
+				<ita>Web</ita>
+				<ger>Web</ger>
+				<spa>Web</spa>
+				<fre>Web</fre>
+			</name>
+	      <url>http://www.hp.com/go/dataprotectorexpress</url>
+	      <iconid>0x00ff7000</iconid>
+		</menu>
+		<menu>
+			<name>
+				<eng>Register software</eng>
+				<cht>註冊軟體</cht>
+				<chs>注册软件</chs>
+				<kor>소프트웨어 등록</kor>
+				<jpn>ソフトウェアの登録</jpn>
+				<ita>Registra software</ita>
+				<ger>Software registrieren</ger>
+				<spa>Registrar software</spa>
+				<fre>Enregistrer le logiciel</fre>
+			</name>
+			<url>http://www.hp.com/go/dataprotectorexpress/register</url>
+			<iconid>0x00ff2003</iconid>
+		</menu>
+		<menu>
+			<name>
+				<eng>Protect more servers</eng>
+        <ita>Aggiungi più server</ita>
+        <ger>Weitere Server hinzufügen</ger>
+        <spa>Agregue más servidores</spa>
+        <fre>Ajouter d’autres serveurs</fre>
+        <jpn>サーバを追加</jpn>
+        <chs>添加更多服务器</chs>
+        <cht>新增更多伺服器</cht>
+        <kor>더 많은 서버를 추가하십시오.</kor>
+			</name>
+			<url>http://www.hp.com/go/dataprotectorexpress/options</url>
+			<iconid>0x00ff8000</iconid>
+		</menu>
+		<menu>
+			<name>
+        <eng>Tape backup and media</eng>
+        <ita>Backup su nastro e supporto</ita>
+        <ger>Bandsicherung und Datenträger</ger>
+        <spa>Medios y copias de seguridad en cinta</spa>
+        <fre>Sauvegarde et support de bande</fre>
+        <jpn>テープ バックアップおよびメディア</jpn>
+        <chs>磁带备份和媒体</chs>
+        <cht>磁帶備份與媒體</cht>
+        <kor>테이프 백업 및 미디어</kor>
+			</name>
+			<url>http://www.hp.com/go/tape</url>
+			<iconid>0x00ff840e</iconid>
+		</menu>
+		<menu>
+			<name>
+				<eng>Disk backup</eng>
+				<cht>磁碟備份</cht>
+				<chs>磁盘备份</chs>
+				<kor>디스크 백업</kor>
+				<jpn>ディスク バックアップ</jpn>				
+				<ita>Backup disco</ita>
+				<ger>Disk backup</ger>
+				<spa>Copia de seguridad de disco</spa>
+				<fre>Sauvegarde sur disque</fre>
+			</name>
+			<url>http://www.hp.com/go/d2d</url>
+			<iconid>0x00ff8320</iconid>
+		</menu>
+    <menu>
+      <name>
+        <eng>Documentation</eng>
+        <cht>文件</cht>
+        <chs>文档</chs>
+        <kor>설명서</kor>
+        <jpn>ドキュメント</jpn>
+        <ita>Documentazione</ita>
+        <ger>Dokumentation</ger>
+        <spa>Documentación</spa>
+        <fre>Documentation</fre>
+      </name>
+      <url>$webDocumentation$</url>
+      <topic>documentation</topic>
+      <iconid>0xf0ff6000</iconid>
+      <accelid>0x10000</accelid>
+    </menu>
+  </edition>
+	<edition>
+		<lt>215</lt>
+		<separator>
+		</separator>
+		<menu>
+			<name>
+				<eng>Web</eng>
+				<cht>Web</cht>
+				<chs>Web</chs>
+				<kor>웹</kor>
+				<jpn>ウェブ</jpn>
+				<ita>Web</ita>
+				<ger>Web</ger>
+				<spa>Web</spa>
+				<fre>Web</fre>
+			</name>
+			<url>http://www.hp.com/go/dataprotectorexpress/basic</url>
+			<iconid>0x00ff7000</iconid>
+		</menu>
+		<menu>
+			<name>
+				<eng>Register software</eng>
+				<cht>註冊軟體</cht>
+				<chs>注册软件</chs>
+				<kor>소프트웨어 등록</kor>
+				<jpn>ソフトウェアの登録</jpn>
+				<ita>Registra software</ita>
+				<ger>Software registrieren</ger>
+				<spa>Registrar software</spa>
+				<fre>Enregistrer le logiciel</fre>
+			</name>
+			<url>http://www.hp.com/go/dataprotectorexpress/basic/register</url>
+			<iconid>0x00ff2003</iconid>
+		</menu>
+		<menu>
+			<name>
+		        <eng>Upgrade</eng>
+		        <cht>升級</cht>
+		        <chs>升级</chs>
+		        <kor>업그레이드</kor>
+		        <jpn>アップグレード></jpn>
+		        <ita>Aggiorna</ita>
+		        <fre>Mettre à niveau</fre>
+		        <spa>Actualizar</spa>
+		        <ger>Upgrade</ger>
+			</name>
+			<url>http://www.hp.com/go/dataprotectorexpress/basic/upgrade</url>
+			<iconid>0x00ff8003</iconid>
+		</menu>
+    <menu>
+      <name>
+        <eng>Tape backup and media</eng>
+        <ita>Backup su nastro e supporto</ita>
+        <ger>Bandsicherung und Datenträger</ger>
+        <spa>Medios y copias de seguridad en cinta</spa>
+        <fre>Sauvegarde et support de bande</fre>
+        <jpn>テープ バックアップおよびメディア</jpn>
+        <chs>磁带备份和媒体</chs>
+        <cht>磁帶備份與媒體</cht>
+        <kor>테이프 백업 및 미디어</kor>
+      </name>
+      <url>http://www.hp.com/go/tape</url>
+      <iconid>0x00ff840e</iconid>
+    </menu>
+    <menu>
+      <name>
+        <eng>Documentation</eng>
+        <cht>文件</cht>
+        <chs>文档</chs>
+        <kor>설명서</kor>
+        <jpn>ドキュメント</jpn>
+        <ita>Documentazione</ita>
+        <ger>Dokumentation</ger>
+        <spa>Documentación</spa>
+        <fre>Documentation</fre>
+      </name>
+      <url>$webDocumentation$</url>
+      <topic>documentation</topic>
+      <iconid>0xf0ff6000</iconid>
+      <accelid>0x10000</accelid>
+    </menu>
+  </edition>
+</document>

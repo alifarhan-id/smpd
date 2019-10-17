@@ -1,0 +1,71 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Configuring a Microsoft Exchange Server</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="applications_microsoft_exchange.html" title="Microsoft Exchange Server"><link rel="prev" href="applications_microsoft_exchange.html" title="Microsoft Exchange Server"><link rel="next" href="about_working_with_microsoft_exchange_server.html" title="Backing up Microsoft Exchange Server"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="applications_microsoft_exchange.html">Microsoft Exchange Server</a>&nbsp;&gt;&nbsp;Configuring a Microsoft Exchange Server</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="about_working_with_microsoft_exchange_server.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="configuring_a_microsoft_exchange_server"></a><h1 class="sectiontitle">Configuring a Microsoft Exchange Server</h1></div></div></div><p>
+          <a class="indexterm" name="d0e4249"></a>As with any other objects that
+are configurable in Data Protector Express, you
+can configure the Microsoft Exchange Server for backups if you have
+the correct permissions.</p>
+	
+	<div class="procedure"><ol type="1"><li><p>Open the <span><strong class="guimenu">Administration</strong></span> desk bar and
+select <span><strong class="guimenuitem">Catalog</strong></span> view. </p>
+	
+	</li><li><p>Select <span><strong class="guimenuitem">Network</strong></span>, then locate
+and select the Microsoft Exchange Server on your system.</p>
+	
+	<div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>Switch to the <span><strong class="guisubmenu">Folders</strong></span> view to display
+a hierarchical tree of the Data Protector Express management domain.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></li><li><p>Right-click the server and select the <span><strong class="guimenuitem">Configuration</strong></span> command.</p>
+	
+	</li></ol></div><p>Update the following settings that control how Data Protector Express works with Microsoft Exchange Server.</p>
+	
+	<p><b>Force Modes  &nbsp;</b>
+            <a class="indexterm" name="d0e4290"></a>As explained in the next section,
+the <span class="bold"><b>Backup mode</b></span> setting of a backup
+job affects Microsoft Exchange Server databases differently than file
+types. The <span class="bold"><b>
+              <span><strong class="guisubmenu">Force modes</strong></span>
+            </b></span> settings control how Data Protector Express backs up the databases.</p>
+	
+	<p>
+          </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>The settings here are only applicable to Microsoft Exchange
+Server databases; all other file types are backed up in the job&#8217;s
+default mode.</p><div class="informalexample"><p>For example, if the <span class="bold"><b>Backup mode</b></span> of a job is set to <span><strong class="guimenuitem">Incremental</strong></span> and the <span><strong class="guisubmenu">Force modes</strong></span> setting for incremental jobs is set to <span><strong class="guimenuitem">Full</strong></span>, Data Protector Express will
+back up the Exchange Server databases in <span><strong class="guimenuitem">Full</strong></span> mode, but all other file types in <span><strong class="guimenuitem">Incremental</strong></span> mode.</p>
+	
+	</div><p>
+            </p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+        </p>
+	
+	<div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>You can use this feature to ensure that the databases are always
+backed up in full mode, but that other objects are only backed up
+when changed. This guarantees the greatest security for the most crucial
+files (that is, the Exchange Server databases), while not making jobs
+unnecessarily large by not backing up the entire network (that is,
+by backing up only the changed files).</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+          <span><strong class="guimenuitem">Full</strong></span> When the <span class="bold"><b>Backup mode</b></span> of a job is set to <span><strong class="guimenuitem">Full</strong></span>, Data Protector Express checks this setting to
+see how the job should be run with Microsoft Exchange Server databases. <span><strong class="guimenuitem">Full</strong></span> is the only possible setting, so the databases
+will be backed up in this mode. In this case, both the database files
+and the transaction logs are backed up.</p>
+	
+	<p>
+          <span><strong class="guimenuitem">Differential</strong></span>
+          <span class="bold"><b> </b></span> When the <span class="bold"><b>Backup mode</b></span> of a job is set to <span><strong class="guimenuitem">Differential</strong></span>, Data Protector Express checks this setting to see how the job
+should be run with Exchange databases. By default, Data Protector Express runs the job as an incremental job and so only the transaction logs
+are backed up.</p>
+	
+	<p>If you want jobs with a <span><strong class="guimenuitem">Differential</strong></span> backup mode to back up both the database files <span class="italic">and</span> the transaction logs, change this setting to <span><strong class="guimenuitem">Full</strong></span>. In this case, Data Protector Express will treat
+the Exchange Server databases as if it were running a job in <span class="bold"><b>Full</b></span> backup mode.</p>
+	
+	<p>
+          <span><strong class="guimenuitem">Incremental</strong></span>
+          <span class="bold"><b> </b></span> When the <span class="bold"><b>Backup mode</b></span> of a job is set to <span><strong class="guimenuitem">Incremental</strong></span>, Data Protector Express checks this setting to see how the job
+should be run with Exchange databases. By default, Data Protector Express runs the job as an incremental job and so only the transaction logs
+are backed up.</p>
+	
+	<p>If you want jobs with an <span><strong class="guimenuitem">Incremental</strong></span> backup mode to back up both the database files <span class="italic">and</span> the transaction logs, change this setting to <span class="bold"><b>
+            <span><strong class="guimenuitem">Full</strong></span>
+          </b></span>. In this case, Data Protector Express will treat the Exchange Server databases
+as if it were running a job in <span class="bold"><b>
+            <span><strong class="guimenuitem">Full</strong></span>
+          </b></span> backup mode.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="applications_microsoft_exchange.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="applications_microsoft_exchange.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="about_working_with_microsoft_exchange_server.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Microsoft Exchange Server&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Backing up Microsoft Exchange Server</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

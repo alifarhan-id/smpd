@@ -1,0 +1,276 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Recovering From a Disaster</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="disaster_recovery.html" title="Disaster Recovery"><link rel="prev" href="create_the_disaster_recovery_backup.html" title="Preparing For a Disaster"><link rel="next" href="disaster_recovery_limitations.html" title="Limitations"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="disaster_recovery.html">Disaster Recovery</a>&nbsp;&gt;&nbsp;Recovering From a Disaster</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="disaster_recovery_limitations.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="recovering_from_a_disaster"></a><h1 class="sectiontitle">Recovering From a Disaster</h1></div></div></div><p>
+        <a class="indexterm" name="d0e7160"></a>If you are unable to boot your
+system using your normal boot procedure, follow the appropriate procedure
+below:</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+            <a href="recovering_from_a_disaster.html#disaster_recovery_with_gui">Disaster
+recovery for Windows 2008, Windows Vista, and newer</a>
+          </p>
+	
+	</li><li><p>
+            <a href="recovering_from_a_disaster.html#disaster_recovery_with_cui">Disaster
+recovery for Linux</a>
+          </p>
+	
+	</li><li><p>
+            <a href="recovering_from_a_disaster.html#disaster_recovery_with_dos">Disaster
+recovery for Windows 2003, Windows XP and earlier</a>
+          </p>
+	
+	</li></ul></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>For local disaster recovery, you should use only full backup
+media created with the Overwrite all media option. After your system
+boots, you can use the standard Data Protector Express options to restore any incremental or differential media to your
+system. Standard Data Protector Express restore
+procedures optimize restoration, restoring incremental and differential
+media faster than the disaster recovery process.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>Recovering your system requires you to make the following choices
+described here.  Do you want to recover your whole system or just
+the hard disk from which your system boots? If the volumes on your
+boot hard disk are split among multiple physical hard disks, you should
+recover the entire system and not just the boot disk. Otherwise, some
+system data may not be restored.</p>
+	
+	<p>Do you want to recover your system from media and devices anywhere
+in the backup domain (network recovery)or do you want to recover your
+system using devices attached only to this machine (local recovery)?
+You need to consider how you plan to restore your backed up data.
+Once you have successfully booted the machine you are recovering,
+you can either restore your backed up data from a locally attached
+device reading the backup media, or you can run a restore job using
+the Backup Server to set up a restore task which restores the backed
+up data from over the network.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>It is good practice to disconnect any drives you do not want
+modified during the recovery process. This protects you from inadvertently
+overwriting them.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+      </p>
+	
+	<h3><a name="disaster_recovery_with_library"></a>Disaster
+Recovery with Libraries</h3><p>When performing disaster recovery with an OBDR library, make
+sure the first bootable media from the most recent full backup is
+loaded into slot 1 of the library. Data Protector Express will only boot from the tape in slot 1.</p>
+	
+	<p>Data Protector Express will restore all media
+that are contained in the library during the final recovery process.
+Therefore, make sure that you only load media in the library that
+you will need to restore during recovery.</p>
+	
+	<p>Remove all media not associated with the recovery from the library.
+If the full backup spans more than one media, put the additional full
+backup media into additional slots.</p>
+	
+	<h2><a name="disaster_recovery_with_gui"></a>Disaster
+recovery for Windows 2008, Windows Vista, and newer</h2><p>To perform Disaster Recovery for one of the operating system
+listed above, do the following:</p>
+	
+	<div class="procedure"><ol type="1"><li><p>Insert the first bootable media into a drive or, if using
+a library, into any slot that can be booted from.</p>
+	
+	</li><li><p>Perform any special steps for booting your computer from
+the bootable device. (Refer to your device and system documentation.).</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>If you are using a device that supports One-Button Disaster
+Recovery (OBDR) it may take several minutes to boot to a screen which
+indicates progress. During this time, the screen will appear blank.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></li><li><p>When the computer boots from the recovery media, the <span class="bold"><b>Disaster Recovery Wizard </b></span>welcome screen appears.
+Click the <span><strong class="guibutton">Continue</strong></span> button.</p>
+	
+	</li><li><p>The <span class="bold"><b>Disaster Recovery Wizard </b></span>starts up the skeleton operating system and the recovery manager.</p>
+	
+	</li><li><p>If you are recovering a client machine, you need to choose
+the appropriate option indicating how you want to restore your data: </p>
+	
+	<ol type="a"><li><p>To restore your data over the network, choose Recover
+your system from media and devices anywhere in the backup domain. </p>
+	
+	</li><li><p>To restore you data using only media read locally from
+an attached or internal device, choose recover your system using devices
+attached only to this machine.</p>
+	
+	</li></ol><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>Because you cannot perform Network Recovery on a Backup Server,
+when recovering the Backup Server, local restore is assumed and you
+are not given a choice.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></li><li><p>Once the recovery manager has been started, if you selected
+Network Recovery in step 5 above, you will be instructed to use your
+Backup Administrator, running on another machine, to create and run
+a restore job to complete recovery. You can skip to step 11.</p>
+	
+	<p>If you selected Local Recovery in step 5 above, the Disaster
+Recovery Wizard displays a list of source and target devices available
+on the system. </p>
+	
+	<ol type="a"><li><p>a. In the top list, select one or more source devices
+that you want to restore data from by placing a checkmark next to
+them.</p>
+	
+	</li><li><p>b. In the bottom list, select one or more target hard
+drives to restore. You do not need to restore all of them.</p>
+	
+	</li></ol><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>You must select at least one source device and at least one
+target device. If you don&#8217;t see all of the devices in the list
+that you expect, you can load a driver or rescan for devices.</p><div class="itemizedlist"><ul type="disc"><li><p>To load a driver, click the Load a driver link and
+then browse to the driver file for the device. The driver must be
+Vista or Server 2008 compatible in order to be loaded.</p>
+	
+	</li><li><p>To rescan for devices, click the Refresh link. This
+is useful if you plug in a new SCSI device or some other device that
+is not plug and play compatible.</p>
+	
+	</li></ul></div></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></li><li><p>If you have a tape loader as a source device, you can
+select it and choose the slots from which you will restore data. By
+default, all slots are selected. </p>
+	
+	</li><li><p>After clicking <span class="bold"><b>Next</b></span>,
+you will see a list of all the volumes that were mounted when the
+backup was made. Each of these volumes is classified as critical or
+not critical, and mount points are shown as children of each volume.</p>
+	
+	<p>A volume classified as critical cannot be deselected. You can
+deselect non-critical volumes and the recovery manager will not restore
+any files from those volumes. If you are using local recovery, unrestored
+files will show up as skipped in the recovery status page.</p>
+	
+	<p>Click the <span class="bold"><b>Next</b></span> button to start
+the recovery.</p>
+	
+	</li><li><p>The status of the recovery is displayed while it is in
+progress. </p>
+	
+	</li><li><p>When the recovery finishes or is cancelled, you will see
+a summary of what happened. If not all of the important objects were
+restored, you will be warned, with each important, unrestored object
+listed.</p>
+	
+	</li><li><p>Once the recover has successfully completed, you will
+need to click the <span class="bold"><b>Reboot</b></span> button to
+restart your system. After reboot, your system should be ready to
+log in and use.</p>
+	
+	</li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>If you used Local Disaster Recovery and you had incremental
+and differential backup media since the last full backup, use Data Protector Express to restore the data from your incremental
+and differential backup media. SQL data and Exchange data from prior
+to Exchange 2010 will need to be restored in a separate step using
+a standard Restore job created through the Tasks menu on the Backup
+Server.</p><p></p>
+	
+	</td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h2><a name="disaster_recovery_with_cui"></a>Disaster
+recovery for Linux</h2><p>To perform Disaster Recovery for a Linux system, do the following:</p>
+	
+	<div class="procedure"><ol type="1"><li><p>Remove all media from all cartridge disk drives, tape
+drives and/or library magazine slots.</p>
+	
+	</li><li><p>Insert the first bootable media:</p>
+	
+	<ol type="a"><li><p>	If you are using a single tape or removable disk drive,
+insert the first bootable media into the drive.</p>
+	
+	</li><li><p>	If you are using a library, see Disaster Recovery
+with Libraries above.</p>
+	
+	</li></ol></li><li><p>Perform any special steps for booting your computer from
+the bootable device (refer to your device and system documentation).</p>
+	
+	</li><li><p>Select Network Recovery to restore data from anywhere
+in the network, or Local Recovery to restore data from locally attached
+devices only.</p>
+	
+	</li><li><p>Press <span><strong class="guibutton">Enter</strong></span>.</p>
+	
+	</li><li><p>If a warning screen appears, read it and then press <span><strong class="guibutton">F10</strong></span>.</p>
+	
+	</li><li><p>When the first confirmation message appears &#8220;<span class="bold"><b>Are you sure?&#8221;</b></span>, select the appropriate <span><strong class="guibutton">Yes</strong></span>
+            <span class="bold"><b> </b></span>option and press <span><strong class="guibutton">Enter</strong></span>.</p>
+	
+	</li><li><p>When the second confirmation message appears, select Yes,
+Perform the Recovery and press Enter. If you selected Network Recovery
+in step 4 above, you will be instructed to use your Backup Server
+to create and run a restore job to complete recovery.</p>
+	
+	<p>If you selected Local Recovery in step 4 above, the system does not
+require any input from you until it finishes restoring the first media
+to your system. Restoring the first media can take from minutes to
+hours, depending on the amount of data on the media, the speed and
+capabilities of the device, and whether you are recovering the entire
+system or just the boot disk.</p>
+	
+	<ol type="a"><li><p>For Local Recovery, after the system has restored the
+first media, it asks for the next media to restore. Press <span class="bold"><b>F10</b></span> to restore another media.</p>
+	
+	</li><li><p>	After restoring the last media, remove the disaster
+recovery CD or DVD so that you can boot from the hard disk in subsequent
+steps.</p>
+	
+	</li></ol></li><li><p>Press <span><strong class="guibutton">Esc</strong></span>. A message screen appears.</p>
+	
+	</li><li><p>Press <span><strong class="guibutton">F10</strong></span>. Data Protector Express restarts your computer. After your computer has rebooted, log in.</p>
+	
+	</li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>If you used Local Disaster Recovery and you had incremental
+and differential backup media since the last full backup, use Data Protector Express to restore the data from your incremental
+and differential backup media.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h2><a name="disaster_recovery_with_dos"></a>Disaster
+recovery for Windows 2003, Windows XP and earlier</h2><p>To perform Disaster Recovery for Windows 2003, Windows XP and
+earlier, follow these steps:</p>
+	
+	<div class="procedure"><ol type="1"><li><p>Only disaster recovery media should be loaded in cartridge
+disk drives, tape drives and/or library magazine slots.</p>
+	
+	</li><li><p>Insert the first bootable media:</p>
+	
+	<ol type="a"><li><p>If you are using a single tape or removable disk drive,
+insert the first bootable media into the drive.</p>
+	
+	</li><li><p>If you are using a library, see Disaster Recovery with
+Libraries above.</p>
+	
+	</li></ol></li><li><p>Perform any special steps for booting your computer from
+the bootable device (refer to your device and system documentation). </p>
+	
+	</li><li><p>When the Disaster Recovery screen appears, select one
+of the following options:</p>
+	
+	<ol type="a"><li><p>Recover Boot Disk. Select this option to only recover
+the boot disk. Use it if your boot disk is corrupt or if you replaced
+the boot disk.</p>
+	
+	</li><li><p>Recover Entire System. Select this option to recover data
+to multiple hard disks, including the boot disk. Use this option if
+you replaced one or more hard disks.</p>
+	
+	</li></ol></li><li><p>Press Enter.</p>
+	
+	</li><li><p>Proceed through screens, reading and then pressing F10
+to advance to the next screen.</p>
+	
+	</li><li><p>Because the re-partitioning of disks that follows this
+step is destructive, you are given two opportunities to confirm that
+you want to proceed with recovery, or you can cancel out of recovery.
+To continue with recovery, select the Yes option and press Enter each
+time. </p>
+	
+	<p>There are several phases to disaster recovery and
+your system will be rebooted at various points in the process. The
+machine may reboot several times if that is required by the operating
+system to complete certain recovery steps. Normally, you will only
+insert media when prompted to do so. </p>
+	
+	<p>The system does not require any input from you until it finishes
+restoring the first media to your system. Restoring the first media
+can take from minutes to hours, depending on the amount of data on
+the media, the speed and capabilities of the device and whether you
+are recovering the entire system or just the boot disk.</p>
+	
+	</li><li><p>After the system has restored the media, it asks for the
+next media to restore. Select Yes to restore another media.</p>
+	
+	</li><li><p>After restoring the last media, remove the disaster recovery
+media so that you can boot from the hard disk in subsequent steps.</p>
+	
+	</li><li><p>Additional Restore jobs are required to finish the recovery
+of these systems. Any databases, such as Exchange and SQL, must be
+restored.</p>
+	
+	</li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>If you used Local Disaster Recovery and you had incremental
+and differential backup media since the last full backup, use Data Protector Express to restore the data from your incremental
+and differential backup media. SQL data and Exchange data from prior
+to Exchange 2010 will need to be restored in a separate step using
+a standard Restore job created through the Tasks menu on the Backup
+Server.</p><p></p>
+	
+	</td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="create_the_disaster_recovery_backup.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="disaster_recovery.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="disaster_recovery_limitations.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Preparing For a Disaster&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Limitations</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

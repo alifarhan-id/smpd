@@ -1,0 +1,60 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>About the Data Protector Express Service</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="administering_product.html" title="Administering Backup"><link rel="prev" href="using_quick_access.html" title="Using Quick Access from Taskbar"><link rel="next" href="backup_jobs.html" title="Configuring Backup Jobs"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="administering_product.html">Administering Backup</a>&nbsp;&gt;&nbsp;About the Data Protector Express Service</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="backup_jobs.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="product_service"></a><h1 class="sectiontitle">About the Data Protector Express Service</h1></div></div></div><p>The Data Protector Express Service lets you
+run backup jobs automatically and unattended. The service makes sure
+your scheduled backup jobs run even when the machine reboots after
+a power loss.</p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+            <a href="product_service.html#windows_service">Microsoft Windows
+and the Data Protector Express Server</a>
+          </p>
+	
+	</li><li><p>
+            <a href="product_service.html#linux_daemon">Linux and the Data Protector Express Daemon</a>
+          </p>
+	
+	</li></ul></div><h2><a name="windows_service"></a>Microsoft Windows
+and the Data Protector Express Server</h2><p>
+        <a class="indexterm" name="d0e1473"></a>You can manage the Data Protector Express service from the Windows Services<span class="bold"><b> </b></span>screen. For an explanation of managing Windows
+services, please refer to the Microsoft documentation for the Service
+Control Manager</p>
+	
+	<div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Caution"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Caution]" height="25" src="images/caution.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>CAUTION: </b>Changing the Startup type for the Data Protector Express service to Manual or Disabled means that other machines will not
+have access to this machine to perform backups unless Data Protector Express is actually running. This means that
+files on this machine will not be backed up during routine backups
+for this machine. Before disabling the service, you should evaluate
+the impact that this decision will have on your company's backup and
+restore policies</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h2><a name="linux_daemon"></a>Linux and the Data Protector Express Daemon</h2><p>
+        <a class="indexterm" name="d0e1489"></a>On Linux platforms, the Data Protector Express service, or daemon, is designed to run automatically each time the
+system is restarted.</p>
+	
+	<p>The daemon program (<span><strong class="command">dplinsvc</strong></span>) is located in the Data Protector Express directory. To access the service in the default installation directory
+you would </p>
+	
+	<p>type<span><strong class="command">cd</strong></span> <code class="filename">/usr/local/hp/dpx</code>/<span><strong class="command">dplinsvc</strong></span>
+      </p>
+	
+	<p>and press <span><strong class="guibutton">Enter</strong></span>.</p>
+	
+	<p>If you have disabled this automatic startup of the service,
+you can use one of the following commands to manage the service:</p>
+	
+	<p><b>Install service  &nbsp;</b>type ./<span><strong class="command">dplinsvc</strong></span> &#8211;I</p>
+	
+	<p>and press <span><strong class="guibutton">Enter</strong></span>
+        <span class="bold"><b> </b></span>to start the Data Protector Express service automatically when your computer starts up. Your selection
+takes effect the next time your computer starts up.</p>
+	
+	<p>To start or stop the service if it is already installed, use
+one of the following commands to manage the service:</p>
+	
+	<p><b>Start service  &nbsp;</b>type ./<span><strong class="command">dplinsvc</strong></span> &#8211;s</p>
+	
+	<p>and press <span><strong class="guibutton">Enter</strong></span> to start the Data Protector Express service.</p>
+	
+	<p><b>Stop service  &nbsp;</b>type ./<span><strong class="command">dplinsvc</strong></span> &#8211;x</p>
+	
+	<p>and press <span><strong class="guibutton">Enter</strong></span> to stop the Data Protector Express service.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="using_quick_access.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="administering_product.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="backup_jobs.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Using Quick Access from Taskbar&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Configuring Backup Jobs</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

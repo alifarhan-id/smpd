@@ -1,0 +1,1 @@
+select * from f_cek_payment_due_day();

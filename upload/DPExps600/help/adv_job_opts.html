@@ -1,0 +1,260 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Advanced Job Options</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="book.html" title="User&#8217;s Guide"><link rel="prev" href="managing_domain.html" title="Backup Domain Configuration "><link rel="next" href="ix01.html" title="Index"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="ix01.html">Next</a></p></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td bgcolor="#ffffff"><h1 class="firsttitle"><a name="adv_job_opts"></a>Advanced Job Options</h1></td></tr></table></div></div></div><p>
+      <span class="bold"><b> In this chapter</b></span>
+    </p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+          <a href="adv_job_opts.html#adv_jobs_log_opts">Job Log options</a>
+        </p>
+	
+	</li><li><p>
+          <a href="adv_job_opts.html#adv_jobs_exec_opts">Job Pre-Post
+Execution Commands</a>
+        </p>
+	
+	</li><li><p>
+          <a href="adv_job_opts.html#adv_jobs_barcode_opts">Barcode
+Filters for Jobs</a>
+        </p>
+	
+	</li></ul></div><p>The options in this chapter are common to backup, restore, verify
+and copy jobs. In most cases these settings can be left at their default
+values.</p>
+	
+	<h2><a name="adv_jobs_log_opts"></a>Job Log options</h2><p>
+      <a class="indexterm" name="d0e7672"></a>Data Protector Express keeps a log of
+which files it processes while running a job. In addition to viewing
+the job log from the <span><strong class="guilabel">Status and Logs</strong></span> view, you
+can configure the job to e-mail it automatically to a designated e-mail
+address or save the log to a file for later viewing.</p>
+	
+	<h3><a name="d0e7681"></a>Log Type</h3><p>Data Protector Express has several different levels of logging control to communicate what
+was protected in a job.</p>
+	
+	<p><b>Log only failed (default)  &nbsp;</b>This setting will log only files that could not be backed up
+because of some failure.</p>
+	
+	<p><b>Log only failed and not attempted  &nbsp;</b>This setting is log files that could not be backed up because
+of a failure or because the machine hosting the file was offline or
+because the job was cancelled.</p>
+	
+	<p><b>Log only completed  &nbsp;</b>This setting logs only the files that were successfully protected.</p>
+	
+	<p><b>Log all  &nbsp;</b>This setting will log all files the job works on. Using this
+setting will generate a lot of log entries and can affect the length
+of the backup process.</p>
+	
+	<p><b>None  &nbsp;</b>This setting is not recommended. However, using it can speed
+up the backup process.</p>
+	
+	<h3><a name="d0e7710"></a>Log file formats</h3><p>Data Protector Express can generate several
+file types. Select the log format that works best for you</p>
+	
+	<div class="table"><a name="d0e7714"></a><p class="title"><b>Table: Log file formats</b></p><table summary="Log file formats" cellspacing="0" cellpadding="4pi" border="1" width="&#xA;100%&#xA;"><colgroup><col width="19%"><col width="81%"></colgroup><thead> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<th bgcolor="">Format</th>
+	
+	
+	<th bgcolor="">Description</th></tr></thead><tbody> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">HTML</td>
+	
+	
+	<td bgcolor="">Choose this file type to save log files
+as fully formatted HTML files. These files can be read by most Internet
+browsers.</td></tr><tr>
+	
+	
+	<td bgcolor="">XML</td>
+	
+	
+	<td bgcolor="">Choose this file to save the log files
+as well-formed XML documents. These files can be read by most Internet
+browsers.</td></tr> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">Excel CSV</td>
+	
+	
+	<td bgcolor="">Choose this file type to save
+the log files in a format that can be opened in Microsoft Excel. CSV
+stands for Comma Separated Value. The information saved to a file
+formatted for Excel CSV will display in columns and rows.</td></tr><tr>
+	
+	
+	<td bgcolor="">Plain Text</td>
+	
+	
+	<td bgcolor="">Choose this file type to save
+the log files in a format that can be read by any text editor.</td></tr></tbody></table></div><h3><a name="d0e7748"></a>Save log to a file</h3><p><b>Log Format  &nbsp;</b>Choose a format from the drop down list.</p>
+	
+	<p><b>Log will be saved to this file  &nbsp;</b>Data Protector Express lets you select a file
+in which to store the job logs. Click the <span><strong class="guibutton">Browse</strong></span> button to select a file. Data Protector Express always saves a copy of the log in the catalog in addition to the
+settings you choose here.</p>
+	
+	<h3><a name="d0e7763"></a>E-mail log</h3><p><b>Log Format  &nbsp;</b>Choose a format from the drop down list.</p>
+	
+	<p><b>Log will be sent to...&nbsp;</b>Data Protector Express lets you
+e-mail logs to one or more recipients. Enter a list of recipients
+separated by semicolons.</p>
+	
+	<h3><a name="d0e7775"></a>Auditing</h3><p>In some cases, you may want positive confirmation that an object
+&#8212; like a database &#8212; was backed up but you don't want to
+wade through the log file generated by selecting Log All. You can
+accomplish this by setting the <span><strong class="guilabel">Audit</strong></span> property
+on the object when you select if for backup. Simply locate the object
+in the <span><strong class="guilabel">Selection</strong></span> page of the job properties,
+right-click on the object and select <span><strong class="guilabel">Properties</strong></span>, and check the <span><strong class="guilabel">Enable Audit</strong></span> box on the property
+page. By default, all Exchange and SQL databases are audited.</p>
+	
+	<h2><a name="adv_jobs_exec_opts"></a>Job Pre-Post
+Execution Commands</h2><p>You can define commands
+to be executed before the backup job runs and after the backup job
+runs. They are often used to perform custom OS-specific or application-specific
+tasks, such as to stop/start a database. Commands are defined on the <span><strong class="guimenu">Execution</strong></span>  page of a backup job. </p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+          <a href="adv_job_opts.html#jobs_execution_pre">Pre Execution Commands</a>
+        </p>
+	
+	</li><li><p>
+          <a href="adv_job_opts.html#jobs_execution_post">Post Execution Commands</a>
+        </p>
+	
+	</li></ul></div><h3><a name="jobs_execution_pre"></a>Pre Execution Commands</h3><p>The pre execution tab on
+jobs controls the command to be executed before  the job is run, either
+on multiple hosts, or just the Backup Server. 
+In addition there are options to control whether the job should stop,
+or whether  the job should continue based on the outcome of the command.
+ </p>
+	
+	<p><b>Command path  &nbsp;</b>Specifies a full path or relative path,  to a shell command,
+including command parameters. For instance <span><strong class="command">cmd.exe /c explorer.exe</strong></span>,  or <span><strong class="command">c:\windows\explorer.exe</strong></span>. A macro syntax
+is also supported in this field, for many  different uses. See the Data Protector Express Technical Reference Guide for more information.</p>
+	
+	<p><b>Run command on all hosts selected in job, as well as the Backup Server  &nbsp;</b>When checked, processes the command on all machines selected
+in job. When unchecked, only runs the command  on the Backup Server. </p>
+	
+	<p><b>Number of minutes to wait for command completion  &nbsp;</b>This value in minutes specifies how long the application should
+wait for the command to return.  By default, it is set to Forever,
+meaning the application will wait for as long as possible  for the
+command to complete. If set to something other then Forever, the application
+will  terminate the command forcefully if it does not return in time.</p>
+	
+	<p><b>Stop job if command fails to be executed  &nbsp;</b>When checked, causes the job to be stopped if the pre command
+is fails to be executed, such as if the command  does not exist or
+the operating system cannot property determine how to execute the
+command. </p>
+	
+	<p><b>Stop job if command returns error code  &nbsp;</b>When checked, causes the job to be stopped if the pre command
+executes  but returns a non-zero code. When checked, enables the additional
+options beneath it.</p>
+	
+	<p><b>Do not stop job if the following error code range is returned  &nbsp;</b>When checked, a range of error codes must be specified which
+are treated as warnings.  If the return code is zero or is within
+the specified range, the job continues. However,  if the return code
+is non-zero and outside of the specified range, the job to be stopped.</p>
+	
+	<h3><a name="jobs_execution_post"></a>Post Execution Commands</h3><p>The post execution job
+property controls what shell commands should be executed  after the
+job completes with no error or with error. </p>
+	
+	<p><b>Command to execute if job completes with no error  &nbsp;</b>This command will execute if the job completes with no final
+error. A job can complete  with no error, even if all hosts are offline.
+This does not mean that anything was backed up,  it just means that
+the job was not cancelled, or there wasn't some other major problem
+executing the job.</p>
+	
+	<p><b>Command to execute if job completes with error  &nbsp;</b>This command will execute if the job completes with an error,
+such as no specified devices,  or operator cancelled. This does not
+mean if any of the objects selected by the job fail to be  backed
+up/restored/ or verified.</p>
+	
+	<p><b>Command path  &nbsp;</b>Specifies a full path or relative path, to a shell command,
+including command parameters.  For instance <span><strong class="command">cmd.exe /c explorer.exe</strong></span> or <span><strong class="command">c:\windows\explorer.exe</strong></span>.  A macro syntax is
+also  supported in this field, for many different uses. See the Data Protector Express Technical Reference Guide
+for more information.</p>
+	
+	<p><b>Run command on all hosts selected in job, as well as the Backup Server  &nbsp;</b>When checked, processes the command on all machines selected
+in job. When unchecked, only  runs the command on the Backup Server.</p>
+	
+	<p><b>Number of minutes to wait for command completion  &nbsp;</b> This value in minutes specifies how long the application should
+wait for the command to return.  By default, it is set to <span><strong class="guimenu">Forever</strong></span>, meaning the application will wait for as long
+as possible  for the command to complete. If set to something other
+than <span><strong class="guimenu">Forever</strong></span>,  the application will terminate the
+command forcefully if it does not return in time.</p>
+	
+	<h3><a name="jobs_execution_logs"></a>Logs</h3><p>The pre/post commands add detailed logs to
+the jobs which executed them.  A new execution section was added to
+the job log, where all commands executed by the job are logged.  </p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+          <span class="italic">Command type</span>: Indicates what
+kind of command this was,  whether a pre job/post job/fail job, or
+pre object/post object/fail object command. </p>
+	
+	</li><li><p>
+          <span class="italic">Command path</span>: The fully macro
+expanded command path sent  to the operating system for execution. </p>
+	
+	</li><li><p>
+          <span class="italic">Host attempted on</span>: The host name
+where the command was attempted on. </p>
+	
+	</li><li><p>
+          <span class="italic">Time executed</span>: The start time
+when the command was attempted. </p>
+	
+	</li><li><p>
+          <span class="italic">Time completed</span>: The end time
+when the command either timed  out and was killed, or when it completed
+on its own accord. </p>
+	
+	</li><li><p>
+          <span class="italic">Execution result</span>: The result
+of the execution,  either the execution failed, or the execution succeeded.
+If the execution succeeded,  then the return code of the command will
+be logged here. If no return code is logged,  then success is logged
+here. </p>
+	
+	</li></ul></div><h2><a name="adv_jobs_barcode_opts"></a>Barcode
+Filters for Jobs</h2><p>Many tape libraries support the
+use of barcodes to identify media. Each piece of physical media has
+a unique barcode that the tape library can read.</p>
+	
+	<p>The <span><strong class="guimenu">Barcode Filter</strong></span> page allows you to define barcode filters
+for a job. The filter rules  may be set for the whole domain and will
+be applied automatically to all jobs.  Or, they may be set and applied
+at job level, using this page. Any filter rules applied at job level
+overwrite the default domain settings. All options will be grayed
+out initially. Deselecting <span><strong class="guimenu">Inherit settings from domain</strong></span> will enable the editing buttons and allow you to create job-specific
+filters.</p>
+	
+	<p>There are three ways of assigning barcode filters.</p>
+	
+	<p><b>Add an individual barcode  &nbsp;</b>This option allows you to specify an individual barcode for
+inclusion or exclusion. Up to 8 characters may be specified in this
+filter; the first 6 relate to the volume identifier and the last 2
+relate to the media identifier. Wildcards may be used to increase
+the number of barcodes selected by the filter.</p>
+	
+	<p><b>Add a range of barcodes  &nbsp;</b>This filter allows you to specify a range of volume identifiers
+and media identifiers to include. (Any media without a barcode or
+outside of the specified range will be excluded.)  The following example
+would include LTO-3 (L3) media that fall within the volume range 791000
+to 791044. </p>
+	
+	<p><b>Add barcodes from media present in the library  &nbsp;</b>This filter displays a list of all libraries and their elements.
+Select the required barcodes from the list and click either the Exclude
+or the Include button, as appropriate.</p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="managing_domain.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top">&nbsp;</td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="ix01.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Backup	 Domain Configuration &nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Index</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

@@ -1,0 +1,127 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Advanced Settings</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="backup_jobs.html" title="Configuring Backup Jobs"><link rel="prev" href="backup_configuration.html" title="Configuration"><link rel="next" href="restore_jobs.html" title="Configuring Restore and Verify Jobs"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="backup_jobs.html">Configuring Backup Jobs</a>&nbsp;&gt;&nbsp;Advanced Settings</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="restore_jobs.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="advanced_options_for_backup_jobs"></a><h1 class="sectiontitle">Advanced Settings</h1></div></div></div><p>
+        <a class="indexterm" name="d0e2039"></a>   <a class="indexterm" name="d0e2045"></a>
+      </p>
+	
+	<p>
+        <span class="bold"><b>In this section</b></span>
+      </p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+            <a href="advanced_options_for_backup_jobs.html#backup_jobs_adv_opts">Advanced Options</a>
+          </p>
+	
+	</li><li><p>
+            <a href="adv_job_opts.html#adv_jobs_log_opts">Job Log options</a>
+          </p>
+	
+	</li><li><p>
+            <a href="adv_job_opts.html#adv_jobs_exec_opts">Job Pre-Post
+Execution Commands</a>
+          </p>
+	
+	</li><li><p>
+            <a href="adv_job_opts.html#adv_jobs_barcode_opts">Barcode
+Filters for Jobs</a>
+          </p>
+	
+	</li><li><p>
+            <a href="advanced_options_for_backup_jobs.html#backup_jobs_copy_opts">Copy Policies</a>
+          </p>
+	
+	</li></ul></div><h2><a name="backup_jobs_adv_opts"></a>Advanced Options</h2><p>In general, the default values should be used. These options
+are provided only for advanced users who need to customize their backup
+jobs for unique circumstances. </p><div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Caution"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Caution]" height="25" src="images/caution.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>CAUTION: </b>Unless you have specific needs that require changes to the advanced
+options, leave the default values unchanged.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+      </p>
+	
+	<h3><a name="settings_for_all_platforms"></a>Settings
+for all platforms</h3><p><b>Eject media after use  &nbsp;</b>
+          <a class="indexterm" name="d0e2097"></a> When this
+option is checked, Data Protector Express automatically
+ejects the media at the end of the backup job. This feature only works
+on devices that support software eject.</p>
+	
+	<p><b>Auto Retension  &nbsp;</b>
+          <a class="indexterm" name="d0e2106"></a> When
+this option is checked, Data Protector Express automatically
+re-tensions the media at the beginning of the backup job. This feature
+winds the tape cartridge end-to-end, applying equal tension to the
+entire media for maximum media life and data integrity. Your device
+must support auto re-tension to use this feature.</p>
+	
+	<p><b>Create DR bootable media  &nbsp;</b>
+          <a class="indexterm" name="d0e2115"></a>   <a class="indexterm" name="d0e2119"></a>
+          <span class="bold"><b> </b></span>Check this option to write DR system information to the backup media.
+This option is only useful when the backup media is bootable as in
+the case of OBDR tapes or optical media. However, leaving this option
+checked does not hurt the backup.</p>
+	
+	<p><b>Update DR information on selected machine  &nbsp;</b>
+          <span class="bold"><b>
+            <a class="indexterm" name="d0e2135"></a>   <a class="indexterm" name="d0e2139"></a>
+          </b></span> Check this option to generate DR system information
+for the selected machines. The generated system information will be
+saved on the Backup Server and can be used later to create DR media even after
+a failure of the original machine.</p>
+	
+	<p><b>Native data streams format  &nbsp;</b>
+          <a class="indexterm" name="d0e2151"></a>Different operating systems transmit data across the network
+to Data Protector Express in different formats.
+If you plan to restore files to a different operating system than
+they were created, the data should be stored on media in a common
+data format, not in the native data streams format.</p>
+	
+	<h3><a name="backup_job_options_settings_for_windows"></a>Settings for Windows</h3><p><b>Enable snapshots  &nbsp;</b>
+          <a class="indexterm" name="d0e2162"></a>   <a class="indexterm" name="d0e2168"></a>By default, the backup job creates
+a temporary  snapshot before backing up the selected file. Deselect
+this checkbox to disable snapshots. </p>
+	
+	<p>A snapshot freezes the volume data at a point in time. Any changes
+after that point in time will not be backed up until the next backup
+job. The temporary snapshots are deleted after the job has finished.
+If this option is off, files open during backup may not be backed
+up. Failure to back up open files will be noted in the job logs.</p>
+	
+	<p>Snapshots are currently implements only on Windows platforms.
+On Windows, the snapshots are created  using Microsoft Volume Shadow
+Copy Services (VSS) for those operating system editions that  support
+VSS.</p>
+	
+	<p><b>Reparse points  &nbsp;</b>
+          <a class="indexterm" name="d0e2183"></a> Check
+this option to back up the reparse point data. When this option is
+deselected, Data Protector Express will back up
+the object as if it were a normal file or directory.</p>
+	
+	<p><b>Mount Points  &nbsp;</b>
+          <a class="indexterm" name="d0e2192"></a> When
+checked, Data Protector Express includes the mount
+point information in the backup. If this option is not checked, Data Protector Express treats the object as a directory.</p>
+	
+	<p><b>Optimize backup order by size  &nbsp;</b>Will mix backing up large and small files in an attempt to maintain
+consistent throughput to the backup devices.</p>
+	
+	<p><b>Volume restrictions  &nbsp;</b>When enabled, volume quota information will be backed up.</p>
+	
+	<h2><a name="backup_jobs_log_opts"></a>Log Options</h2><p>These settings control how the results of the job are reported
+to the user. See <a href="adv_job_opts.html#adv_jobs_log_opts">Job Log options</a> for details.</p>
+	
+	<h2><a name="backup_jobs_exec_opts"></a>Execution</h2><p>These settings allow the user to execute external programs before
+and after backing up objects on a client. For example, this feature
+can be used to shut down a custom database before backup and restart
+it upon completion. to ensure the files are quiescent during the backup.
+See <a href="adv_job_opts.html#adv_jobs_exec_opts">Job Pre-Post
+Execution Commands</a> for details.</p>
+	
+	<h2><a name="backup_jobs_barcode_opts"></a>Barcode
+Filter</h2><p>These settings control which media can be used by the job by
+specifying the acceptable barcodes. This feature is designed for use
+with tape libraries that support barcodes. See <a href="adv_job_opts.html#adv_jobs_barcode_opts">Barcode
+Filters for Jobs</a> for details.</p>
+	
+	<h2><a name="backup_jobs_copy_opts"></a>Copy Policies</h2><p>Copy policies are used to schedule a job to make a copy of the
+media created by the current job. </p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="backup_configuration.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="backup_jobs.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="restore_jobs.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Configuration&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Configuring Restore and Verify Jobs</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>

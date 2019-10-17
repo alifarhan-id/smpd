@@ -1,0 +1,293 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Media Rotation Types</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="book.html" title="User&#8217;s Guide"><link rel="up" href="rotations.html" title="Scheduling, Rotations, and Media Management"><link rel="prev" href="scheduling_concepts.html" title="Scheduling Concepts"><link rel="next" href="media_rotation_and_scheduled_backup_jobs.html" title="Running Jobs with Rotations"><meta name="generator" content="Arbortext Editor/Styler Version 5.3 (Maple-Rev1)"><link rel="stylesheet" type="text/css" href="styles/help.css"><script type="text/javascript" src="scripts/help.js"></script></head><body bgcolor="white" text="black" link="#003366" alink="#003366"><div class="navheader"><table width="100%" summary="Navigation header" cellpadding="2pt" cellspacing="0pt" margin-top="0pt"><tr><td align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a href="rotations.html">Scheduling, Rotations, and Media Management</a>&nbsp;&gt;&nbsp;Media Rotation Types</p></td><td align="center">&nbsp;</td><td width="20%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="media_rotation_and_scheduled_backup_jobs.html">Next</a></p></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><a name="media_rotations"></a><h1 class="sectiontitle">Media Rotation Types</h1></div></div></div><p>
+        <span class="bold"><b>In this section</b></span>
+      </p>
+	
+	<div class="itemizedlist"><ul type="disc"><li><p>
+            <a href="media_rotations.html#rotation_none">No Rotation Type</a>
+          </p>
+	
+	</li><li><p>
+            <a href="media_rotations.html#rotation_fixed">Fixed Rotation Types</a>
+          </p>
+	
+	</li><li><p>
+            <a href="media_rotations.html#rotation_daily_append">Daily Append</a>
+          </p>
+	
+	</li><li><p>
+            <a href="media_rotations.html#rotation_simple_gfs">Simple and GFS
+Rotation Types</a>
+          </p>
+	
+	</li><li><p>
+            <a href="media_rotations.html#rotation_custom">Custom</a>
+          </p>
+	
+	</li><li><p>
+            <a href="media_rotations.html#rotation_comparison">Comparing rotation
+types</a>
+          </p>
+	
+	</li></ul></div><a class="indexterm" name="d0e3699"></a><p>Data Protector Express provides several default
+media rotation types. These type can be used as is or as examples
+for creating custom rotations.</p>
+	
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Note"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" height="25" src="images/note.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>NOTE: </b>Each media set may contain more than one tape or media. Several
+factors determine how much media you will need: the type of backup
+being performed (for example full, differential, incremental), the
+amount of data to be backed up during a full backup, and the media's
+storage capacity. If the total size of a full backup is larger than
+the capacity of the tape, additional tapes are required. Your historical
+usage is the best guide to determining how many tapes these jobs will
+require.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><h2><a name="rotation_none"></a>No Rotation Type</h2><p>When no rotation type is selected the user may schedule the
+days to run on but Data Protector Express will not
+manage the media. The user must supply the desire tapes each time
+the job runs and will manage the reuse of older media himself.</p>
+	
+	<h2><a name="rotation_fixed"></a>Fixed Rotation Types</h2><p>Media sets are named for the interval that has been
+run. They follow the form <span class="italic">[Interval</span>
+        <span class="italic">] Set [</span>
+        <span class="italic">number</span>
+        <span class="italic">]</span>. </p>
+	
+	<p><b>Fixed by day of week   &nbsp;</b>for example of a daily media set is &#8220;<span class="italic">1st</span> <span class="italic">Monday</span>.&#8221; </p>
+	
+	<p><b>Fixed by week of month  &nbsp;</b>for example of a weekly media set is &#8220;<span class="italic">1st Week of the Month</span>.&#8221;</p>
+	
+	<p><b>Fixed by day of month  &nbsp;</b>for example of a monthly media set is &#8220;<span class="italic">1st
+Month</span>.&#8221; An example of a yearly media set is &#8220;<span class="italic">Yearly 1</span>.&#8221;</p>
+	
+	<p><b>Fixed by day of year  &nbsp;</b>for example of a yearly media set is &#8220;First
+Day of Year 1.&#8221;</p>
+	
+	<h2><a name="rotation_daily_append"></a>Daily Append</h2><p>This is a special rotation designed for users with a single
+backup device. It is the only rotation that appends data to media.
+It will perform a full backup on the specified day followed by daily
+incrementals on the remaining weekdays. At the end of the rotation,
+the user must insert new media for the job to use. This rotation assumes
+that an entire week of backups will fit on a single media. </p>
+	
+	<h2><a name="rotation_simple_gfs"></a>Simple and GFS
+Rotation Types</h2><p>These rotation types specify combinations of full and incremental
+backups that efficiently use a specific number of media sets. The
+main difference between the Simple and the GFS rotations are that
+only the GFS rotations specify Yearly backups.</p>
+	
+	<h2><a name="rotation_custom"></a>Custom</h2><p>Select this option to create your own rotation. </p><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" cellspacing="1" cellpadding="0" summary="Tip"><tr><td> </td><td bgcolor="#555555" height="3"> </td></tr><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" height="25" src="images/tip.gif"></td><th align="left"></th></tr><tr><td align="left" valign="top"><p><b>TIP:  </b>You can select a rotation similar to the desired rotation prior
+to selecting the custom rotation type and the values from the previously
+selected rotation will remain as a starting place. The Calendar view
+is very helpful when creating custom rotations.</p></td></tr><tr><td> </td><td bgcolor="#555555" height="1"> </td></tr><tr><td colspan="2" height="10">  </td></tr></table></div><p>
+      </p>
+	
+	<h2><a name="rotation_comparison"></a>Comparing rotation
+types</h2><p>Data Protector Express provides a variety
+of media rotation types to select from. Or, you can define your own
+media rotation.</p>
+	
+	<p>
+        <a class="indexterm" name="d0e3784"></a>The
+following table compares the historical backups and full data recovery
+capabilities of each of the rotation types provided in Data Protector Express. </p><div class="informaltable"><table cellspacing="0" cellpadding="4pi" border="1" width="&#xA;100%&#xA;"><colgroup><col width="15%"><col width="11%"><col width="16%"><col width="18%"><col width="17%"><col width="20%"></colgroup><thead> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<th bgcolor="">Rotation Type</th>
+	
+	
+	<th bgcolor=""># of Sets</th>
+	
+	
+	<th bgcolor="">Yearly
+Sets</th>
+	
+	
+	<th bgcolor="">Monthly Sets</th>
+	
+	
+	<th bgcolor="">Weekly Sets</th>
+	
+	
+	<th bgcolor="">Daily Sets</th></tr></thead><tbody> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">Simple</td>
+	
+	
+	<td bgcolor="">4</td>
+	
+	
+	<td bgcolor="">&nbsp;</td>
+	
+	
+	<td bgcolor="">1
+full </td>
+	
+	
+	<td bgcolor="">1 full </td>
+	
+	
+	<td bgcolor="">2 full </td></tr><tr>
+	
+	
+	<td bgcolor="">Simple</td>
+	
+	
+	<td bgcolor="">6</td>
+	
+	
+	<td bgcolor="">&nbsp;</td>
+	
+	
+	<td bgcolor="">2
+full</td>
+	
+	
+	<td bgcolor="">1 full</td>
+	
+	
+	<td bgcolor="">3 full</td></tr> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">Simple</td>
+	
+	
+	<td bgcolor="">10</td>
+	
+	
+	<td bgcolor="">&nbsp;</td>
+	
+	
+	<td bgcolor="">3
+full</td>
+	
+	
+	<td bgcolor="">3 full</td>
+	
+	
+	<td bgcolor="">4 incremental</td></tr><tr>
+	
+	
+	<td bgcolor="">Simple</td>
+	
+	
+	<td bgcolor="">11</td>
+	
+	
+	<td bgcolor="">&nbsp;</td>
+	
+	
+	<td bgcolor="">3
+full</td>
+	
+	
+	<td bgcolor="">4 full</td>
+	
+	
+	<td bgcolor="">4 incremental</td></tr> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">Simple</td>
+	
+	
+	<td bgcolor="">12</td>
+	
+	
+	<td bgcolor="">&nbsp;</td>
+	
+	
+	<td bgcolor="">4
+full</td>
+	
+	
+	<td bgcolor="">4 full</td>
+	
+	
+	<td bgcolor="">4 incremental</td></tr><tr>
+	
+	
+	<td bgcolor="">Daily Append</td>
+	
+	
+	<td bgcolor="">N (def. 4)</td>
+	
+	
+	<td bgcolor="">&nbsp;</td>
+	
+	
+	<td bgcolor="">&nbsp;</td>
+	
+	
+	<td bgcolor="">N full</td>
+	
+	
+	<td bgcolor="">4 incremental appends</td></tr> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">GFS</td>
+	
+	
+	<td bgcolor="">20</td>
+	
+	
+	<td bgcolor="">2 full </td>
+	
+	
+	<td bgcolor="">6 full </td>
+	
+	
+	<td bgcolor="">6 full </td>
+	
+	
+	<td bgcolor="">6 incremental </td></tr><tr>
+	
+	
+	<td bgcolor="">GFS</td>
+	
+	
+	<td bgcolor="">25</td>
+	
+	
+	<td bgcolor="">2 full</td>
+	
+	
+	<td bgcolor="">7 full</td>
+	
+	
+	<td bgcolor="">8 full</td>
+	
+	
+	<td bgcolor="">8 incremental</td></tr> 
+
+<tr bgcolor="#ffffff">
+	
+	
+	<td bgcolor="">GFS</td>
+	
+	
+	<td bgcolor="">30</td>
+	
+	
+	<td bgcolor="">2 full</td>
+	
+	
+	<td bgcolor="">8 full</td>
+	
+	
+	<td bgcolor="">8 fill</td>
+	
+	
+	<td bgcolor="">12 incremental</td></tr></tbody></table></div><p>
+      </p>
+	
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer" cellpadding="0pt" cellspacing="0pt"><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="p" href="scheduling_concepts.html">Prev</a></p>&nbsp;</td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="u" href="rotations.html">Up</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;<a accesskey="n" href="media_rotation_and_scheduled_backup_jobs.html">Next</a></p></td></tr><tr><td width="40%" align="left" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">Scheduling Concepts&nbsp;</p></td><td width="20%" align="center" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;"><a accesskey="h" href="index.html" target="_top">Home</a></p></td><td width="40%" align="right" valign="top"><p style="&#xA;font-size: 8pt;&#xA;font-family: Arial;&#xA;margin-top: 0pt;&#xA;margin-bottom: 1pt;&#xA;">&nbsp;Running Jobs with Rotations</p></td></tr></table><p align="right" class="copyright">Copyright &copy; 1999, 2011 Hewlett-Packard Development Company, L.P.. </p></div></body></html>
